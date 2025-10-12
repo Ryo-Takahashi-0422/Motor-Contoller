@@ -7,7 +7,11 @@
 [GENERAL_DATA]
 [BREAKPOINTS]
 [OPEN_WORKSPACE_FILES]
+"C:\Renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\iodefine.h" 
 [WORKSPACE_FILE_STATES]
+"C:\Renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" -8 -31 1079 928 1 1 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\iodefine.h" 0 0 1911 608 0 0 
 [LOADED_PROJECTS]
 "rx62n_sci_async" 
 [END]

@@ -13,7 +13,6 @@
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\hwsetup.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_IIC.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_MTU2.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Clock.obj

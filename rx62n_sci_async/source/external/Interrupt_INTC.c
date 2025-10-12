@@ -499,6 +499,32 @@ void Interrupt_NMI(void)
 	}
 }
 
+// RIIC0_EEI0
+#pragma interrupt (Excep_RIIC0_EEI0(vect=246))
+void Excep_RIIC0_EEI0(void)
+{ 
+	IIC_EEI_Int();
+}
+
+// RIIC0_RXI0
+#pragma interrupt (Excep_RIIC0_RXI0(vect=247))
+void Excep_RIIC0_RXI0(void)
+{ 
+	IIC_RXI_Int(); 
+}
+
+// RIIC0_TXI0
+#pragma interrupt (Excep_RIIC0_TXI0(vect=248))
+void Excep_RIIC0_TXI0(void){ 
+	IIC_TXI_Int();
+}
+
+// RIIC0_TEI0
+#pragma interrupt (Excep_RIIC0_TEI0(vect=249))
+void Excep_RIIC0_TEI0(void){ 
+	IIC_TEI_Int(); 
+}
+
 /* Padding function for the fixed-vector table */
 void Dummy(void){}
 
@@ -530,4 +556,7 @@ void (* const Fixed_Vectors[12])(void) = {
 /* 0xFFFFFFFC	RESET */
 	PowerON_Reset_PC
 };
+
+
+
 /* End of file */

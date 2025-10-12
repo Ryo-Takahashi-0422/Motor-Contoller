@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (W3.07.00 )             12-Oct-2025 10:35:55
+Renesas Optimizing Linker (W3.07.00 )             12-Oct-2025 15:28:23
 
 *** Options ***
 
@@ -19,7 +19,6 @@ Renesas Optimizing Linker (W3.07.00 )             12-Oct-2025 10:35:55
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\hwsetup.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_IIC.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_MTU2.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Clock.obj
@@ -45,27 +44,27 @@ W0561100:Cannot find "L" specified in option "start"
 
 SECTION                            START      END         SIZE   ALIGN
 B_1
-                                  00001000  00001044        45   1
+                                  00001000  0000104c        4d   1
 R_1
-                                  00001045  0000104d         9   1
+                                  0000104d  00001055         9   1
 B_2
-                                  0000104e  00001061        14   2
+                                  00001056  00001069        14   2
 R_2
-                                  00001062  00001062         0   1
+                                  0000106a  0000106a         0   1
 B
-                                  00001064  0000167b       618   4
+                                  0000106c  00001683       618   4
 R
-                                  0000167c  000016e7        6c   4
+                                  00001684  000016ef        6c   4
 SU
-                                  000016e8  000017e7       100   4
+                                  000016f0  000017ef       100   4
 SI
-                                  000017e8  00001ae7       300   4
+                                  000017f0  00001aef       300   4
 W
-                                  00001ae8  00001ae8         0   4
+                                  00001af0  00001af0         0   4
 W_1
-                                  00001ae8  00001b57        70   1
+                                  00001af0  00001b5f        70   1
 W_2
-                                  00001b58  00001cc5       16e   2
+                                  00001b60  00001ccd       16e   2
 PResetPRG
                                   ffff8000  ffff8034        35   1
 C_1
@@ -87,15 +86,15 @@ D_2
 D
                                   ffff8678  ffff86e3        6c   4
 P
-                                  ffff86e4  fffffef8      7815   1
+                                  ffff86e4  fffff9d8      72f5   1
 FIXEDVECT
                                   ffffffd0  ffffffff        30   4
 
 *** Total Section Size ***
 
-RAMDATA SECTION:  00000ae6 Byte(s)
+RAMDATA SECTION:  00000aee Byte(s)
 ROMDATA SECTION:  000007ec Byte(s)
-PROGRAM SECTION:  0000784a Byte(s)
+PROGRAM SECTION:  0000732a Byte(s)
 
 *** Symbol List ***
 
@@ -105,7 +104,7 @@ FILE=                               START        END    SIZE
 
 SECTION=B_1
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  00001000  00001027        28
+                                  00001000  0000102f        30
   _rx_buf
                                   00001000         c   data ,l         * 
   _isRbuffFull
@@ -123,223 +122,223 @@ FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
   _rcv_eeprom_adr
                                   00001016         2   data ,g         * 
   _trm_buff
-                                  00001018         8   data ,g         * 
+                                  00001018         c   data ,g         * 
   _rcv_buff
-                                  00001020         8   data ,g         * 
+                                  00001024         c   data ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
-                                  00001028  0000102a         3
+                                  00001030  00001032         3
   _tx_cnt
-                                  00001028         1   data ,l         * 
+                                  00001030         1   data ,l         * 
   _rx_cnt
-                                  00001029         1   data ,l         * 
+                                  00001031         1   data ,l         * 
   _last_received_byte
-                                  0000102a         1   data ,g         * 
-FILE=globals_IIC
-                                  0000102b  0000103e        14
-  _rpdl_IIC_stop
-                                  0000102b         2   data ,g         * 
-  _rpdl_IIC_current_state
-                                  0000102d         2   data ,g         * 
-  _rpdl_IIC_next_state
-                                  0000102f         2   data ,g         * 
-  _rpdl_IIC_slave_address_lower
-                                  00001031         2   data ,g         * 
-  _rpdl_IIC_slave_address_upper
-                                  00001033         2   data ,g         * 
-  _rpdl_IIC_detected_address
-                                  00001035         2   data ,g         * 
-  _rpdl_IIC_rx_dmac_channel
-                                  00001037         2   data ,g         * 
-  _rpdl_IIC_tx_dmac_channel
-                                  00001039         2   data ,g         * 
-  _rpdl_IIC_rx_transfer_method
-                                  0000103b         2   data ,g         * 
-  _rpdl_IIC_tx_transfer_method
-                                  0000103d         2   data ,g         * 
+                                  00001032         1   data ,g         * 
 FILE=globals_INTC
-                                  0000103f  00001040         2
+                                  00001033  00001034         2
   _rpdl_INTC_brk_command
-                                  0000103f         1   data ,g         * 
+                                  00001033         1   data ,g         * 
   _rpdl_INTC_brk_data8
-                                  00001040         1   data ,g         * 
+                                  00001034         1   data ,g         * 
 FILE=globals_MTU2
-                                  00001041  00001042         2
+                                  00001035  00001036         2
   _rpdl_MTU2_tmdr_copy
-                                  00001041         2   data ,g         * 
+                                  00001035         2   data ,g         * 
 FILE=globals_ADC_10
-                                  00001043  00001044         2
+                                  00001037  00001038         2
   _rpdl_adcsr0_copy
-                                  00001043         1   data ,g         * 
+                                  00001037         1   data ,g         * 
   _rpdl_adcsr1_copy
-                                  00001044         1   data ,g         * 
+                                  00001038         1   data ,g         * 
+FILE=globals_IIC
+                                  00001039  0000104c        14
+  _rpdl_IIC_stop
+                                  00001039         2   data ,g         * 
+  _rpdl_IIC_current_state
+                                  0000103b         2   data ,g         * 
+  _rpdl_IIC_next_state
+                                  0000103d         2   data ,g         * 
+  _rpdl_IIC_slave_address_lower
+                                  0000103f         2   data ,g         * 
+  _rpdl_IIC_slave_address_upper
+                                  00001041         2   data ,g         * 
+  _rpdl_IIC_detected_address
+                                  00001043         2   data ,g         * 
+  _rpdl_IIC_rx_dmac_channel
+                                  00001045         2   data ,g         * 
+  _rpdl_IIC_tx_dmac_channel
+                                  00001047         2   data ,g         * 
+  _rpdl_IIC_rx_transfer_method
+                                  00001049         2   data ,g         * 
+  _rpdl_IIC_tx_transfer_method
+                                  0000104b         2   data ,g         * 
 
 SECTION=R_1
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  00001045  0000104a         6
+                                  0000104d  00001052         6
   _sci_state
-                                  00001045         1   data ,l         * 
+                                  0000104d         1   data ,l         * 
   _tx_buf
-                                  00001046         5   data ,l         * 
+                                  0000104e         5   data ,l         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
-                                  0000104b  0000104d         3
+                                  00001053  00001055         3
   _state
-                                  0000104b         1   data ,l         * 
+                                  00001053         1   data ,l         * 
   _rx_index
-                                  0000104c         1   data ,g         * 
+                                  00001054         1   data ,g         * 
   _data_received_flag
-                                  0000104d         1   data ,g         * 
+                                  00001055         1   data ,g         * 
 
 SECTION=B_2
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  0000104e  0000104f         2
+                                  00001056  00001057         2
   _Under_over_flow_cnt
-                                  0000104e         2   data ,g         * 
+                                  00001056         2   data ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
-                                  00001050  00001051         2
+                                  00001058  00001059         2
   _ssr
-                                  00001050         2   data ,g         * 
+                                  00001058         2   data ,g         * 
 FILE=globals_IIC
-                                  00001052  00001061        10
+                                  0000105a  00001069        10
   _rpdl_IIC_rx_counter
-                                  00001052         4   data ,g         * 
-  _rpdl_IIC_tx_counter
-                                  00001056         4   data ,g         * 
-  _rpdl_IIC_rx_threshold
                                   0000105a         4   data ,g         * 
-  _rpdl_IIC_tx_threshold
+  _rpdl_IIC_tx_counter
                                   0000105e         4   data ,g         * 
+  _rpdl_IIC_rx_threshold
+                                  00001062         4   data ,g         * 
+  _rpdl_IIC_tx_threshold
+                                  00001066         4   data ,g         * 
 
 SECTION=B
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  00001064  00001083        20
+                                  0000106c  0000108b        20
   _iic_buff_prm
-                                  00001064        20   data ,g         * 
+                                  0000106c        20   data ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sbrk.obj
-                                  00001084  00001483       400
+                                  0000108c  0000148b       400
   _heap_area
-                                  00001084       400   data ,l         * 
+                                  0000108c       400   data ,l         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
-                                  00001484  00001497        14
+                                  0000148c  0000149f        14
   _pbuf_tx
-                                  00001484         4   data ,l         * 
+                                  0000148c         4   data ,l         * 
   _pbuf_rx
-                                  00001488         4   data ,l         * 
+                                  00001490         4   data ,l         * 
   _pcb_sci_tx_end
-                                  0000148c         4   data ,g         * 
-  _pcb_sci_rx_end
-                                  00001490         4   data ,g         * 
-  _pcb_sci_rx_error
                                   00001494         4   data ,g         * 
+  _pcb_sci_rx_end
+                                  00001498         4   data ,g         * 
+  _pcb_sci_rx_error
+                                  0000149c         4   data ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
-                                  00001498  000014b7        20
+                                  000014a0  000014bf        20
   _iic_buff
-                                  00001498        10   data ,l         * 
+                                  000014a0        10   data ,l         * 
   _iic_mode
-                                  000014a8         4   data ,l         * 
-  _iic_status
-                                  000014ac         4   data ,l         * 
-  _iic_trm_cnt
                                   000014b0         4   data ,l         * 
-  _iic_rcv_cnt
+  _iic_status
                                   000014b4         4   data ,l         * 
-FILE=globals_IIC
-                                  000014b8  000014df        28
-  _rpdl_IIC_tx_data_pointer
-                                  000014b8         8   data ,g         * 
-  _rpdl_IIC_tx_data_start
-                                  000014c0         8   data ,g         * 
-  _rpdl_IIC_rx_data_pointer
-                                  000014c8         8   data ,g         * 
-  _rpdl_IIC_rx_data_start
-                                  000014d0         8   data ,g         * 
-  _rpdl_IIC_callback_func
-                                  000014d8         8   data ,g         * 
+  _iic_trm_cnt
+                                  000014b8         4   data ,l         * 
+  _iic_rcv_cnt
+                                  000014bc         4   data ,l         * 
 FILE=globals_INTC
-                                  000014e0  000014e3         4
+                                  000014c0  000014c3         4
   _rpdl_INTC_saved_isp
-                                  000014e0         4   data ,g         * 
+                                  000014c0         4   data ,g         * 
 FILE=globals_MTU2
-                                  000014e4  00001663       180
+                                  000014c4  00001643       180
   _rpdl_MTU2_func1_callback_func
-                                  000014e4        30   data ,g         * 
+                                  000014c4        30   data ,g         * 
   _rpdl_MTU2_func2_callback_func
-                                  00001514        30   data ,g         * 
+                                  000014f4        30   data ,g         * 
   _rpdl_MTU2_func3_callback_func
-                                  00001544        30   data ,g         * 
+                                  00001524        30   data ,g         * 
   _rpdl_MTU2_func4_callback_func
-                                  00001574        30   data ,g         * 
+                                  00001554        30   data ,g         * 
   _rpdl_MTU2_TGRE_callback_func
-                                  000015a4        30   data ,g         * 
+                                  00001584        30   data ,g         * 
   _rpdl_MTU2_TGRF_callback_func
-                                  000015d4        30   data ,g         * 
+                                  000015b4        30   data ,g         * 
   _rpdl_MTU2_Overflow_callback_func
-                                  00001604        30   data ,g         * 
+                                  000015e4        30   data ,g         * 
   _rpdl_MTU2_Underflow_callback_func
-                                  00001634        30   data ,g         * 
+                                  00001614        30   data ,g         * 
 FILE=globals_ADC_10
-                                  00001664  0000166b         8
+                                  00001644  0000164b         8
   _rpdl_ADC_10_callback_func
-                                  00001664         8   data ,g         * 
+                                  00001644         8   data ,g         * 
 FILE=globals_CGC
-                                  0000166c  00001677         c
+                                  0000164c  00001657         c
   _rpdl_CGC_f_pclk
-                                  0000166c         4   data ,g         * 
+                                  0000164c         4   data ,g         * 
   _rpdl_CGC_f_iclk
-                                  00001670         4   data ,g         * 
+                                  00001650         4   data ,g         * 
   _rpdl_CGC_f_bclk
-                                  00001674         4   data ,g         * 
+                                  00001654         4   data ,g         * 
+FILE=globals_IIC
+                                  00001658  0000167f        28
+  _rpdl_IIC_tx_data_pointer
+                                  00001658         8   data ,g         * 
+  _rpdl_IIC_tx_data_start
+                                  00001660         8   data ,g         * 
+  _rpdl_IIC_rx_data_pointer
+                                  00001668         8   data ,g         * 
+  _rpdl_IIC_rx_data_start
+                                  00001670         8   data ,g         * 
+  _rpdl_IIC_callback_func
+                                  00001678         8   data ,g         * 
 FILE=_errno
-                                  00001678  0000167b         4
+                                  00001680  00001683         4
   __errno
-                                  00001678         4   data ,g         * 
+                                  00001680         4   data ,g         * 
 
 SECTION=R
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  0000167c  0000168b        10
+                                  00001684  00001693        10
   _received_value
-                                  0000167c         4   data ,g         * 
-  _isReadI2C
-                                  00001680         4   data ,g         * 
-  _cnt
                                   00001684         4   data ,g         * 
-  _a
+  _isReadI2C
                                   00001688         4   data ,g         * 
+  _cnt
+                                  0000168c         4   data ,g         * 
+  _a
+                                  00001690         4   data ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sbrk.obj
-                                  0000168c  0000168f         4
+                                  00001694  00001697         4
   _brk
-                                  0000168c         4   data ,l         * 
+                                  00001694         4   data ,l         * 
 FILE=globals_INTC
-                                  00001690  000016e7        58
+                                  00001698  000016ef        58
   _rpdl_INTC_callback_func
-                                  00001690        58   data ,g         * 
+                                  00001698        58   data ,g         * 
 
 SECTION=SU
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\resetprg.obj
-                                  000016e8  000017e7       100
+                                  000016f0  000017ef       100
 
 SECTION=SI
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\resetprg.obj
-                                  000017e8  00001ae7       300
+                                  000017f0  00001aef       300
 
 SECTION=W_1
 FILE=R_IO_PORT_SetAll
-                                  00001ae8  00001aef         8
+                                  00001af0  00001af7         8
 FILE=R_MTU2_ControlChannelAll
-                                  00001af0  00001b13        24
+                                  00001af8  00001b1b        24
 FILE=R_MTU2_CreateAll
-                                  00001b14  00001b57        44
+                                  00001b1c  00001b5f        44
 
 SECTION=W_2
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
-                                  00001b58  00001b6b        14
+                                  00001b60  00001b73        14
 FILE=R_MTU2_ControlChannelAll
-                                  00001b6c  00001b83        18
+                                  00001b74  00001b8b        18
 FILE=R_MTU2_CreateAll
-                                  00001b84  00001c0b        88
+                                  00001b8c  00001c13        88
 FILE=R_MTU2_ReadChannelAll
-                                  00001c0c  00001c6b        60
+                                  00001c14  00001c73        60
 FILE=utilities_MTU2
-                                  00001c6c  00001cc5        5a
+                                  00001c74  00001ccd        5a
 
 SECTION=PResetPRG
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\resetprg.obj
@@ -348,22 +347,22 @@ FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\resetprg.obj
                                   ffff8000        35   entry,g         * 
 
 SECTION=C_1
-FILE=globals_IIC
-                                  ffff8100  ffff8107         8
-  _rpdl_IIC_div_value
-                                  ffff8100         8   data ,g         * 
 FILE=globals_MTU2
-                                  ffff8108  ffff810c         5
+                                  ffff8100  ffff8104         5
   _rpdl_MTU2_TSTR_mask
-                                  ffff8108         5   data ,g         * 
+                                  ffff8100         5   data ,g         * 
 FILE=globals_ADC_10
-                                  ffff810d  ffff8110         4
+                                  ffff8105  ffff8108         4
   _rpdl_ADC_10_div_value
-                                  ffff810d         4   data ,g         * 
+                                  ffff8105         4   data ,g         * 
 FILE=globals_CGC
-                                  ffff8111  ffff8114         4
+                                  ffff8109  ffff810c         4
   _rpdl_CGC_xCLK_mul_value
-                                  ffff8111         4   data ,g         * 
+                                  ffff8109         4   data ,g         * 
+FILE=globals_IIC
+                                  ffff810d  ffff8114         8
+  _rpdl_IIC_div_value
+                                  ffff810d         8   data ,g         * 
 FILE=_ctype
                                   ffff8115  ffff8214       100
   __ctype
@@ -407,681 +406,659 @@ FILE=globals_INTC
 
 SECTION=P
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
-                                  ffff86e4  ffff8ae1       3fe
+                                  ffff86e4  ffff8a5b       378
   _main
-                                  ffff86e4        9b   func ,g         * 
+                                  ffff86e4        98   func ,g         * 
   _port_init
-                                  ffff877f         1   func ,l         * 
+                                  ffff877c         1   func ,l         * 
   _CpuCreate
-                                  ffff8780        12   func ,l         * 
+                                  ffff877d        12   func ,l         * 
   _CpuIntCreate
-                                  ffff8792        5d   func ,l         * 
+                                  ffff878f        59   func ,l         * 
   _IICPortCreate
-                                  ffff87ef        10   func ,l         * 
+                                  ffff87e8        10   func ,l         * 
   _peripheral_init
-                                  ffff87ff         4   func ,l         * 
+                                  ffff87f8         4   func ,l         * 
   _cb_sci_tx_end
-                                  ffff8803         a   func ,l         * 
+                                  ffff87fc         a   func ,l         * 
   _cb_sci_rx_end
-                                  ffff880d        5a   func ,l         * 
+                                  ffff8806        5a   func ,l         * 
   _cb_sci_rx_error
-                                  ffff8867        14   func ,l         * 
-  _CheckNACK
-                                  ffff887b        1f   func ,l         * 
+                                  ffff8860        14   func ,l         * 
   _SampleEepromWrite
-                                  ffff889a        62   func ,l         * 
+                                  ffff8874        70   func ,l         * 
   _wait_ms
-                                  ffff88fc        1f   func ,g         * 
-  _EepromRandomRead
-                                  ffff891b        a2   func ,l         * 
+                                  ffff88e4        1f   func ,g         * 
   _SampleEepromRead
-                                  ffff89bd        40   func ,l         * 
+                                  ffff8903        74   func ,l         * 
   _IICAckPolling
-                                  ffff89fd        71   func ,g         * 
+                                  ffff8977        71   func ,g         * 
   _Mtu0IcCmAIntFunc
-                                  ffff8a6e        49   func ,g         * 
+                                  ffff89e8        49   func ,g         * 
   _Mtu6IcCmBIntFunc
-                                  ffff8ab7         1   func ,g         * 
+                                  ffff8a31         1   func ,g         * 
   _Mtu6IcCmCIntFunc
-                                  ffff8ab8         0   func ,g         * 
+                                  ffff8a32         0   func ,g         * 
   _irMtu7_A
-                                  ffff8ab8         e   func ,l         * 
+                                  ffff8a32         e   func ,l         * 
   _Mtu7OvIntFunc
-                                  ffff8ac6         d   func ,g         * 
+                                  ffff8a40         d   func ,g         * 
   _Mtu7UnIntFunc
-                                  ffff8ad3         d   func ,g         * 
+                                  ffff8a4d         d   func ,g         * 
   _IIC0MasterReFunc
-                                  ffff8ae0         1   func ,g         * 
+                                  ffff8a5a         1   func ,g         * 
   _IIC0MasterTrFunc
-                                  ffff8ae1         1   func ,g         * 
+                                  ffff8a5b         1   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sbrk.obj
-                                  ffff8ae2  ffff8b02        21
+                                  ffff8a5c  ffff8a7c        21
   _sbrk
-                                  ffff8ae2        21   func ,g         * 
+                                  ffff8a5c        21   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
-                                  ffff8b03  ffff8db4       2b2
+                                  ffff8a7d  ffff8d2e       2b2
   _SCI_Init
-                                  ffff8b03        8a   func ,g         * 
+                                  ffff8a7d        8a   func ,g         * 
   _SCI_StartReceive
-                                  ffff8b8d        48   func ,g         * 
+                                  ffff8b07        48   func ,g         * 
   _SCI_StartTransmit
-                                  ffff8bd5        3a   func ,g         * 
+                                  ffff8b4f        3a   func ,g         * 
   _SCI_GetState
-                                  ffff8c0f         9   func ,g         * 
+                                  ffff8b89         9   func ,g         * 
   _sci_txi_isr
-                                  ffff8c18        34   func ,l         * 
+                                  ffff8b92        34   func ,l         * 
   _sci_tei_isr
-                                  ffff8c4c        25   func ,l         * 
+                                  ffff8bc6        25   func ,l         * 
   _sci_rxi_isr
-                                  ffff8c71        50   func ,l         * 
+                                  ffff8beb        50   func ,l         * 
   _sci_eri_isr
-                                  ffff8cc1        8e   func ,l         * 
+                                  ffff8c3b        8e   func ,l         * 
   _Excep_SCIn_ERIn
-                                  ffff8d4f        28   func ,l         * 
+                                  ffff8cc9        28   func ,l         * 
   _Excep_SCIn_RXIn
-                                  ffff8d77         d   func ,l         * 
+                                  ffff8cf1         d   func ,l         * 
   _Excep_SCIn_TXIn
-                                  ffff8d84         d   func ,l         * 
+                                  ffff8cfe         d   func ,l         * 
   _Excep_SCIn_TEIn
-                                  ffff8d91        24   func ,l         * 
+                                  ffff8d0b        24   func ,l         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\hwsetup.obj
-                                  ffff8db5  ffff8ddc        28
+                                  ffff8d2f  ffff8d56        28
   _HardwareSetup
-                                  ffff8db5        28   func ,g         * 
+                                  ffff8d2f        28   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
-                                  ffff8ddd  ffff920a       42e
+                                  ffff8d57  ffff9181       42b
   _IIC_Create
-                                  ffff8ddd        6f   func ,g         * 
+                                  ffff8d57        6f   func ,g         * 
   _IIC_Destroy
-                                  ffff8e4c         c   func ,g         * 
+                                  ffff8dc6         c   func ,g         * 
   _IIC_EepWrite
-                                  ffff8e58        57   func ,g         * 
+                                  ffff8dd2        57   func ,g         * 
   _IIC_RandomRead
-                                  ffff8eaf        6a   func ,g         * 
+                                  ffff8e29        6a   func ,g         * 
   _IIC_GetStatus
-                                  ffff8f19        1b   func ,g         * 
+                                  ffff8e93        18   func ,g         * 
   _IIC_EEI_Int
-                                  ffff8f34        3d   func ,g         * 
+                                  ffff8eab        3d   func ,g         * 
   _IIC_EEI_IntTimeOut
-                                  ffff8f71         3   func ,l         * 
+                                  ffff8ee8         3   func ,l         * 
   _IIC_EEI_IntAL
-                                  ffff8f74         3   func ,l         * 
+                                  ffff8eeb         3   func ,l         * 
   _IIC_EEI_IntSP
-                                  ffff8f77        66   func ,l         * 
+                                  ffff8eee        66   func ,l         * 
   _IIC_EEI_IntST
-                                  ffff8fdd        17   func ,l         * 
+                                  ffff8f54        17   func ,l         * 
   _IIC_EEI_IntNack
-                                  ffff8ff4        20   func ,l         * 
+                                  ffff8f6b        20   func ,l         * 
   _IIC_RXI_Int
-                                  ffff9014        19   func ,g         * 
+                                  ffff8f8b        19   func ,g         * 
   _IIC_RXI_IntEepRead
-                                  ffff902d        73   func ,l         * 
+                                  ffff8fa4        73   func ,l         * 
   _IIC_TXI_Int
-                                  ffff90a0        16   func ,g         * 
+                                  ffff9017        16   func ,g         * 
   _IIC_TXI_IntEepWrite
-                                  ffff90b6        4d   func ,l         * 
+                                  ffff902d        4d   func ,l         * 
   _IIC_TXI_IntEepRead
-                                  ffff9103        39   func ,l         * 
+                                  ffff907a        39   func ,l         * 
   _IIC_TEI_Int
-                                  ffff913c        16   func ,g         * 
+                                  ffff90b3        16   func ,g         * 
   _IIC_TEI_IntEepWrite
-                                  ffff9152         e   func ,l         * 
+                                  ffff90c9         e   func ,l         * 
   _IIC_TEI_IntEepRead
-                                  ffff9160        11   func ,l         * 
+                                  ffff90d7        11   func ,l         * 
   _IIC_GenClkSP
-                                  ffff9171        98   func ,l         * 
+                                  ffff90e8        98   func ,l         * 
   _IIC_Error
-                                  ffff9209         2   func ,l         * 
-FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_IIC.obj
-                                  ffff920b  ffff96d9       4cf
-  _Interrupt_IIC_ICEEI0
-                                  ffff920b        14   func ,g         * 
-  _Interrupt_IIC_ICEEI1
-                                  ffff921f        14   func ,g         * 
-  _Interrupt_IIC_ICEEI_Common
-                                  ffff9233       1ac   func ,l         * 
-  _Interrupt_IIC_ICRXI0
-                                  ffff93df        14   func ,g         * 
-  _Interrupt_IIC_ICRXI1
-                                  ffff93f3        14   func ,g         * 
-  _Interrupt_IIC_ICRXI_Common
-                                  ffff9407       151   func ,l         * 
-  _Interrupt_IIC_ICTXI0
-                                  ffff9558        14   func ,g         * 
-  _Interrupt_IIC_ICTXI1
-                                  ffff956c        14   func ,g         * 
-  _Interrupt_IIC_ICTXI_Common
-                                  ffff9580        e7   func ,l         * 
-  _Interrupt_IIC_ICTEI0
-                                  ffff9667        14   func ,g         * 
-  _Interrupt_IIC_ICTEI1
-                                  ffff967b        14   func ,g         * 
-  _Interrupt_IIC_ICTEI_Common
-                                  ffff968f        4b   func ,l         * 
+                                  ffff9180         2   func ,l         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
-                                  ffff96da  ffff9a52       379
+                                  ffff9182  ffff9532       3b1
   _Interrupt_IRQ0
-                                  ffff96da        1c   func ,g         * 
+                                  ffff9182        1c   func ,g         * 
   _Interrupt_IRQ1
-                                  ffff96f6        1c   func ,g         * 
+                                  ffff919e        1c   func ,g         * 
   _Interrupt_IRQ2
-                                  ffff9712        1c   func ,g         * 
+                                  ffff91ba        1c   func ,g         * 
   _Interrupt_IRQ3
-                                  ffff972e        1c   func ,g         * 
+                                  ffff91d6        1c   func ,g         * 
   _Interrupt_IRQ4
-                                  ffff974a        1c   func ,g         * 
+                                  ffff91f2        1c   func ,g         * 
   _Interrupt_IRQ5
-                                  ffff9766        1c   func ,g         * 
+                                  ffff920e        1c   func ,g         * 
   _Interrupt_IRQ6
-                                  ffff9782        1c   func ,g         * 
+                                  ffff922a        1c   func ,g         * 
   _Interrupt_IRQ7
-                                  ffff979e        1c   func ,g         * 
+                                  ffff9246        1c   func ,g         * 
   _Interrupt_IRQ8
-                                  ffff97ba        1c   func ,g         * 
+                                  ffff9262        1c   func ,g         * 
   _Interrupt_IRQ9
-                                  ffff97d6        1c   func ,g         * 
+                                  ffff927e        1c   func ,g         * 
   _Interrupt_IRQ10
-                                  ffff97f2        1c   func ,g         * 
+                                  ffff929a        1c   func ,g         * 
   _Interrupt_IRQ11
-                                  ffff980e        1c   func ,g         * 
+                                  ffff92b6        1c   func ,g         * 
   _Interrupt_IRQ12
-                                  ffff982a        1c   func ,g         * 
+                                  ffff92d2        1c   func ,g         * 
   _Interrupt_IRQ13
-                                  ffff9846        1c   func ,g         * 
+                                  ffff92ee        1c   func ,g         * 
   _Interrupt_IRQ14
-                                  ffff9862        1c   func ,g         * 
+                                  ffff930a        1c   func ,g         * 
   _Interrupt_IRQ15
-                                  ffff987e        1c   func ,g         * 
+                                  ffff9326        1c   func ,g         * 
   _Interrupt_SWINT
-                                  ffff989a        1c   func ,g         * 
+                                  ffff9342        1c   func ,g         * 
   _Interrupt_BRK
-                                  ffff98b6       110   func ,g         * 
+                                  ffff935e       110   func ,g         * 
   _Excep_PrivilegedInst
-                                  ffff99c6        1c   func ,g         * 
+                                  ffff946e        1c   func ,g         * 
   _Excep_Access
-                                  ffff99e2        1c   func ,g         * 
+                                  ffff948a        1c   func ,g         * 
   _Excep_UndefinedInst
-                                  ffff99fe        1c   func ,g         * 
+                                  ffff94a6        1c   func ,g         * 
   _Excep_FloatingPoint
-                                  ffff9a1a        1c   func ,g         * 
+                                  ffff94c2        1c   func ,g         * 
   _Interrupt_NMI
-                                  ffff9a36        1c   func ,g         * 
+                                  ffff94de        1c   func ,g         * 
+  _Excep_RIIC0_EEI0
+                                  ffff94fa         e   func ,g         * 
+  _Excep_RIIC0_RXI0
+                                  ffff9508         e   func ,g         * 
+  _Excep_RIIC0_TXI0
+                                  ffff9516         e   func ,g         * 
+  _Excep_RIIC0_TEI0
+                                  ffff9524         e   func ,g         * 
   _Dummy
-                                  ffff9a52         1   func ,g         * 
+                                  ffff9532         1   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_MTU2.obj
-                                  ffff9a53  ffffa072       620
+                                  ffff9533  ffff9b52       620
   _Interrupt_MTU0_TGIA0
-                                  ffff9a53        1c   func ,g         * 
+                                  ffff9533        1c   func ,g         * 
   _Interrupt_MTU1_TGIA1
-                                  ffff9a6f        1c   func ,g         * 
+                                  ffff954f        1c   func ,g         * 
   _Interrupt_MTU2_TGIA2
-                                  ffff9a8b        1c   func ,g         * 
+                                  ffff956b        1c   func ,g         * 
   _Interrupt_MTU3_TGIA3
-                                  ffff9aa7        1c   func ,g         * 
+                                  ffff9587        1c   func ,g         * 
   _Interrupt_MTU4_TGIA4
-                                  ffff9ac3        1c   func ,g         * 
+                                  ffff95a3        1c   func ,g         * 
   _Interrupt_MTU6_TGIA6
-                                  ffff9adf        1c   func ,g         * 
+                                  ffff95bf        1c   func ,g         * 
   _Interrupt_MTU7_TGIA7
-                                  ffff9afb        1c   func ,g         * 
+                                  ffff95db        1c   func ,g         * 
   _Interrupt_MTU8_TGIA8
-                                  ffff9b17        1c   func ,g         * 
+                                  ffff95f7        1c   func ,g         * 
   _Interrupt_MTU9_TGIA9
-                                  ffff9b33        1c   func ,g         * 
+                                  ffff9613        1c   func ,g         * 
   _Interrupt_MTU10_TGIA10
-                                  ffff9b4f        1c   func ,g         * 
+                                  ffff962f        1c   func ,g         * 
   _Interrupt_MTU0_TGIB0
-                                  ffff9b6b        1c   func ,g         * 
+                                  ffff964b        1c   func ,g         * 
   _Interrupt_MTU1_TGIB1
-                                  ffff9b87        1c   func ,g         * 
+                                  ffff9667        1c   func ,g         * 
   _Interrupt_MTU2_TGIB2
-                                  ffff9ba3        1c   func ,g         * 
+                                  ffff9683        1c   func ,g         * 
   _Interrupt_MTU3_TGIB3
-                                  ffff9bbf        1c   func ,g         * 
+                                  ffff969f        1c   func ,g         * 
   _Interrupt_MTU4_TGIB4
-                                  ffff9bdb        1c   func ,g         * 
+                                  ffff96bb        1c   func ,g         * 
   _Interrupt_MTU6_TGIB6
-                                  ffff9bf7        1c   func ,g         * 
+                                  ffff96d7        1c   func ,g         * 
   _Interrupt_MTU7_TGIB7
-                                  ffff9c13        1c   func ,g         * 
+                                  ffff96f3        1c   func ,g         * 
   _Interrupt_MTU8_TGIB8
-                                  ffff9c2f        1c   func ,g         * 
+                                  ffff970f        1c   func ,g         * 
   _Interrupt_MTU9_TGIB9
-                                  ffff9c4b        1c   func ,g         * 
+                                  ffff972b        1c   func ,g         * 
   _Interrupt_MTU10_TGIB10
-                                  ffff9c67        1c   func ,g         * 
+                                  ffff9747        1c   func ,g         * 
   _Interrupt_MTU0_TGIC0
-                                  ffff9c83        1c   func ,g         * 
+                                  ffff9763        1c   func ,g         * 
   _Interrupt_MTU3_TGIC3
-                                  ffff9c9f        1c   func ,g         * 
+                                  ffff977f        1c   func ,g         * 
   _Interrupt_MTU4_TGIC4
-                                  ffff9cbb        1c   func ,g         * 
+                                  ffff979b        1c   func ,g         * 
   _Interrupt_MTU6_TGIC6
-                                  ffff9cd7        1c   func ,g         * 
+                                  ffff97b7        1c   func ,g         * 
   _Interrupt_MTU9_TGIC9
-                                  ffff9cf3        1c   func ,g         * 
+                                  ffff97d3        1c   func ,g         * 
   _Interrupt_MTU10_TGIC10
-                                  ffff9d0f        1c   func ,g         * 
+                                  ffff97ef        1c   func ,g         * 
   _Interrupt_MTU0_TGID0
-                                  ffff9d2b        1c   func ,g         * 
+                                  ffff980b        1c   func ,g         * 
   _Interrupt_MTU3_TGID3
-                                  ffff9d47        1c   func ,g         * 
+                                  ffff9827        1c   func ,g         * 
   _Interrupt_MTU4_TGID4
-                                  ffff9d63        1c   func ,g         * 
+                                  ffff9843        1c   func ,g         * 
   _Interrupt_MTU6_TGID6
-                                  ffff9d7f        1c   func ,g         * 
+                                  ffff985f        1c   func ,g         * 
   _Interrupt_MTU9_TGID9
-                                  ffff9d9b        1c   func ,g         * 
+                                  ffff987b        1c   func ,g         * 
   _Interrupt_MTU10_TGID10
-                                  ffff9db7        1c   func ,g         * 
+                                  ffff9897        1c   func ,g         * 
   _Interrupt_MTU0_TGIE0
-                                  ffff9dd3        1c   func ,g         * 
+                                  ffff98b3        1c   func ,g         * 
   _Interrupt_MTU6_TGIE6
-                                  ffff9def        1c   func ,g         * 
+                                  ffff98cf        1c   func ,g         * 
   _Interrupt_MTU0_TGIF0
-                                  ffff9e0b        1c   func ,g         * 
+                                  ffff98eb        1c   func ,g         * 
   _Interrupt_MTU6_TGIF6
-                                  ffff9e27        1c   func ,g         * 
+                                  ffff9907        1c   func ,g         * 
   _Interrupt_MTU0_TCIV0
-                                  ffff9e43        1c   func ,g         * 
+                                  ffff9923        1c   func ,g         * 
   _Interrupt_MTU1_TCIV1
-                                  ffff9e5f        1c   func ,g         * 
+                                  ffff993f        1c   func ,g         * 
   _Interrupt_MTU2_TCIV2
-                                  ffff9e7b        1c   func ,g         * 
+                                  ffff995b        1c   func ,g         * 
   _Interrupt_MTU3_TCIV3
-                                  ffff9e97        1c   func ,g         * 
+                                  ffff9977        1c   func ,g         * 
   _Interrupt_MTU4_TCIV4
-                                  ffff9eb3        1c   func ,g         * 
+                                  ffff9993        1c   func ,g         * 
   _Interrupt_MTU6_TCIV6
-                                  ffff9ecf        1c   func ,g         * 
+                                  ffff99af        1c   func ,g         * 
   _Interrupt_MTU7_TCIV7
-                                  ffff9eeb        1c   func ,g         * 
+                                  ffff99cb        1c   func ,g         * 
   _Interrupt_MTU8_TCIV8
-                                  ffff9f07        1c   func ,g         * 
+                                  ffff99e7        1c   func ,g         * 
   _Interrupt_MTU9_TCIV9
-                                  ffff9f23        1c   func ,g         * 
+                                  ffff9a03        1c   func ,g         * 
   _Interrupt_MTU10_TCIV10
-                                  ffff9f3f        1c   func ,g         * 
+                                  ffff9a1f        1c   func ,g         * 
   _Interrupt_MTU1_TCIU1
-                                  ffff9f5b        1c   func ,g         * 
+                                  ffff9a3b        1c   func ,g         * 
   _Interrupt_MTU2_TCIU2
-                                  ffff9f77        1c   func ,g         * 
+                                  ffff9a57        1c   func ,g         * 
   _Interrupt_MTU7_TCIU7
-                                  ffff9f93        1c   func ,g         * 
+                                  ffff9a73        1c   func ,g         * 
   _Interrupt_MTU8_TCIU8
-                                  ffff9faf        1c   func ,g         * 
+                                  ffff9a8f        1c   func ,g         * 
   _Interrupt_MTU5_TGIU5
-                                  ffff9fcb        1c   func ,g         * 
+                                  ffff9aab        1c   func ,g         * 
   _Interrupt_MTU11_TGIU11
-                                  ffff9fe7        1c   func ,g         * 
+                                  ffff9ac7        1c   func ,g         * 
   _Interrupt_MTU5_TGIV5
-                                  ffffa003        1c   func ,g         * 
+                                  ffff9ae3        1c   func ,g         * 
   _Interrupt_MTU11_TGIV11
-                                  ffffa01f        1c   func ,g         * 
+                                  ffff9aff        1c   func ,g         * 
   _Interrupt_MTU5_TGIW5
-                                  ffffa03b        1c   func ,g         * 
+                                  ffff9b1b        1c   func ,g         * 
   _Interrupt_MTU11_TGIW11
-                                  ffffa057        1c   func ,g         * 
+                                  ffff9b37        1c   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Clock.obj
-                                  ffffa073  ffffa0a2        30
+                                  ffff9b53  ffff9b82        30
   _R_PG_Clock_Set
-                                  ffffa073        20   func ,g         * 
+                                  ffff9b53        20   func ,g         * 
   _R_PG_Clock_Start_SUB
-                                  ffffa093         8   func ,g         * 
+                                  ffff9b73         8   func ,g         * 
   _R_PG_Clock_Stop_SUB
-                                  ffffa09b         8   func ,g         * 
+                                  ffff9b7b         8   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_I2C_C0.obj
-                                  ffffa0a3  ffffa1fe       15c
+                                  ffff9b83  ffff9cde       15c
   _R_PG_I2C_Set_C0
-                                  ffffa0a3        25   func ,g         * 
+                                  ffff9b83        25   func ,g         * 
   _R_PG_I2C_MasterReceive_C0
-                                  ffffa0c8        2c   func ,g         * 
+                                  ffff9ba8        2c   func ,g         * 
   _R_PG_I2C_MasterSend_C0
-                                  ffffa0f4        2c   func ,g         * 
+                                  ffff9bd4        2c   func ,g         * 
   _R_PG_I2C_MasterSendWithoutStop_C0
-                                  ffffa120        2c   func ,g         * 
+                                  ffff9c00        2c   func ,g         * 
   _R_PG_I2C_GenerateStopCondition_C0
-                                  ffffa14c         8   func ,g         * 
+                                  ffff9c2c         8   func ,g         * 
   _R_PG_I2C_GetBusState_C0
-                                  ffffa154        23   func ,g         * 
+                                  ffff9c34        23   func ,g         * 
   _R_PG_I2C_GetEvent_C0
-                                  ffffa177        57   func ,g         * 
+                                  ffff9c57        57   func ,g         * 
   _R_PG_I2C_GetReceivedDataCount_C0
-                                  ffffa1ce        11   func ,g         * 
+                                  ffff9cae        11   func ,g         * 
   _R_PG_I2C_GetSentDataCount_C0
-                                  ffffa1df        11   func ,g         * 
+                                  ffff9cbf        11   func ,g         * 
   _R_PG_I2C_Reset_C0
-                                  ffffa1f0         9   func ,g         * 
+                                  ffff9cd0         9   func ,g         * 
   _R_PG_I2C_StopModule_C0
-                                  ffffa1f9         6   func ,g         * 
+                                  ffff9cd9         6   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_P1.obj
-                                  ffffa1ff  ffffa2ff       101
+                                  ffff9cdf  ffff9ddf       101
   _R_PG_IO_PORT_Set_P1
-                                  ffffa1ff        27   func ,g         * 
+                                  ffff9cdf        27   func ,g         * 
   _R_PG_IO_PORT_Set_P12
-                                  ffffa226         e   func ,g         * 
+                                  ffff9d06         e   func ,g         * 
   _R_PG_IO_PORT_Set_P13
-                                  ffffa234         e   func ,g         * 
+                                  ffff9d14         e   func ,g         * 
   _R_PG_IO_PORT_Read_P1
-                                  ffffa242         c   func ,g         * 
+                                  ffff9d22         c   func ,g         * 
   _R_PG_IO_PORT_Read_P12
-                                  ffffa24e         e   func ,g         * 
+                                  ffff9d2e         e   func ,g         * 
   _R_PG_IO_PORT_Read_P13
-                                  ffffa25c         e   func ,g         * 
+                                  ffff9d3c         e   func ,g         * 
   _R_PG_IO_PORT_Read_P14
-                                  ffffa26a         f   func ,g         * 
+                                  ffff9d4a         f   func ,g         * 
   _R_PG_IO_PORT_Read_P15
-                                  ffffa279         f   func ,g         * 
+                                  ffff9d59         f   func ,g         * 
   _R_PG_IO_PORT_Read_P16
-                                  ffffa288         f   func ,g         * 
+                                  ffff9d68         f   func ,g         * 
   _R_PG_IO_PORT_Read_P17
-                                  ffffa297         f   func ,g         * 
+                                  ffff9d77         f   func ,g         * 
   _R_PG_IO_PORT_Write_P1
-                                  ffffa2a6         8   func ,g         * 
+                                  ffff9d86         8   func ,g         * 
   _R_PG_IO_PORT_Write_P12
-                                  ffffa2ae         d   func ,g         * 
+                                  ffff9d8e         d   func ,g         * 
   _R_PG_IO_PORT_Write_P13
-                                  ffffa2bb         d   func ,g         * 
+                                  ffff9d9b         d   func ,g         * 
   _R_PG_IO_PORT_Write_P14
-                                  ffffa2c8         e   func ,g         * 
+                                  ffff9da8         e   func ,g         * 
   _R_PG_IO_PORT_Write_P15
-                                  ffffa2d6         e   func ,g         * 
+                                  ffff9db6         e   func ,g         * 
   _R_PG_IO_PORT_Write_P16
-                                  ffffa2e4         e   func ,g         * 
+                                  ffff9dc4         e   func ,g         * 
   _R_PG_IO_PORT_Write_P17
-                                  ffffa2f2         e   func ,g         * 
+                                  ffff9dd2         e   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_PE.obj
-                                  ffffa300  ffffa4f9       1fa
+                                  ffff9de0  ffff9fd9       1fa
   _R_PG_IO_PORT_Set_PE
-                                  ffffa300        92   func ,g         * 
+                                  ffff9de0        92   func ,g         * 
   _R_PG_IO_PORT_Set_PE0
-                                  ffffa392         e   func ,g         * 
+                                  ffff9e72         e   func ,g         * 
   _R_PG_IO_PORT_Set_PE1
-                                  ffffa3a0         e   func ,g         * 
+                                  ffff9e80         e   func ,g         * 
   _R_PG_IO_PORT_Set_PE2
-                                  ffffa3ae         e   func ,g         * 
+                                  ffff9e8e         e   func ,g         * 
   _R_PG_IO_PORT_Set_PE3
-                                  ffffa3bc         e   func ,g         * 
+                                  ffff9e9c         e   func ,g         * 
   _R_PG_IO_PORT_Set_PE4
-                                  ffffa3ca         f   func ,g         * 
+                                  ffff9eaa         f   func ,g         * 
   _R_PG_IO_PORT_Set_PE5
-                                  ffffa3d9         f   func ,g         * 
+                                  ffff9eb9         f   func ,g         * 
   _R_PG_IO_PORT_Set_PE6
-                                  ffffa3e8         f   func ,g         * 
+                                  ffff9ec8         f   func ,g         * 
   _R_PG_IO_PORT_Set_PE7
-                                  ffffa3f7         f   func ,g         * 
+                                  ffff9ed7         f   func ,g         * 
   _R_PG_IO_PORT_Read_PE
-                                  ffffa406         c   func ,g         * 
+                                  ffff9ee6         c   func ,g         * 
   _R_PG_IO_PORT_Read_PE0
-                                  ffffa412         e   func ,g         * 
+                                  ffff9ef2         e   func ,g         * 
   _R_PG_IO_PORT_Read_PE1
-                                  ffffa420         e   func ,g         * 
+                                  ffff9f00         e   func ,g         * 
   _R_PG_IO_PORT_Read_PE2
-                                  ffffa42e         e   func ,g         * 
+                                  ffff9f0e         e   func ,g         * 
   _R_PG_IO_PORT_Read_PE3
-                                  ffffa43c         e   func ,g         * 
+                                  ffff9f1c         e   func ,g         * 
   _R_PG_IO_PORT_Read_PE4
-                                  ffffa44a         f   func ,g         * 
+                                  ffff9f2a         f   func ,g         * 
   _R_PG_IO_PORT_Read_PE5
-                                  ffffa459         f   func ,g         * 
+                                  ffff9f39         f   func ,g         * 
   _R_PG_IO_PORT_Read_PE6
-                                  ffffa468         f   func ,g         * 
+                                  ffff9f48         f   func ,g         * 
   _R_PG_IO_PORT_Read_PE7
-                                  ffffa477         f   func ,g         * 
+                                  ffff9f57         f   func ,g         * 
   _R_PG_IO_PORT_Write_PE
-                                  ffffa486         8   func ,g         * 
+                                  ffff9f66         8   func ,g         * 
   _R_PG_IO_PORT_Write_PE0
-                                  ffffa48e         d   func ,g         * 
+                                  ffff9f6e         d   func ,g         * 
   _R_PG_IO_PORT_Write_PE1
-                                  ffffa49b         d   func ,g         * 
+                                  ffff9f7b         d   func ,g         * 
   _R_PG_IO_PORT_Write_PE2
-                                  ffffa4a8         d   func ,g         * 
+                                  ffff9f88         d   func ,g         * 
   _R_PG_IO_PORT_Write_PE3
-                                  ffffa4b5         d   func ,g         * 
+                                  ffff9f95         d   func ,g         * 
   _R_PG_IO_PORT_Write_PE4
-                                  ffffa4c2         e   func ,g         * 
+                                  ffff9fa2         e   func ,g         * 
   _R_PG_IO_PORT_Write_PE5
-                                  ffffa4d0         e   func ,g         * 
+                                  ffff9fb0         e   func ,g         * 
   _R_PG_IO_PORT_Write_PE6
-                                  ffffa4de         e   func ,g         * 
+                                  ffff9fbe         e   func ,g         * 
   _R_PG_IO_PORT_Write_PE7
-                                  ffffa4ec         e   func ,g         * 
+                                  ffff9fcc         e   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U0.obj
-                                  ffffa4fa  ffffa4ff         6
+                                  ffff9fda  ffff9fdf         6
   _R_PG_Timer_StopModule_MTU_U0
-                                  ffffa4fa         6   func ,g         * 
+                                  ffff9fda         6   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U0_C0.obj
-                                  ffffa500  ffffa7d1       2d2
+                                  ffff9fe0  ffffa2b1       2d2
   _R_PG_Timer_Set_MTU_U0_C0
-                                  ffffa500        66   func ,g         * 
+                                  ffff9fe0        66   func ,g         * 
   _R_PG_Timer_StartCount_MTU_U0_C0
-                                  ffffa566        29   func ,g         * 
+                                  ffffa046        29   func ,g         * 
   _R_PG_Timer_HaltCount_MTU_U0_C0
-                                  ffffa58f        29   func ,g         * 
+                                  ffffa06f        29   func ,g         * 
   _R_PG_Timer_GetCounterValue_MTU_U0_C0
-                                  ffffa5b8        22   func ,g         * 
+                                  ffffa098        22   func ,g         * 
   _R_PG_Timer_SetCounterValue_MTU_U0_C0
-                                  ffffa5da        2a   func ,g         * 
+                                  ffffa0ba        2a   func ,g         * 
   _R_PG_Timer_GetTGR_MTU_U0_C0
-                                  ffffa604        47   func ,g         * 
+                                  ffffa0e4        47   func ,g         * 
   _R_PG_Timer_SetTGR_A_MTU_U0_C0
-                                  ffffa64b        2a   func ,g         * 
+                                  ffffa12b        2a   func ,g         * 
   _R_PG_Timer_SetTGR_B_MTU_U0_C0
-                                  ffffa675        2a   func ,g         * 
+                                  ffffa155        2a   func ,g         * 
   _R_PG_Timer_SetTGR_C_MTU_U0_C0
-                                  ffffa69f        2a   func ,g         * 
+                                  ffffa17f        2a   func ,g         * 
   _R_PG_Timer_SetTGR_D_MTU_U0_C0
-                                  ffffa6c9        2a   func ,g         * 
+                                  ffffa1a9        2a   func ,g         * 
   _R_PG_Timer_SetTGR_E_MTU_U0_C0
-                                  ffffa6f3        2a   func ,g         * 
+                                  ffffa1d3        2a   func ,g         * 
   _R_PG_Timer_SetTGR_F_MTU_U0_C0
-                                  ffffa71d        2a   func ,g         * 
+                                  ffffa1fd        2a   func ,g         * 
   _R_PG_Timer_GetRequestFlag_MTU_U0_C0
-                                  ffffa747        8b   func ,g         * 
+                                  ffffa227        8b   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1.obj
-                                  ffffa7d2  ffffa7d7         6
+                                  ffffa2b2  ffffa2b7         6
   _R_PG_Timer_StopModule_MTU_U1
-                                  ffffa7d2         6   func ,g         * 
+                                  ffffa2b2         6   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C6.obj
-                                  ffffa7d8  ffffaabb       2e4
+                                  ffffa2b8  ffffa59b       2e4
   _R_PG_Timer_Set_MTU_U1_C6
-                                  ffffa7d8        74   func ,g         * 
+                                  ffffa2b8        74   func ,g         * 
   _R_PG_Timer_StartCount_MTU_U1_C6
-                                  ffffa84c        2b   func ,g         * 
+                                  ffffa32c        2b   func ,g         * 
   _R_PG_Timer_HaltCount_MTU_U1_C6
-                                  ffffa877        2b   func ,g         * 
+                                  ffffa357        2b   func ,g         * 
   _R_PG_Timer_GetCounterValue_MTU_U1_C6
-                                  ffffa8a2        22   func ,g         * 
+                                  ffffa382        22   func ,g         * 
   _R_PG_Timer_SetCounterValue_MTU_U1_C6
-                                  ffffa8c4        2a   func ,g         * 
+                                  ffffa3a4        2a   func ,g         * 
   _R_PG_Timer_GetTGR_MTU_U1_C6
-                                  ffffa8ee        47   func ,g         * 
+                                  ffffa3ce        47   func ,g         * 
   _R_PG_Timer_SetTGR_A_MTU_U1_C6
-                                  ffffa935        2a   func ,g         * 
+                                  ffffa415        2a   func ,g         * 
   _R_PG_Timer_SetTGR_B_MTU_U1_C6
-                                  ffffa95f        2a   func ,g         * 
+                                  ffffa43f        2a   func ,g         * 
   _R_PG_Timer_SetTGR_C_MTU_U1_C6
-                                  ffffa989        2a   func ,g         * 
+                                  ffffa469        2a   func ,g         * 
   _R_PG_Timer_SetTGR_D_MTU_U1_C6
-                                  ffffa9b3        2a   func ,g         * 
+                                  ffffa493        2a   func ,g         * 
   _R_PG_Timer_SetTGR_E_MTU_U1_C6
-                                  ffffa9dd        2a   func ,g         * 
+                                  ffffa4bd        2a   func ,g         * 
   _R_PG_Timer_SetTGR_F_MTU_U1_C6
-                                  ffffaa07        2a   func ,g         * 
+                                  ffffa4e7        2a   func ,g         * 
   _R_PG_Timer_GetRequestFlag_MTU_U1_C6
-                                  ffffaa31        8b   func ,g         * 
+                                  ffffa511        8b   func ,g         * 
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C7.obj
-                                  ffffaabc  ffffacba       1ff
+                                  ffffa59c  ffffa79a       1ff
   _R_PG_Timer_Set_MTU_U1_C7
-                                  ffffaabc        67   func ,g         * 
+                                  ffffa59c        67   func ,g         * 
   _R_PG_Timer_StartCount_MTU_U1_C7
-                                  ffffab23        2b   func ,g         * 
+                                  ffffa603        2b   func ,g         * 
   _R_PG_Timer_HaltCount_MTU_U1_C7
-                                  ffffab4e        2b   func ,g         * 
+                                  ffffa62e        2b   func ,g         * 
   _R_PG_Timer_GetCounterValue_MTU_U1_C7
-                                  ffffab79        22   func ,g         * 
+                                  ffffa659        22   func ,g         * 
   _R_PG_Timer_SetCounterValue_MTU_U1_C7
-                                  ffffab9b        2a   func ,g         * 
+                                  ffffa67b        2a   func ,g         * 
   _R_PG_Timer_GetTGR_MTU_U1_C7
-                                  ffffabc5        29   func ,g         * 
+                                  ffffa6a5        29   func ,g         * 
   _R_PG_Timer_SetTGR_A_MTU_U1_C7
-                                  ffffabee        2a   func ,g         * 
+                                  ffffa6ce        2a   func ,g         * 
   _R_PG_Timer_SetTGR_B_MTU_U1_C7
-                                  ffffac18        2a   func ,g         * 
+                                  ffffa6f8        2a   func ,g         * 
   _R_PG_Timer_GetRequestFlag_MTU_U1_C7
-                                  ffffac42        79   func ,g         * 
+                                  ffffa722        79   func ,g         * 
 FILE=R_CGC_ControlAll
-                                  ffffacbb  ffffad26        6c
+                                  ffffa79b  ffffa806        6c
   _R_CGC_ControlAll
-                                  ffffacbb        6c   func ,g         * 
+                                  ffffa79b        6c   func ,g         * 
 FILE=R_CGC_SetAll
-                                  ffffad27  ffffaf4f       229
+                                  ffffa807  ffffaa2f       229
   _R_CGC_SetAll
-                                  ffffad27       229   func ,g         * 
+                                  ffffa807       229   func ,g         * 
 FILE=R_IIC_ControlAll
-                                  ffffaf50  ffffafe3        94
+                                  ffffaa30  ffffaac3        94
   _R_IIC_ControlAll
-                                  ffffaf50        94   func ,g         * 
+                                  ffffaa30        94   func ,g         * 
 FILE=R_IIC_CreateAll
-                                  ffffafe4  ffffb5d4       5f1
+                                  ffffaac4  ffffb0b4       5f1
   _R_IIC_CreateAll
-                                  ffffafe4       5f1   func ,g         * 
+                                  ffffaac4       5f1   func ,g         * 
 FILE=R_IIC_DestroyAll
-                                  ffffb5d5  ffffb606        32
+                                  ffffb0b5  ffffb0e6        32
   _R_IIC_DestroyAll
-                                  ffffb5d5        32   func ,g         * 
+                                  ffffb0b5        32   func ,g         * 
 FILE=R_IIC_GetStatusAll
-                                  ffffb607  ffffb690        8a
+                                  ffffb0e7  ffffb170        8a
   _R_IIC_GetStatusAll
-                                  ffffb607        8a   func ,g         * 
+                                  ffffb0e7        8a   func ,g         * 
 FILE=R_IIC_MasterReceiveAll
-                                  ffffb691  ffffba9b       40b
+                                  ffffb171  ffffb57b       40b
   _R_IIC_MasterReceiveAll
-                                  ffffb691       40b   func ,g         * 
+                                  ffffb171       40b   func ,g         * 
 FILE=R_IIC_MasterSendAll
-                                  ffffba9c  ffffbeab       410
+                                  ffffb57c  ffffb98b       410
   _R_IIC_MasterSendAll
-                                  ffffba9c       410   func ,g         * 
+                                  ffffb57c       410   func ,g         * 
 FILE=R_IO_PORT_ReadDataAll
-                                  ffffbeac  ffffbec7        1c
+                                  ffffb98c  ffffb9a7        1c
   _R_IO_PORT_ReadDataAll
-                                  ffffbeac        1c   func ,g         * 
+                                  ffffb98c        1c   func ,g         * 
 FILE=R_IO_PORT_ReadDataRegisterAll
-                                  ffffbec8  ffffbed5         e
+                                  ffffb9a8  ffffb9b5         e
   _R_IO_PORT_ReadDataRegisterAll
-                                  ffffbec8         e   func ,g         * 
+                                  ffffb9a8         e   func ,g         * 
 FILE=R_IO_PORT_SetAll
-                                  ffffbed6  ffffbf94        bf
+                                  ffffb9b6  ffffba74        bf
   _R_IO_PORT_SetAll
-                                  ffffbed6        bf   func ,g         * 
+                                  ffffb9b6        bf   func ,g         * 
 FILE=R_IO_PORT_WriteAll
-                                  ffffbf95  ffffbfb8        24
+                                  ffffba75  ffffba98        24
   _R_IO_PORT_WriteAll
-                                  ffffbf95        24   func ,g         * 
+                                  ffffba75        24   func ,g         * 
 FILE=R_IO_PORT_WriteRegisterAll
-                                  ffffbfb9  ffffbfc6         e
+                                  ffffba99  ffffbaa6         e
   _R_IO_PORT_WriteRegisterAll
-                                  ffffbfb9         e   func ,g         * 
+                                  ffffba99         e   func ,g         * 
 FILE=R_MTU2_ControlChannelAll
-                                  ffffbfc7  ffffc418       452
+                                  ffffbaa7  ffffbef8       452
   _R_MTU2_ControlChannelAll
-                                  ffffbfc7       452   func ,g         * 
+                                  ffffbaa7       452   func ,g         * 
 FILE=R_MTU2_CreateAll
-                                  ffffc419  ffffec4c      2834
+                                  ffffbef9  ffffe72c      2834
   _R_MTU2_CreateAll
-                                  ffffc419      2834   func ,g         * 
+                                  ffffbef9      2834   func ,g         * 
 FILE=R_MTU2_DestroyAll
-                                  ffffec4d  ffffece6        9a
+                                  ffffe72d  ffffe7c6        9a
   _R_MTU2_DestroyAll
-                                  ffffec4d        9a   func ,g         * 
+                                  ffffe72d        9a   func ,g         * 
 FILE=R_MTU2_ReadChannelAll
-                                  ffffece7  fffff26a       584
+                                  ffffe7c7  ffffed4a       584
   _R_MTU2_ReadChannelAll
-                                  ffffece7       584   func ,g         * 
+                                  ffffe7c7       584   func ,g         * 
 FILE=R_MTU2_SetAll
-                                  fffff26b  fffff31d        b3
+                                  ffffed4b  ffffedfd        b3
   _R_MTU2_SetAll
-                                  fffff26b        b3   func ,g         * 
+                                  ffffed4b        b3   func ,g         * 
 FILE=utilities_ADC_10
-                                  fffff31e  fffff375        58
+                                  ffffedfe  ffffee55        58
   _rpdl_ADC_10_Start
-                                  fffff31e        19   func ,g         * 
+                                  ffffedfe        19   func ,g         * 
   _rpdl_ADC_10_ModifyIEN
-                                  fffff337        3f   func ,g         * 
-FILE=utilities_IIC
-                                  fffff376  fffff48b       116
-  _rpdl_IIC_EnableIEN
-                                  fffff376        4f   func ,g         * 
-  _rpdl_IIC_DisableIEN
-                                  fffff3c5        4b   func ,g         * 
-  _Send_IIC_byte
-                                  fffff410        25   func ,g         * 
-  _rpdl_IIC_Store_detected_address
-                                  fffff435        27   func ,g         * 
-  _rpdl_IIC_Reset_TimeOut_Counter
-                                  fffff45c        30   func ,g         * 
+                                  ffffee17        3f   func ,g         * 
 FILE=utilities_MTU2
-                                  fffff48c  fffffc2e       7a3
+                                  ffffee56  fffff5f8       7a3
   _R_MTU2_Create_load_defaults
-                                  fffff48c        36   func ,g         * 
+                                  ffffee56        36   func ,g         * 
   _rpdl_MTU2_DisableIER
-                                  fffff4c2       1c4   func ,g         * 
+                                  ffffee8c       1c4   func ,g         * 
   _rpdl_MTU2_EnableTGRAIER
-                                  fffff686        f8   func ,g         * 
+                                  fffff050        f8   func ,g         * 
   _rpdl_MTU2_EnableTGRBIER
-                                  fffff77e        f8   func ,g         * 
+                                  fffff148        f8   func ,g         * 
   _rpdl_MTU2_EnableTGRCIER
-                                  fffff876        a1   func ,g         * 
+                                  fffff240        a1   func ,g         * 
   _rpdl_MTU2_EnableTGRDIER
-                                  fffff917        a1   func ,g         * 
+                                  fffff2e1        a1   func ,g         * 
   _rpdl_MTU2_EnableTGREIER
-                                  fffff9b8        37   func ,g         * 
+                                  fffff382        37   func ,g         * 
   _rpdl_MTU2_EnableTGRFIER
-                                  fffff9ef        37   func ,g         * 
+                                  fffff3b9        37   func ,g         * 
   _rpdl_MTU2_EnableTGRUIER
-                                  fffffa26        37   func ,g         * 
+                                  fffff3f0        37   func ,g         * 
   _rpdl_MTU2_EnableTGRVIER
-                                  fffffa5d        37   func ,g         * 
+                                  fffff427        37   func ,g         * 
   _rpdl_MTU2_EnableTGRWIER
-                                  fffffa94        37   func ,g         * 
+                                  fffff45e        37   func ,g         * 
   _rpdl_MTU2_EnableTCIVIER
-                                  fffffacb        f8   func ,g         * 
+                                  fffff495        f8   func ,g         * 
   _rpdl_MTU2_EnableTCIUIER
-                                  fffffbc3        6c   func ,g         * 
+                                  fffff58d        6c   func ,g         * 
 FILE=atoi
-                                  fffffc2f  fffffc36         8
+                                  fffff5f9  fffff600         8
   _atoi
-                                  fffffc2f         8   func ,g         * 
+                                  fffff5f9         8   func ,g         * 
 FILE=__initsct
-                                  fffffc37  fffffc80        4a
+                                  fffff601  fffff64a        4a
   __INITSCT
-                                  fffffc37         0   none ,g         * 
+                                  fffff601         0   none ,g         * 
   loop1
-                                  fffffc49         0   none ,l         * 
+                                  fffff613         0   none ,l         * 
   next_loop1
-                                  fffffc57         0   none ,l         * 
+                                  fffff621         0   none ,l         * 
   loop3
-                                  fffffc69         0   none ,l         * 
+                                  fffff633         0   none ,l         * 
   next_loop3
-                                  fffffc7a         0   none ,l         * 
+                                  fffff644         0   none ,l         * 
 FILE=memset
-                                  fffffc81  fffffc87         7
+                                  fffff64b  fffff651         7
   _memset
-                                  fffffc81         7   func ,g         * 
+                                  fffff64b         7   func ,g         * 
 FILE=utilities_DMAC
-                                  fffffc88  fffffd2b        a4
+                                  fffff652  fffff6f5        a4
   _rpdl_DMAC_ModifyIEN
-                                  fffffc88        7a   func ,g         * 
+                                  fffff652        7a   func ,g         * 
   _rpdl_DMAC_get_channel
-                                  fffffd02        2a   func ,g         * 
+                                  fffff6cc        2a   func ,g         * 
+FILE=utilities_IIC
+                                  fffff6f6  fffff80b       116
+  _rpdl_IIC_EnableIEN
+                                  fffff6f6        4f   func ,g         * 
+  _rpdl_IIC_DisableIEN
+                                  fffff745        4b   func ,g         * 
+  _Send_IIC_byte
+                                  fffff790        25   func ,g         * 
+  _rpdl_IIC_Store_detected_address
+                                  fffff7b5        27   func ,g         * 
+  _rpdl_IIC_Reset_TimeOut_Counter
+                                  fffff7dc        30   func ,g         * 
 FILE=strtol
-                                  fffffd2c  fffffeda       1af
+                                  fffff80c  fffff9ba       1af
   _strtol
-                                  fffffd2c       1af   func ,g         * 
+                                  fffff80c       1af   func ,g         * 
 FILE=_strchek
-                                  fffffedb  fffffef8        1e
+                                  fffff9bb  fffff9d8        1e
   __strchek
-                                  fffffedb        1e   func ,g         * 
+                                  fffff9bb        1e   func ,g         * 
 
 SECTION=FIXEDVECT
 FILE=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj

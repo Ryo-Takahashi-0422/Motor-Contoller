@@ -161,6 +161,7 @@ void IIC_Create(void)
 	iic_trm_cnt = 0;				/* Clear the internal transmission counter for IIC */
 	iic_rcv_cnt = 0;				/* Clear the internal reception counter for IIC */
 
+	//RIIC.ICFER.BIT.NACKE = 0;
 	RIIC.ICCR1.BIT.IICRST = 0;		/* Clear reset */
 	
 
@@ -304,7 +305,7 @@ void IIC_GetStatus(enum RiicStatus_t *data1, enum RiicBusStatus_t *data2)
 	/* Check bus busy */
 	if(RIIC.ICCR2.BIT.BBSY == 0)
 	{
-		*data1 = RIIC_STATUS_IDLE; // 本当の遷移条件の調査マスト
+		//*data1 = RIIC_STATUS_IDLE; // 本当の遷移条件の調査マスト
 		*data2 = RIIC_BUS_STATUS_FREE;
 	}else
 	{
