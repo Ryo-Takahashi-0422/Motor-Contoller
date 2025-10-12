@@ -1,0 +1,58 @@
+﻿2025年9月15日 12:22:07
+
+<IDEバージョン>
+CS+: V9.14.00.04 [25 Apr 2025]
+HewProjectConverter: V1.00.05.01 [10 Apr 2025]
+
+<コンパイラ・パッケージ・バージョン>
+Renesas RX Standard Toolchain: 1.2.1.0 -> CC-RX: V3.07.00
+
+
+<利用しないオプション(Debug)>
+<利用しないオプション(Debug_RX_E1_E20_SYSTEM)>
+<利用しないオプション(Release)>
+
+
+<変更したオプション(Debug)>
+ CCRX (Library Generator Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Compiler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Assembler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Linker Option)
+   メモリマッピングを確認してください。
+
+<変更したオプション(Debug_RX_E1_E20_SYSTEM)>
+ CCRX (Library Generator Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Compiler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Assembler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Linker Option)
+   メモリマッピングを確認してください。
+
+<変更したオプション(Release)>
+ CCRX (Library Generator Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Compiler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Assembler Option)
+   CPUオプションは選択されたデバイスと異なることがあります。
+
+ CCRX (Linker Option)
+   メモリマッピングを確認してください。
+
+
+
+
+

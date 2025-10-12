@@ -1,0 +1,354 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"2.8" 
+[PROJECT_DETAILS]
+"rx62n_sci_async" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\rx62n_sci_async.hwp" "RX" "Renesas RX Standard" "Application" "RX600" "RX62N" 
+[INFORMATION]
+"プロジェクト情報がありません" 
+[TOOL_CHAIN]
+"Renesas RX Standard Toolchain" "1.2.1.0" 
+[CONFIGURATIONS]
+"Debug" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug" 
+"Debug_RX_E1_E20_SYSTEM" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug_RX_E1_E20_SYSTEM" 
+"Release" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Release" 
+[BUILD_PHASES]
+"Renesas OptLinker" 1 
+"Renesas RX Assembler" 1 
+"Renesas RX C/C++ Compiler" 1 
+"Renesas RX C/C++ Library Generator" 1 
+"Renesas RX Configurator" 1 
+[TOOL_ENVIRONMENT]
+[EXTENSIONS]
+"Absolute file" "ABS" 
+"Assembly include file" "INC" 
+"Assembly list file" "LST" 
+"Assembly source file" "S" 
+"Assembly source file" "SRC" 
+"Binary file" "BIN" 
+"C header file" "H" 
+"C source file" "C" 
+"C++ header file" "HPP" 
+"C++ source file" "CC" 
+"C++ source file" "CP" 
+"C++ source file" "CPP" 
+"CPU information file" "CPU" 
+"Calling information file" "CAL" 
+"Configuration file" "CFG" 
+"Debug information file" "DBG" 
+"Hex file" "HEX" 
+"Library file" "LIB" 
+"Library information file" "LBP" 
+"Linkage map file" "MAP" 
+"Linkage symbol file" "FSY" 
+"Object file" "OBJ" 
+"Optimize map file" "bls" 
+"Preprocessed C source file" "P" 
+"Preprocessed C++ source file" "PP" 
+"Relocatable file" "REL" 
+"Rts information file" "RTS" 
+"S-Record file" "MOT" 
+"Stack information file" "SNI" 
+"TD include object file" "RTI" 
+[FILE_GROUPS]
+"Absolute file" "BIN" "NONE" "" 
+"Assembly include file" "TEXT" "EDITOR" "" 
+"Assembly list file" "TEXT" "EDITOR" "" 
+"Assembly source file" "TEXT" "EDITOR" "" 
+"Binary file" "BIN" "NONE" "" 
+"C header file" "TEXT" "EDITOR" "" 
+"C source file" "TEXT" "EDITOR" "" 
+"C++ header file" "TEXT" "EDITOR" "" 
+"C++ source file" "TEXT" "EDITOR" "" 
+"CPU information file" "BIN" "NONE" "" 
+"Calling information file" "BIN" "NONE" "" 
+"Configuration file" "TEXT" "EDITOR" "" 
+"Debug information file" "BIN" "NONE" "" 
+"Hex file" "TEXT" "EDITOR" "" 
+"Library file" "BIN" "NONE" "" 
+"Library information file" "TEXT" "EDITOR" "" 
+"Linkage map file" "TEXT" "EDITOR" "" 
+"Linkage symbol file" "TEXT" "EDITOR" "" 
+"Object file" "BIN" "NONE" "" 
+"Optimize map file" "BIN" "NONE" "" 
+"Preprocessed C source file" "TEXT" "EDITOR" "" 
+"Preprocessed C++ source file" "TEXT" "EDITOR" "" 
+"Relocatable file" "BIN" "NONE" "" 
+"Rts information file" "BIN" "NONE" "" 
+"S-Record file" "TEXT" "EDITOR" "" 
+"Stack information file" "BIN" "NONE" "" 
+"TD include object file" "BIN" "NONE" "" 
+[ASSOCIATED_APPLICATIONS]
+[TOOLCHAIN_PHASE]
+"Renesas OptLinker" 
+"Renesas RX Assembler" 
+"Renesas RX C/C++ Compiler" 
+"Renesas RX C/C++ Library Generator" 
+"Renesas RX Configurator" 
+[UTILITY_PHASE]
+[CUSTOM_PHASES]
+[CUSTOM_PHASE_INPUT_GROUP]
+[CUSTOM_PHASE_OUTPUT_SYNTAX]
+[BUILD_ORDER]
+"Renesas RX C/C++ Library Generator" 1 
+"Renesas RX C/C++ Compiler" 1 
+"Renesas RX Assembler" 1 
+"Renesas OptLinker" 1 
+"Renesas RX Configurator" 0 
+[BUILD_PHASE_DETAILS]
+"Renesas OptLinker" "Object file|Library file|Relocatable file" 0 
+"Renesas RX Assembler" "Assembly source file|Linkage symbol file" 1 
+"Renesas RX C/C++ Compiler" "C source file|C++ source file" 1 
+"Renesas RX C/C++ Library Generator" "" 0 
+"Renesas RX Configurator" "Configuration file" 0 
+[BUILD_FILE_ORDER_Assembly source file]
+"Renesas RX Assembler" 1 
+[BUILD_FILE_ORDER_C source file]
+"Renesas RX C/C++ Compiler" 1 
+[BUILD_FILE_ORDER_C++ source file]
+"Renesas RX C/C++ Compiler" 1 
+[BUILD_FILE_ORDER_Linkage symbol file]
+"Renesas RX Assembler" 1 
+[SCRAP]
+"Project Generator Setup File" "" 
+[MAPPINGS]
+"Assembly source file" "Renesas RX Assembler" "Renesas RX C/C++ Compiler" 
+"Library file" "Renesas OptLinker" "Renesas RX C/C++ Library Generator" 
+"Object file" "Renesas OptLinker" "Renesas RX Assembler" 
+"Object file" "Renesas OptLinker" "Renesas RX C/C++ Compiler" 
+[PROJECT_FILES]
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\dbsct.c" "User" "C source file" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" "User" "C source file" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\resetprg.c" "User" "C source file" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\sbrk.c" "User" "C source file" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\hwsetup.c" "User" "C source file" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c" "User" "C source file|source" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci.c" "User" "C source file|source" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci.h" "User" "C source file|source" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci_cfg.h" "User" "C source file|source" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" "User" "C source file" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ10.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ8.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ9.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P1.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P2.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PC.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PD.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PE.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0_C0.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C6.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C7.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\RIIC\R_PG_I2C_C0.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\SYSTEM\R_PG_Clock.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_INTC.c" "User" "AddFromPDG" 2 
+"C:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_MTU2.c" "User" "AddFromPDG" 2 
+[FOLDER]
+"AddFromPDG" "AddFromPDG" 
+"C source file" "C source file" 
+"C source file|source" "" 
+[GENERAL_DATA_PROJECT]
+"USE_CUSTOM_LINKAGE_ORDER" "0" 
+[ON_DEMAND_COMPONENTS_LOADED]
+[SYNC_SESSION_NAMES]
+[SESSIONS]
+"DefaultSession" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\DefaultSession.hsf" 0 
+"SessionRX_E1_E20_SYSTEM" "C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\SessionRX_E1_E20_SYSTEM.hsf" 0 
+[GENERAL_DATA_SESSION_DefaultSession]
+[GENERAL_DATA_SESSION_SessionRX_E1_E20_SYSTEM]
+[OPTIONS_Debug_Renesas OptLinker]
+"Single Shot" "0695090a5163cd10" 6 
+[OPTIONS_Debug_Renesas RX Assembler]
+"Assembly source file" "0729558aa624ec10" 5 
+"Linkage symbol file" "0729558aa624ec10" 5 
+[OPTIONS_Debug_Renesas RX C/C++ Compiler]
+"C source file" "02e6c2cfe425ec10" 4 
+"C++ source file" "0729558aa624ec10" 3 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\dbsct.c" "0d17ddeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" "0cbbfdeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\resetprg.c" "0cc22eeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\sbrk.c" "0cc22eeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\hwsetup.c" "0050a04b6b43cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c" "0cd94eeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci.c" "0ce07eeca362cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" "029f7eeca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ10.c" "0ba3eeeca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ8.c" "0b9cbeeca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ9.c" "0b9cbeeca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P1.c" "09ffbaec3ad2cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P2.c" "0d00c04b6b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PC.c" "0f4a449b9b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PD.c" "0bba0feca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PE.c" "0bba0feca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0.c" "0bd85feca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0_C0.c" "0bc13feca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1.c" "0cc51924b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C6.c" "0e8cc824b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C7.c" "0f06f824b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\RIIC\R_PG_I2C_C0.c" "0c99bd808063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\SYSTEM\R_PG_Clock.c" "0b859eeca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" "0248cd808063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_INTC.c" "0bd85feca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_MTU2.c" "002c8feca362cd10" 2 
+[OPTIONS_Debug_Renesas RX C/C++ Library Generator]
+"Single Shot" "0729558aa624ec10" 1 
+[OPTIONS_Debug_Renesas RX Configurator]
+"Single Shot" "029126708063cd10" 7 
+[OPTIONS_Debug]
+"" 0 
+"[V|VERSION|1] [B|COMMAND|1] [S|OUTPUTPATH|^"$(CONFIGDIR)^"] [S|SPEC|UITRON4] [S|CPU|RX600] [S|BASE|00000000=NONE]
+" 7 
+"[V|VERSION|1] [B|SJIS|1] [B|DEBUG|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 5 
+"[V|VERSION|1] [S|LANG|CPP] [B|SJIS|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DEBUG|1] [B|SIZE|1] [B|MAP|0] [I|INLINE|100] [I|LOOP|2] [S|MISRA2004|ALL] [S|MISRA2004RULEFILE|^"$(CONFIGDIR)\$(PROJECTNAME).rde^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 3 
+"[V|VERSION|1] [S|LANG|C] [B|SJIS|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DEBUG|1] [B|SIZE|1] [B|MAP|0] [I|INLINE|100] [I|LOOP|2] [S|MISRA2004|ALL] [S|MISRA2004RULEFILE|^"$(CONFIGDIR)\$(PROJECTNAME).rde^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 4 
+"[V|VERSION|1] [S|LANG|C] [B|SJIS|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DEBUG|1] [B|SIZE|1] [B|MAP|0] [I|INLINE|100] [I|LOOP|2] [S|MISRA2004|ALL] [S|MISRA2004RULEFILE|^"$(CONFIGDIR)\$(PROJECTNAME).rde^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16] [S|INCLUDE|^"c:\renesas\PDG2_proj\BT_DEMO^"|^"c:\renesas\PDG2_proj\BT_DEMO\i_src^"]" 2 
+"[V|VERSION|1] [S|MODE|BUILD/CHANGED] [S|EXISTOUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [B|RUNTIME|1] [B|STDIO|1] [B|STDLIB|1] [B|STRING|1] [B|NEW|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [B|SIZE|1] [I|INLINE|100] [I|LOOP|2] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 1 
+"[V|VERSION|6] [S|FORM|STYPE] [S|BYTE_COUNT_VALUE|FF] [B|DEBUG|1] [S|ROM|(D,R)|(D_1,R_1)|(D_2,R_2)] [S|CRC|NONE|DEFAULT|00000000] [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [S|SHOW|METHODCUSTOM|] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [I|SPACE|^"FF^"] [B|OPTIMIZE|0] [S|START|B_1,R_1,B_2,R_2,B,R,SU,SI(01000)|PResetPRG(0FFFF8000)|C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,W*,L(0FFFF8100)|FIXEDVECT(0FFFFFFD0)] [S|MEMORY|HIGH] [S|INPUTLIBRARY|^"C:\Renesas\PDG2\lib\RX62N\RX62N_library_144_little.lib^"]" 6 
+[EXCLUDED_FILES_Debug]
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" 
+[LINKAGE_ORDER_Debug]
+[GENERAL_DATA_CONFIGURATION_Debug]
+[OPTIONS_Debug_RX_E1_E20_SYSTEM_Renesas OptLinker]
+"Single Shot" "0a1536708063cd10" 5 
+[OPTIONS_Debug_RX_E1_E20_SYSTEM_Renesas RX Assembler]
+"Assembly source file" "066318f267b3ec10" 4 
+"Linkage symbol file" "066318f267b3ec10" 4 
+[OPTIONS_Debug_RX_E1_E20_SYSTEM_Renesas RX C/C++ Compiler]
+"C source file" "066318f267b3ec10" 2 
+"C++ source file" "01b15af588b3ec10" 3 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\dbsct.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\resetprg.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\sbrk.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\hwsetup.c" "065cbcd5c643cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c" "08bb577997b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci.c" "0fe0818297b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" "066318f267b3ec10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ10.c" "0c0e35cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ8.c" "0c8491cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ9.c" "0f9073cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P1.c" "00b6d2cc3ad2cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P2.c" "04d032da6b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PC.c" "036a557b9b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PD.c" "0aed07cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PE.c" "0aa2e8cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0.c" "04765ccca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0_C0.c" "06adaacca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1.c" "088b4414b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C6.c" "03463f04b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C7.c" "0281e014b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\RIIC\R_PG_I2C_C0.c" "036d94708063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\SYSTEM\R_PG_Clock.c" "03f7ffbca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" "029126708063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_INTC.c" "04240ecca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_MTU2.c" "053d8fcca362cd10" 2 
+[OPTIONS_Debug_RX_E1_E20_SYSTEM_Renesas RX C/C++ Library Generator]
+"Single Shot" "066318f267b3ec10" 1 
+[OPTIONS_Debug_RX_E1_E20_SYSTEM_Renesas RX Configurator]
+"Single Shot" "029126708063cd10" 6 
+[OPTIONS_Debug_RX_E1_E20_SYSTEM]
+"" 0 
+"[S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [V|VERSION|1] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24] [S|LANG|C] [B|RUNTIME|1] [B|CTYPE|0] [B|MATH|0] [B|MATHF|0] [B|STDARG|0] [B|STDIO|1] [B|STDLIB|1] [B|STRING|1] [B|IOS|0] [B|NEW|1] [B|COMPLEX|0] [B|CPPSTRING|0] [S|MODE|BUILD/CHANGED]" 1 
+"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] [S|OUTPUTPATH|^"$(CONFIGDIR)^"] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|FINT_REGISTER|0]" 6 
+"[V|VERSION|1] [B|DEBUG|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|LISTFILE|0] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|FINT_REGISTER|0]" 4 
+"[V|VERSION|1] [B|DEBUG|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|LISTFILE|0] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24]" 2 
+"[V|VERSION|1] [S|LANG|CPP] [B|SJIS|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DEBUG|1] [B|SIZE|1] [B|MAP|0] [I|INLINE|100] [I|LOOP|2] [S|MISRA2004|ALL] [S|MISRA2004RULEFILE|^"$(CONFIGDIR)\$(PROJECTNAME).rde^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 3 
+"[V|VERSION|6] [B|DEBUG|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).abs^"]  [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [B|OPTIMIZE|0] [S|ROM|(D,R)|(D_1,R_1)|(D_2,R_2)] [S|ENDIAN|LITTLE] [S|FORM|STYPE] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [S|START|B_1,R_1,B_2,R_2,B,R,SU,SI(1000)|PResetPRG(FFFF8000)|C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,W*,L(FFFF8100)|FIXEDVECT(FFFFFFD0)]" 5 
+[EXCLUDED_FILES_Debug_RX_E1_E20_SYSTEM]
+[LINKAGE_ORDER_Debug_RX_E1_E20_SYSTEM]
+[GENERAL_DATA_CONFIGURATION_Debug_RX_E1_E20_SYSTEM]
+[OPTIONS_Release_Renesas OptLinker]
+"Single Shot" "0a1536708063cd10" 5 
+[OPTIONS_Release_Renesas RX Assembler]
+"Assembly source file" "066318f267b3ec10" 4 
+"Linkage symbol file" "066318f267b3ec10" 4 
+[OPTIONS_Release_Renesas RX C/C++ Compiler]
+"C source file" "066318f267b3ec10" 2 
+"C++ source file" "01b15af588b3ec10" 3 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\dbsct.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\intprg.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\resetprg.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\sbrk.c" "066318f267b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\hwsetup.c" "065cbcd5c643cd10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c" "08bb577997b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\sci.c" "0fe0818297b3ec10" 2 
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\vecttbl.c" "066318f267b3ec10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ10.c" "0c0e35cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ8.c" "0c8491cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\ICU\R_PG_ExtInterrupt_IRQ9.c" "0f9073cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P1.c" "00b6d2cc3ad2cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_P2.c" "04d032da6b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PC.c" "036a557b9b43cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PD.c" "0aed07cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\IO\R_PG_IO_PORT_PE.c" "0aa2e8cca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0.c" "04765ccca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U0_C0.c" "06adaacca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1.c" "088b4414b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C6.c" "03463f04b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\MTU\R_PG_Timer_MTU_U1_C7.c" "0281e014b643cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\RIIC\R_PG_I2C_C0.c" "036d94708063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\SYSTEM\R_PG_Clock.c" "03f7ffbca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_IIC.c" "029126708063cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_INTC.c" "04240ecca362cd10" 2 
+"c:\renesas\PDG2_proj\BT_DEMO\i_src\Interrupt_MTU2.c" "053d8fcca362cd10" 2 
+[OPTIONS_Release_Renesas RX C/C++ Library Generator]
+"Single Shot" "066318f267b3ec10" 1 
+[OPTIONS_Release_Renesas RX Configurator]
+"Single Shot" "029126708063cd10" 6 
+[OPTIONS_Release]
+"" 0 
+"[S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [V|VERSION|1] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24] [S|LANG|C] [B|RUNTIME|1] [B|CTYPE|0] [B|MATH|0] [B|MATHF|0] [B|STDARG|0] [B|STDIO|1] [B|STDLIB|1] [B|STRING|1] [B|IOS|0] [B|NEW|1] [B|COMPLEX|0] [B|CPPSTRING|0] [S|MODE|BUILD/CHANGED]" 1 
+"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] [S|OUTPUTPATH|^"$(CONFIGDIR)^"] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|FINT_REGISTER|0]" 6 
+"[V|VERSION|1] [B|DEBUG|0] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|LISTFILE|0] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|FINT_REGISTER|0]" 4 
+"[V|VERSION|1] [B|DEBUG|0] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|LISTFILE|0] [S|CPU|RX600] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24]" 2 
+"[V|VERSION|1] [S|LANG|CPP] [B|SJIS|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|SIZE|1] [B|MAP|0] [I|INLINE|100] [I|LOOP|2] [S|MISRA2004|ALL] [S|MISRA2004RULEFILE|^"$(CONFIGDIR)\$(PROJECTNAME).rde^"] [S|CPU|RX600] [S|BASE|00000000=NONE] [I|PID|16]
+" 3 
+"[V|VERSION|6] [B|DEBUG|0] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).abs^"]  [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [B|OPTIMIZE|0] [S|ROM|(D,R)|(D_1,R_1)|(D_2,R_2)] [S|ENDIAN|LITTLE] [S|FORM|STYPE] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [S|START|B_1,R_1,B_2,R_2,B,R,SU,SI(1000)|PResetPRG(FFFF8000)|C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,W*,L(FFFF8100)|FIXEDVECT(FFFFFFD0)]" 5 
+[EXCLUDED_FILES_Release]
+[LINKAGE_ORDER_Release]
+[GENERAL_DATA_CONFIGURATION_Release]
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_DefaultSession]
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_SessionRX_E1_E20_SYSTEM]
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_SessionRX_E1_E20_SYSTEM]
+"MEMORY_MAPPING_OPTIONS" "[V|VERSION|1] [S|CPUTYPE|^"RX62N (RX600)^"] [S|ENDIAN|^"LITTLE^"]" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_RX_E1_E20_SYSTEM_DefaultSession]
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_RX_E1_E20_SYSTEM_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_RX_E1_E20_SYSTEM_SessionRX_E1_E20_SYSTEM]
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_RX_E1_E20_SYSTEM_SessionRX_E1_E20_SYSTEM]
+"MEMORY_MAPPING_OPTIONS" "[V|VERSION|1] [S|CPUTYPE|^"RX62N (RX600)^"] [S|ENDIAN|^"LITTLE^"]" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+[SESSION_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_SessionRX_E1_E20_SYSTEM]
+[SESSION_DATA_CONFIGURATION_SESSION_Release_SessionRX_E1_E20_SYSTEM]
+"MEMORY_MAPPING_OPTIONS" "[V|VERSION|1] [S|CPUTYPE|^"RX62N (RX600)^"] [S|ENDIAN|^"LITTLE^"]" 
+[EXT_DEBUGGER_INFO]
+0 "" "" "" "" 
+[END]

@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c
+-output=obj="C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\dbsct.obj"
+-debug
+"C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\dbsct.c"
+-nologo
