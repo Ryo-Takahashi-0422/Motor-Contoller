@@ -3,7 +3,7 @@
 -list=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.map
 -show=symbol,total_size
 -nooptimize
--start=B_1,R_1,B_2,R_2,B,R,SU,SI,W*/01000,PResetPRG/0FFFF8000,C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,L/0FFFF8100,FIXEDVECT/0FFFFFFD0
+-start=B_1,R_1,B_2,R_2,B,R,SU,SI,W*/00001000,P/0FFFF0000,PResetPRG/0FFFFD000,C_1,C_2,C,C$*,D_1,D_2,D,PIntPRG,L/0FFFFD100,FIXEDVECT/0FFFFFFD0
 -rom=D=R,D_1=R_1,D_2=R_2
 -nologo
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\dbsct.obj
@@ -16,7 +16,6 @@
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_MTU2.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Clock.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_I2C_C0.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_P1.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_PE.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U0.obj
@@ -24,6 +23,8 @@
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C6.obj
 -input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C7.obj
+-input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\command.obj
+-input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iicComExe.obj
 -library=C:\Renesas\PDG2\lib\RX62N\RX62N_library_144_little.lib
 -library=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.lib
 -output=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.abs

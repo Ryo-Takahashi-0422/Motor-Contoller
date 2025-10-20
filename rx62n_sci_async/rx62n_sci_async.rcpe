@@ -8,18 +8,24 @@
   <Project Name="rx62n_sci_async" Type="Application">
     <Files>
       <Category Name="AddFromPDG" />
-      <Category Name="C source file">
-        <Path>dbsct.c</Path>
-        <Path>intprg.c</Path>
-        <Path>resetprg.c</Path>
-        <Path>sbrk.c</Path>
-        <Path>vecttbl.c</Path>
+      <Category Name="C files">
         <Category Name="source">
           <Path>source\main.c</Path>
           <Path>source\sci.c</Path>
-          <Path>source\sci.h</Path>
-          <Path>source\sci_cfg.h</Path>
           <Path>source\hwsetup.c</Path>
+          <Path>command.c</Path>
+          <Path>dbsct.c</Path>
+          <Path>intprg.c</Path>
+          <Path>resetprg.c</Path>
+          <Path>sbrk.c</Path>
+          <Path>vecttbl.c</Path>
+          <Path>iicComExe.c</Path>
+        </Category>
+        <Category Name="header">
+          <Path>command.h</Path>
+          <Path>source\sci_cfg.h</Path>
+          <Path>source\sci.h</Path>
+          <Path>iicComExe.h</Path>
         </Category>
       </Category>
       <Path>プロジェクト変換情報_rx62n_sci_async.txt</Path>
@@ -34,7 +40,6 @@
           <Path>source\external\r_pdl_mtu2.h</Path>
           <Path>source\external\r_pdl_user_definitions.h</Path>
           <Path>source\external\R_PG_Clock.h</Path>
-          <Path>source\external\R_PG_I2C_C0.h</Path>
           <Path>source\external\R_PG_IO_PORT_P1.h</Path>
           <Path>source\external\R_PG_IO_PORT_PE.h</Path>
           <Path>source\external\R_PG_Timer_MTU_U0.h</Path>
@@ -47,7 +52,6 @@
           <Path>source\external\Interrupt_INTC.c</Path>
           <Path>source\external\Interrupt_MTU2.c</Path>
           <Path>source\external\R_PG_Clock.c</Path>
-          <Path>source\external\R_PG_I2C_C0.c</Path>
           <Path>source\external\R_PG_IO_PORT_P1.c</Path>
           <Path>source\external\R_PG_IO_PORT_PE.c</Path>
           <Path>source\external\R_PG_Timer_MTU_U0.c</Path>
@@ -125,7 +129,6 @@
           <Path>DefaultBuild\Interrupt_INTC.obj</Path>
           <Path>DefaultBuild\Interrupt_MTU2.obj</Path>
           <Path>DefaultBuild\R_PG_Clock.obj</Path>
-          <Path>DefaultBuild\R_PG_I2C_C0.obj</Path>
           <Path>DefaultBuild\R_PG_IO_PORT_P1.obj</Path>
           <Path>DefaultBuild\R_PG_IO_PORT_PE.obj</Path>
           <Path>DefaultBuild\R_PG_Timer_MTU_U0.obj</Path>
@@ -133,6 +136,8 @@
           <Path>DefaultBuild\R_PG_Timer_MTU_U1.obj</Path>
           <Path>DefaultBuild\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>DefaultBuild\R_PG_Timer_MTU_U1_C7.obj</Path>
+          <Path>DefaultBuild\command.obj</Path>
+          <Path>DefaultBuild\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>source\external</IncludePathForC>
@@ -171,7 +176,7 @@
           <Option>-list=%ProjectDir%\%BuildModeName%\%ProjectName%.map</Option>
           <Option>-show=symbol,total_size</Option>
           <Option>-nooptimize</Option>
-          <Option>-start=B_1,R_1,B_2,R_2,B,R,SU,SI,W*/01000,PResetPRG/0FFFF8000,C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,L/0FFFF8100,FIXEDVECT/0FFFFFFD0</Option>
+          <Option>-start=B_1,R_1,B_2,R_2,B,R,SU,SI,W*/00001000,P/0FFFF0000,PResetPRG/0FFFFD000,C_1,C_2,C,C$*,D_1,D_2,D,PIntPRG,L/0FFFFD100,FIXEDVECT/0FFFFFFD0</Option>
           <Option>-rom=D=R,D_1=R_1,D_2=R_2</Option>
           <Option>-nologo</Option>
           <Option>-end</Option>
@@ -201,7 +206,6 @@
           <Path>Debug\Interrupt_INTC.obj</Path>
           <Path>Debug\Interrupt_MTU2.obj</Path>
           <Path>Debug\R_PG_Clock.obj</Path>
-          <Path>Debug\R_PG_I2C_C0.obj</Path>
           <Path>Debug\R_PG_IO_PORT_P1.obj</Path>
           <Path>Debug\R_PG_IO_PORT_PE.obj</Path>
           <Path>Debug\R_PG_Timer_MTU_U0.obj</Path>
@@ -209,6 +213,8 @@
           <Path>Debug\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Debug\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Debug\R_PG_Timer_MTU_U1_C7.obj</Path>
+          <Path>Debug\command.obj</Path>
+          <Path>Debug\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>source\external</IncludePathForC>
@@ -274,7 +280,6 @@
           <Path>Debug_RX_E1_E20_SYSTEM\Interrupt_INTC.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\Interrupt_MTU2.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Clock.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\R_PG_I2C_C0.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_IO_PORT_P1.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_IO_PORT_PE.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U0.obj</Path>
@@ -282,6 +287,8 @@
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1_C7.obj</Path>
+          <Path>Debug_RX_E1_E20_SYSTEM\command.obj</Path>
+          <Path>Debug_RX_E1_E20_SYSTEM\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>source\external</IncludePathForC>
@@ -343,7 +350,6 @@
           <Path>Release\Interrupt_INTC.obj</Path>
           <Path>Release\Interrupt_MTU2.obj</Path>
           <Path>Release\R_PG_Clock.obj</Path>
-          <Path>Release\R_PG_I2C_C0.obj</Path>
           <Path>Release\R_PG_IO_PORT_P1.obj</Path>
           <Path>Release\R_PG_IO_PORT_PE.obj</Path>
           <Path>Release\R_PG_Timer_MTU_U0.obj</Path>
@@ -351,6 +357,8 @@
           <Path>Release\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Release\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Release\R_PG_Timer_MTU_U1_C7.obj</Path>
+          <Path>Release\command.obj</Path>
+          <Path>Release\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>source\external</IncludePathForC>

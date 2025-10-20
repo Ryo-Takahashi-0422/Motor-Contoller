@@ -32,7 +32,4 @@ void HardwareSetup(void)
 	
 	R_PG_IO_PORT_Set_P1();
 	R_PG_IO_PORT_Set_PE();
-
-	R_PG_I2C_Set_C0();
-
 }

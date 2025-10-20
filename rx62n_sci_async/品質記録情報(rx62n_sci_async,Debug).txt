@@ -1,68 +1,13 @@
 品質記録情報
-2025年10月12日 15:28:23
+2025年10月20日 23:11:34
 
 ------ ビルド開始(rx62n_sci_async, Debug) ------
-C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RX\V3.07.00\Bin\ccrx.exe C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c -isa=rxv1 -lang=c -include=source\external -include=. -include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO -include=c:\renesas\PDG2_proj\BT_DEMO -include=c:\renesas\PDG2_proj\BT_DEMO\i_src -debug -g_line -nologo -output=obj -obj_path=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -MAKEUD=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -exec_time=C:\Users\RyoTaka\AppData\Local\Temp\CSPlusBuildTool_69bc3ceb190e4a92a60189b4621fd8422xfau5z4.efz
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(563):W0520177:Variable "isACK" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(564):W0520177:Variable "c" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(570):W0520177:Variable "sizeBuff" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(736):W0520118:A void function may not return a value
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(732):W0520177:Variable "isACK" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(992):W0520177:Variable "f_pwm" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(1060):W0520177:Variable "tcnt" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(1095):W0520550:Variable "i" was set but never used
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(1102):W0520550:Variable "i" was set but never used
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(728):W0520177:Function "EepromRandomRead" was declared but never referenced
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\source\main.c(527):W0520177:Function "CheckNACK" was declared but never referenced
-C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RX\V3.07.00\Bin\rlink.exe -MAKEUD=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.lk.ud -subcommand=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.clnk
-W0561016:The evaluation version of CC-RX V3 is valid for the remaining 11 days. After that, link size limit (128 Kbyte) will be applied. Please consider purchasing the product.
-W0561100:Cannot find "PIntPRG" specified in option "start"
-W0561100:Cannot find "L" specified in option "start"
-W0561016:The evaluation version of CC-RX V3 is valid for the remaining 11 days. After that, link size limit (128 Kbyte) will be applied. Please consider purchasing the product.
-Renesas Optimizing Linker Completed
------- ビルド終了(エラー:0個, 警告:15個)(rx62n_sci_async, Debug) ------
-
---- CommandFile 1 ---
-Debug\rx62n_sci_async.clnk :
--noprelink
--nomessage
--list=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.map
--show=symbol,total_size
--nooptimize
--start=B_1,R_1,B_2,R_2,B,R,SU,SI,W*/01000,PResetPRG/0FFFF8000,C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,L/0FFFF8100,FIXEDVECT/0FFFFFFD0
--rom=D=R,D_1=R_1,D_2=R_2
--nologo
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\dbsct.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\main.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\resetprg.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sbrk.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\sci.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\hwsetup.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\iic.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_INTC.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\Interrupt_MTU2.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Clock.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_I2C_C0.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_P1.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_IO_PORT_PE.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U0.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U0_C0.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C6.obj
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\R_PG_Timer_MTU_U1_C7.obj
--library=C:\Renesas\PDG2\lib\RX62N\RX62N_library_144_little.lib
--library=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.lib
--output=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.abs
--end
--input=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.abs
--output=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot
--form=stype
--exit
+------ ビルド終了(エラー:0個, 警告:0個)(rx62n_sci_async, Debug) ------
 
 
 --- SHA1 hash value of output files ---
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.abs: f42da48fde5258ad92df94fc8fdb0763d65881f2
-C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: 34184aecf1e5cf6817e3e612d41f52b8be4d5eb9
+C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.abs: 719859b7ea07cabb449ac7de3e5b6f6da0da08f6
+C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: 8996540e78b77315394b4506559090a01afc409d
 
 
 --- システム情報 ---
@@ -73,7 +18,7 @@ C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: 34184aec
 *.NET Framework バージョン
  Microsoft .NET Framework 4 [.NET 4.8 or later] (533320)
 *WebView2 バージョン
- 141.0.3537.71
+ 141.0.3537.85
 
 --- アプリケーション情報 ---
 *製品名
@@ -90,13 +35,13 @@ C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: 34184aec
  C:\Program Files (x86)\Renesas Electronics\CS+\CC
 *メモリ使用量
  *プライベート・ワーキング・セット
-  546 MB
+  368 MB
  *GDIオブジェクト数
-  2224
+  2163
  *USERオブジェクト数
-  1176
+  1104
  *開いているファイル
-  8 editors, 8 files, 150 KB
+  5 editors, 5 files, 57 KB
 
 --- ビルド・ツール・プラグイン情報 ---
 RH850ビルド・ツールCC-RH用プラグイン

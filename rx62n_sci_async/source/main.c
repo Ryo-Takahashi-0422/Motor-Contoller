@@ -42,12 +42,15 @@
 /*******************************************************************************
 Includes <System Includes> , "Project Includes"
 *******************************************************************************/
+#pragma once
 #include <machine.h>
 #include <stdint.h>
 #include "..\iodefine.h"
 #include "sci.h"
 #include <stdbool.h>
 #include "r_apn_iic_eep.h"
+#include <command.h>
+#include <iicComExe.h>
 
 /*******************************************************************************
 Macro definitions
@@ -71,7 +74,6 @@ Macro definitions
 #define NULL_SIZE       (1)                 /* Null code size */
 
 #define TARGET_SLAVE_ADDRESS		0xA0	/* EEPROM address */
-#define EEPROM_ADDRESS_LENGTH		2u		/* EEPROM address length */
 
 /*******************************************************************************
 Exported global variables and functions (to be accessed by other files)
@@ -102,10 +104,6 @@ static void cb_sci_rx_error(void);
 static void irMtu7_A(void);
 
 // I2C
-bool IICAckPolling(uint8_t, uint8_t, uint32_t);
-static void SampleEepromWrite(void);
-static void EepromRandomRead(void);
-static void SampleEepromRead(void);
 static void CpuCreate(void);
 static void CpuIntCreate(void);
 static void IICPortCreate(void);
@@ -119,12 +117,6 @@ uint8_t write_data[3];
 uint8_t addr[2];
 bool isReadI2C = false;
 uint8_t tr, rcv;
-
-uint8_t trm_eeprom_adr[EEPROM_ADDRESS_LENGTH];	/* Buffer for EEPROM addres for write */
-uint8_t rcv_eeprom_adr[EEPROM_ADDRESS_LENGTH];	/* Buffer for EEPROM addres for read */
-uint8_t trm_buff[12];							/* Buffer for EEPROM for write */
-uint8_t rcv_buff[12];							/* Buffer for EEPROM for read */
-IIC_API_T iic_buff_prm[2];						/* Structure for IIC function */
 
 signed short Under_over_flow_cnt; 	/* MTU2 u1 ch7 underflow/overflow counter */	
 
@@ -159,6 +151,7 @@ void main (void)
     //clrpsw_i();
     /* ==== Enable maskable interrupts ==== */
     setpsw_i();
+    
     /* ---- Initialization of the clock ---- */
     /* SCKCR - System Clock Control Register
     b31:b28  Reserved - The write value should be 0.
@@ -167,10 +160,6 @@ void main (void)
     b11:b8   PCK      - Peripheral Module Clock (PCLK) Select - 4 times
     b7:b0    Reserved - The write value should be 0. */
     SYSTEM.SCKCR.LONG = 0x00010100;
-    
-        /* ==== Enable maskable interrupts ==== */
-    //setpsw_i();
-  
 
     /* ==== Initialize I/O ports ==== */
     port_init();
@@ -179,24 +168,13 @@ void main (void)
     CpuCreate();
     
     /* Initialize and enable RIIC */
-    IIC_Create();
-    
+    IIC_Create();  
 
-
-    
     /* EEPROM Write (Master transfer) */
     SampleEepromWrite();
 
     /* Acknowledge polling (Master transfer) */
-    IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
-
-//    // バスフリー待ち
-//    do
-//    {
-//	;
-//    }while(RIIC.ICCR2.BIT.BBSY != 0);
-    
-//    EepromRandomRead();
+    IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);  
 
     /* EEPROM Read (Master transfer and Master receive) */
     SampleEepromRead();
@@ -218,7 +196,6 @@ void main (void)
     R_PG_IO_PORT_Write_PE0(0);
     //R_PG_IO_PORT_Write_PE1(0);
 
-    // tera turm側で改行押すと、その分受信バッファの先頭2byteが''で埋まるのに注意
     /* **** Start receive **** */
     do
     {
@@ -338,10 +315,6 @@ static void CpuIntCreate(void)
 	IEN(RIIC0,ICEEI0) = 1;
 	IEN(RIIC0,ICRXI0) = 1;
 	IEN(RIIC0,ICTXI0) = 1;
-//	ICU.IER[31].BIT.IEN2 = 1;
-//	ICU.IPR[IRQ0].BIT.IPR = 0x0F;   // 最優先
-//ICU.IPR[IRQ1].BIT.IPR = 0x0F;
-//ICU.IPR[IRQ2].BIT.IPR = 0x0F;
 	IEN(RIIC0,ICTEI0) = 1;
 #else
 	/* The IPR register is used to set the priority level of an interrupt	*/
@@ -429,6 +402,13 @@ static void cb_sci_tx_end (void)
 
 }
 
+static char tolower_local(char c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return c + ('a' - 'A');
+    return c;
+}
+
 /*******************************************************************************
 * Outline      : Callback function (SCI reception end)
 * Header       : sci.h
@@ -442,10 +422,16 @@ static void cb_sci_rx_end (void)
     // 受信バッファがフルの状態でこの割り込みが発生している
     // この処理中に新たなデータが送信(tera turmで文字入力)されると、
     uint8_t result;
+    char cmd[8] = {0};
+    int val = 0;
+    const CommandEntry *entry;
+    int i = 0;
        
     write_data[0] = 0x00;   // 書き込み先アドレス上位バイト（例：0x0010 → 0x00）
     write_data[1] = 0x10;   // 書き込み先アドレス下位バイト（→ 0x10）
     write_data[2] = 0xAB;   // 実際に書き込むデータ  
+    
+
     
     addr[0] = 0x00;
     addr[1] = 0x10;
@@ -459,6 +445,35 @@ static void cb_sci_rx_end (void)
         received_value = 1;
     }
     memset(rx_buf, 0, sizeof(rx_buf));
+    // 構造体でspd,pid値などを一元管理/コマンドにもその構造体ポインタ渡して
+    // こちらに返す&EEPROMへの保存もそのポインタデータに基づき行う設計でいく
+    
+    // 受信文字列を解析して実行
+    // 改行・復帰コードを除去
+    for (i = 0; rx_buf[i] != '\0'; i++) {
+        if (rx_buf[i] == '\r' || rx_buf[i] == '\n') {
+            rx_buf[i] = '\0';
+            break;
+        }
+    }
+
+    // 受信文字列の解析 ("cmd, val"形式)
+    if (sscanf((char *)rx_buf, "%3[^,],%d", cmd, &val) == 2) {
+    // 小文字化して統一（大文字送信でもOKにしたい場合）
+    for (i = 0; cmd[i]; i++) cmd[i] = tolower_local(cmd[i]);
+
+        entry = findCommand(cmd);
+        if (entry && entry->func) {
+            entry->func(cmd, val);  // 第1引数 'A' は任意
+        } else {
+
+        }
+    } 
+    else 
+    {
+
+    }
+
     
     // 応答を送信
     do
@@ -487,6 +502,8 @@ static void cb_sci_rx_end (void)
 //    }
     
 }
+
+
 
 /*******************************************************************************
 * Outline      : Callback function (SCI receive error)
@@ -549,436 +566,6 @@ static bool CheckNACK(void)
     {
 	return true;
     }
-}
-
-/******************************************************************************
-* Function Name: SampleEepromWrite
-* Description  : Sample Eeprom Write
-* Argument     : none
-* Return Value : none
-******************************************************************************/
-static void SampleEepromWrite(void)
-{
-	uint8_t slave_addr = 0x50;
-	bool isACK;
-	char c = 'r';
-	volatile uint32_t cnt;
-	
-	enum RiicStatus_t tmp_status;
-	enum RiicBusStatus_t tmp_bus_status;
-	
-	int sizeBuff = (sizeof(trm_buff)/sizeof(trm_buff[0]));
-
-	/* Set the data for writting to EEROM (Sample data) */
-//	for(cnt=0; cnt < sizeBuff; cnt++){
-//		trm_buff[cnt] = cnt;
-//	}
-	trm_buff[0] = 'a';
-	trm_buff[1] = 'b';
-	trm_buff[2] = 'c';
-	trm_buff[3] = 'd';
-	trm_buff[4] = 'e';
-	trm_buff[5] = 'f';
-	trm_buff[6] = 'g';
-	trm_buff[7] = 'h';
-	trm_buff[8] = '5';
-	trm_buff[9] = '9';
-	trm_buff[10] = '6';
-	trm_buff[11] = '8';
-	
-	/* Set the address where the RIIC write date to EEPROM */
-	trm_eeprom_adr[0] = 0x00;
-	trm_eeprom_adr[1] = 0x00;
-
-	/* Set the parameters for 'IIC_EepWrite' */
-	iic_buff_prm[0].SlvAdr = TARGET_SLAVE_ADDRESS;		/* Target slave device */
-	iic_buff_prm[0].PreCnt = EEPROM_ADDRESS_LENGTH;		/* EEPROM address length */
-	iic_buff_prm[0].pPreData = trm_eeprom_adr;			/* Pointer for EEPROM adress buffer */
-	iic_buff_prm[0].RWCnt = 12;							/* Data length of writting data */
-	iic_buff_prm[0].pRWData = trm_buff;					/* Pointer for writting data buffer */
-
-	/* Start EEPROM Write */
-	if(RIIC_OK != IIC_EepWrite(iic_buff_prm[0]))
-	{
-		/* This software is for single master 					*/
-		/* Therefore, return value should be always 'RIIC_OK'	*/
-		while(1){};
-	}
-	
-        RIIC0.ICDRT = (slave_addr << 1) | 0x00;	
-
-	/* Wait for communication complete */
-	do{
-		IIC_GetStatus(&tmp_status, &tmp_bus_status);
-	}while(tmp_status == RIIC_STATUS_ON_COMMUNICATION);
-
-	/* Wait for IIC bus free */
-	do{
-		IIC_GetStatus(&tmp_status, &tmp_bus_status);
-	}while(tmp_bus_status != RIIC_BUS_STATUS_FREE);
-	
- 
-	
-	
-//	if(RIIC.ICCR2.BIT.BBSY != 0)
-//	{
-//		return RIIC_BUS_BUSY;
-//	}
-	
-//	// 開始条件発行
-//	RIIC.ICCR2.BIT.ST = 1;
-	
-//	// NACK確認
-//	isACK = CheckNACK();
-//	if(!isACK)
-//	{
-//	    return;
-//	}
-	
-//	// スレーブアドレス+W(0x00)書き込み
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TDRE != 1);
-//	RIIC.ICDRT = (slave_addr << 1) | 0x00;
-	
-//	// NACK確認
-//	isACK = CheckNACK();
-//	if(!isACK)
-//	{
-//	    return;
-//	}
-	
-//	// Hアドレス書き込み
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TDRE != 1);
-//	RIIC.ICDRT = 0x00;
-	
-//	// NACK確認
-//	isACK = CheckNACK();
-//	if(!isACK)
-//	{
-//	    return;
-//	}
-	
-//	// Lアドレス書き込み
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TDRE != 1);
-//	RIIC.ICDRT = 0x01;
-	
-//	// NACK確認
-//	isACK = CheckNACK();
-//	if(!isACK)
-//	{
-//	    return;
-//	}
-	
-//	// データbyte書き込み
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TDRE != 1);
-//	RIIC.ICDRT = c;
-
-//	// TEND待ち
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TEND != 1);
-	
-//	// 停止条件発行
-//	RIIC.ICSR2.BIT.STOP = 0;
-//	RIIC.ICCR2.BIT.SP = 1;
-	
-//	// 停止条件発行確認
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.STOP != 1);
-	
-//	// 次の通信のための処理
-//	RIIC.ICSR2.BIT.NACKF = 0;
-//	RIIC.ICSR2.BIT.STOP = 0;
-
-    
-    
-	// ★マスタ送信完了
-
-	
-
-}
-
-void wait_ms(uint32_t ms)
-{
-    volatile uint32_t i;
-    while (ms--)
-    {
-        /* CPUクロック = 100MHz の場合、下のループで約1ms */
-        for (i = 0; i < 40000; i++) {
-            __nop();   // または空文でもOK
-        }
-    }
-}
-
-// ランダム(アドレス指定)読み出し
-static void EepromRandomRead(void)
-{
-	uint8_t slave_addr = 0x50;
-	volatile uint8_t rBuff;
-	bool isACK;
-		
-	if(RIIC.ICCR2.BIT.BBSY != 0)
-	{
-		return RIIC_BUS_BUSY;
-	}
-	
-//	do
-//	{
-//		;
-//	}while((RIIC.ICCR2.BIT.BBSY == 0));
-	
-
-	// 書き込み開始条件発行
-	do {
-	    RIIC.ICCR2.BIT.ST = 1;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.TDRE != 1);
-	
-	// スレーブアドレス+W(0x00)書き込み
-	do {
-	    RIIC.ICDRT = (slave_addr << 1) | 0x00;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.TDRE != 1);
-
-	// Hアドレス書き込み
-	do {
-	    RIIC.ICDRT = 0x00;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.TDRE != 1);
-	
-	// ★ブレークポイント無しでNACKが返る(恐らく他でも発生する　一つ前のSampleEEpWriteでは発生しない...)
-	// NACKが返るとRIICは処理を中断するため、どう復帰させるかがポイント
-	// Lアドレス書き込み
-	do {
-	    RIIC.ICDRT = 0x00;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.TDRE != 1);
-	
-	// 停止条件発行せず次の通信へ
-	//RIIC.ICSR2.BIT.STOP = 0;
-	//RIIC.ICCR2.BIT.SP = 1;
-	//RIIC.ICSR2.BIT.NACKF = 0;
-	//RIIC.ICSR2.BIT.START = 0;
-	//RIIC.ICSR2.BIT.STOP = 0;
-	
-	// ランダム読み込み開始条件発行
-	do {
-	    RIIC.ICCR2.BIT.RS = 1;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.TDRE != 1);
-	
-	// スレーブアドレス+R(0x01)書き込み
-	do {
-	    RIIC.ICDRT = (slave_addr << 1) | 0x01;
-	    wait_ms(50);
-	} while (RIIC.ICSR2.BIT.NACKF == 1 && RIIC.ICSR2.BIT.RDRF != 1);
-	
-	// データ取得
-	rBuff = RIIC.ICDRR;
-	rcv_buff[0] = rBuff;
-	
-        // 停止条件発行
-        RIIC.ICSR2.BIT.STOP = 0;
-	RIIC.ICCR2.BIT.SP = 1;
-	rBuff = RIIC.ICDRR;
-	RIIC.ICMR3.BIT.WAIT = 0;
-	// 無しで00 00 'e'がrbuffへ格納される
-//   	rBuff = RIIC.ICDRR;
-//	rcv_buff[0] = rBuff;
-	// 停止条件発行確認
-	do
-	{
-            ;
-	}while(RIIC.ICSR2.BIT.STOP != 1);
-		
-	// 次の通信のための処理
-	RIIC.ICSR2.BIT.NACKF = 0;
-	RIIC.ICSR2.BIT.STOP = 0;
-	
-}
-/******************************************************************************
-* Function Name: SampleEepromRead
-* Description  : Sample Eeprom Read (Random read)
-* Argument     : none
-* Return Value : none
-******************************************************************************/
-static void SampleEepromRead(void)
-{
-	//uint8_t rcv_buff[256];
-	//volatile uint8_t tmp;
-	//bool isACK;
-	uint8_t slave_addr = 0x50;
-	volatile uint32_t cnt;
-	enum RiicStatus_t tmp_status;
-	enum RiicBusStatus_t tmp_bus_status;
-
-	/* Clear the data buffer */
-	for(cnt=0; cnt < (sizeof(rcv_buff)/sizeof(rcv_buff[0])); cnt++){
-		rcv_buff[cnt] = 0;
-	}
-
-	/* Set the address where the RIIC read date to EEPROM */
-	/* In this sample, RIIC read data from address 0x0000 */
-	rcv_eeprom_adr[0] = 0x00;
-	rcv_eeprom_adr[1] = 0x00;
-
-	/* Set the parameter for 'IIC_RandomRead' */
-	iic_buff_prm[1].SlvAdr = TARGET_SLAVE_ADDRESS + 1;		/* Target slave device */
-	iic_buff_prm[1].PreCnt = EEPROM_ADDRESS_LENGTH;		/* EEPROM address length */
-	iic_buff_prm[1].pPreData = rcv_eeprom_adr;			/* Pointer for EEPROM adress buffer */
-	iic_buff_prm[1].RWCnt = 11;							/* Data length of read data */
-	iic_buff_prm[1].pRWData = rcv_buff;					/* Pointer for read data buffer */
-
-	/* Start EEPROM Read */
-	if(RIIC_OK != IIC_RandomRead(iic_buff_prm[1]))
-	{
-		/* This software is for single master 					*/
-		/* Therefore, return value should be always 'RIIC_OK'	*/
-		while(1){};
-	}
-	
-	RIIC0.ICDRT = (slave_addr << 1) | 0x01;	
-
-	/* Wait for communication complete */
-	do{
-		IIC_GetStatus(&tmp_status, &tmp_bus_status);
-	}while(tmp_status == RIIC_STATUS_ON_COMMUNICATION);
-
-	/* Wait for IIC bus free */
-	do{
-		IIC_GetStatus(&tmp_status, &tmp_bus_status);
-	}while(tmp_bus_status != RIIC_BUS_STATUS_FREE);
-//	if(RIIC.ICCR2.BIT.BBSY != 0)
-//	{
-//		return RIIC_BUS_BUSY;
-//	}
-	
-//	// 開始条件発行
-//	RIIC.ICCR2.BIT.ST = 1;
-	
-//	// スレーブアドレス+W(0x00)書き込み
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.TDRE != 1);
-//	RIIC.ICDRT = (slave_addr << 1) | 0x01;
-	
-//	// RDRF待ち
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.RDRF != 1);	
-	
-	
-//	// NACK確認
-//	if(RIIC.ICSR2.BIT.NACKF != 0)
-//	{
-//            // 停止条件発行
-//            RIIC.ICSR2.BIT.STOP = 0;
-//	    RIIC.ICCR2.BIT.SP = 1;
-	    
-//	    // ダミーリード
-//	    tmp = RIIC.ICDRR;
-	    
-//	    // 停止条件発行確認
-//	    do
-//	    {
-//                ;
-//	    }while(RIIC.ICSR2.BIT.STOP != 1);
-		
-//	    // 次の通信のための処理
-//	    RIIC.ICSR2.BIT.NACKF = 0;
-//	    RIIC.ICSR2.BIT.STOP = 0;
-	    
-//	    return;
-//	}
-	
-//	// ダミーリードして受信開始
-//	tmp = RIIC.ICDRR;
-	
-//	// RDRF待ち
-//	do
-//	{
-//		;
-//	}while(RIIC.ICSR2.BIT.RDRF != 1);		
-	
-	
-	
-}
-
-/******************************************************************************
-* Function Name: IICAckPolling
-* Description  : Acknowledge polling
-*              : This function is locked until target eeprom reply ACK.
-* Argument     : in_addr1 - Slave device address
-*              :          - 0x00-0xFE	// Don't set bit0. It's a Read/Write bit
-*              : in_num - Number of acknowledge polling
-*              :        - 0x00-0xFF		// When number is 0, continue to wait for ACK
-*              : in_len - Length between each polling
-*              :         - 0x00000000-0xFFFFFFFF
-* Return Value : Receive ACK - true
-*              : Not receive ACK - false
-******************************************************************************/
-bool IICAckPolling(uint8_t in_addr1, uint8_t in_num, uint32_t in_len)
-{
-	IIC_API_T tmp_buff;
-	enum RiicStatus_t tmp_status;
-	enum RiicBusStatus_t tmp_bus_status;
-	int8_t tmp_num;
-	volatile uint32_t cnt1, cnt2;
-
-	/* Store the parameter data to ram for IIC */
-	tmp_buff.SlvAdr = in_addr1;
-	tmp_buff.PreCnt = 0;
-	tmp_buff.RWCnt = 0;
-
-	/* Store the number for polling */
-	tmp_num = in_num;
-
-	/* Acknowledge polling until target eeprom reply ACK */
-	do{
-		/* Start Acknowledge polling (Master transfer) */
-		while(RIIC_OK != IIC_EepWrite(tmp_buff)){};
-
-		/* Wait for communication complete */
-		do{
-			IIC_GetStatus(&tmp_status, &tmp_bus_status);
-		}while(tmp_status == RIIC_STATUS_ON_COMMUNICATION);
-
-		/* When EEPROM reply NACK, wait for some time.	*/
-		/* Then start Acknowledge polling again 		*/
-		if(tmp_status == RIIC_STATUS_NACK)
-		{
-			for(cnt1=in_len; cnt1!=0; cnt1--)		/* wait time for eeprom ack */
-			{
-				for(cnt2=0; cnt2<100; cnt2++);
-			}
-		}
-		/* When recive ACK, return 'true' */
-		else if(tmp_status == RIIC_STATUS_IDLE)
-		{
-			return true;
-		}
-
-		tmp_num--;		/* Decrement polling counter */
-	}while((tmp_num != 0) || (in_num == 0));
-
-	/* When don't receive ACK, return 'false' */
-	return false;
 }
 
 //========================  Interrupt Function  ===============================
@@ -1087,20 +674,6 @@ void Mtu7UnIntFunc(void)
     //dummy = MTU7.TSR.BYTE;     /* register dummy read */
 
     Under_over_flow_cnt--;
-}
-
-// I2C全データ受信完了時割り込み
-void IIC0MasterReFunc(void)
-{
-	int i = 0;
-	i = rcv;
-}
-
-// I2C全データ送信完了時割り込み
-void IIC0MasterTrFunc(void)
-{
-	int i = 0;
-	i = tr;
 }
 
 /* End of File */
