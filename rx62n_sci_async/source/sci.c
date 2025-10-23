@@ -478,7 +478,7 @@ static void sci_rxi_isr (void)
     rx_cnt--;
 
     // \rの次の文字を読んでしまう→\nなので、受信完了コールバック呼び出しが2度立て続けに呼ばれACK*2になっている。
-    if (last_received_byte == '\r')// || last_received_byte == '\n')
+    if (last_received_byte == '\n')// || last_received_byte == '\r')
     {
         // ここで受信完了とみなす
         // 余りのカウントは無視して割り込み停止

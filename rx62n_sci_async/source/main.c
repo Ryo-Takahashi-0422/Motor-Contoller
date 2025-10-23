@@ -419,6 +419,8 @@ static char tolower_local(char c)
 *******************************************************************************/
 static void cb_sci_rx_end (void)
 {
+    uint8_t received_bytes = 0;
+    int j = 0;
     // 受信バッファがフルの状態でこの割り込みが発生している
     // この処理中に新たなデータが送信(tera turmで文字入力)されると、
     uint8_t result;
@@ -427,15 +429,6 @@ static void cb_sci_rx_end (void)
     const CommandEntry *entry;
     int i = 0;
        
-    write_data[0] = 0x00;   // 書き込み先アドレス上位バイト（例：0x0010 → 0x00）
-    write_data[1] = 0x10;   // 書き込み先アドレス下位バイト（→ 0x10）
-    write_data[2] = 0xAB;   // 実際に書き込むデータ  
-    
-
-    
-    addr[0] = 0x00;
-    addr[1] = 0x10;
-
     /* LED1 ON (SCI reception end) */
     //LED1_REG_PODR = LED_ON;
     //LED0_REG_PODR = LED_ON;
@@ -444,23 +437,44 @@ static void cb_sci_rx_end (void)
     {
         received_value = 1;
     }
-    memset(rx_buf, 0, sizeof(rx_buf));
+//    memset(rx_buf, 0, sizeof(rx_buf));
     // 構造体でspd,pid値などを一元管理/コマンドにもその構造体ポインタ渡して
     // こちらに返す&EEPROMへの保存もそのポインタデータに基づき行う設計でいく
     
     // 受信文字列を解析して実行
     // 改行・復帰コードを除去
-    for (i = 0; rx_buf[i] != '\0'; i++) {
+    for (i = 0; i < BUF_SIZE; i++) {
         if (rx_buf[i] == '\r' || rx_buf[i] == '\n') {
             rx_buf[i] = '\0';
-            break;
         }
+	else
+	{
+	    received_bytes++;
+	}
     }
+    
+    i = 0;
+    
+	// 1. コマンド部分をコピー
+	while (i < received_bytes && rx_buf[i] != ',' && j < sizeof(cmd)-1) {
+	    cmd[j++] = rx_buf[i++];
+	}
+	cmd[j] = '\0';
+
+	// 2. カンマをスキップ
+	if (i < received_bytes && rx_buf[i] == ',') i++;
+
+	// 3. 数字部分を解析
+	val = 0;
+	while (i < received_bytes && rx_buf[i] >= '0' && rx_buf[i] <= '9') {
+	    val = val * 10 + (rx_buf[i] - '0');
+	    i++;
+	}
 
     // 受信文字列の解析 ("cmd, val"形式)
-    if (sscanf((char *)rx_buf, "%3[^,],%d", cmd, &val) == 2) {
-    // 小文字化して統一（大文字送信でもOKにしたい場合）
-    for (i = 0; cmd[i]; i++) cmd[i] = tolower_local(cmd[i]);
+    //if (sscanf((char *)rx_buf, "%3[^,],%d", cmd, &val) == 2) {
+        // 小文字化して統一（大文字送信でもOKにしたい場合）
+        //for (i = 0; cmd[i]; i++) cmd[i] = tolower_local(cmd[i]);
 
         entry = findCommand(cmd);
         if (entry && entry->func) {
@@ -468,12 +482,13 @@ static void cb_sci_rx_end (void)
         } else {
 
         }
-    } 
-    else 
-    {
+    //} 
+    //else 
+    //{
 
-    }
+    //}
 
+    memset(rx_buf, 0, sizeof(rx_buf));
     
     // 応答を送信
     do
