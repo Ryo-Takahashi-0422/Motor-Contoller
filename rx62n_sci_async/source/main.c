@@ -1,133 +1,5 @@
-/*******************************************************************************
-* DISCLAIMER
-* This software is supplied by Renesas Electronics Corporation and is only
-* intended for use with Renesas products. No other uses are authorized. This
-* software is owned by Renesas Electronics Corporation and is protected under
-* all applicable laws, including copyright laws.
-* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING
-* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT
-* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
-* AND NON-INFRINGEMENT. ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.
-* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEITHER RENESAS
-* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE
-* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR
-* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR ITS AFFILIATES HAVE
-* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-* Renesas reserves the right, without notice, to make changes to this software
-* and to discontinue the availability of this software. By using this software,
-* you agree to the additional terms and conditions found by accessing the
-* following link:
-* http://www.renesas.com/disclaimer
-*
-* Copyright (C) 2013 Renesas Electronics Corporation. All rights reserved.
-*******************************************************************************/
-/*******************************************************************************
-* System Name  : Sample program for Asynchronous communication with SCI
-* File Name    : main.c
-* Version      : 1.00
-* Device       : R5F562N8BDBG (RX62N Group)
-* Abstract     : Main program
-* Tool-Chain   : High-performance Embedded Workshop (Version 4.09.01.007),
-*                C/C++ Compiler Package for RX Family (V.1.02 Release 01)
-* OS           : not use
-* H/W Platform : Renesas Starter Kit for RX62N
-* Description  : Asynchronous transmission and reception with SCI.
-* Limitation   : none
-*******************************************************************************/
-/*******************************************************************************
-* History      : DD.MM.YYYY Version  Description
-*              : 31.05.2013 1.00     First Release
-*******************************************************************************/
+#include <main.h>
 
-/*******************************************************************************
-Includes <System Includes> , "Project Includes"
-*******************************************************************************/
-#pragma once
-#include <machine.h>
-#include <stdint.h>
-#include "..\iodefine.h"
-#include "sci.h"
-#include <stdbool.h>
-#include "r_apn_iic_eep.h"
-#include <command.h>
-#include <iicComExe.h>
-
-/*******************************************************************************
-Macro definitions
-*******************************************************************************/
-/* **** LEDs **** */
-/* ==== LED0 (SCI transmission end) ==== */
-//#define LED0_REG_PODR   PORT1.DR.BIT.B5    /* P02: Output data store bit */
-//#define LED0_REG_PDR    PORT1.DDR.BIT.B5    /* P02: I/O select bit */
-/* ==== LED1 (SCI reception end) ==== */
-//#define LED1_REG_PODR   PORT0.DR.BIT.B3     /* P03: Output data store bit */
-//#define LED1_REG_PDR    PORT0.DDR.BIT.B3    /* P03: I/O select bit */
-/* ==== LED2 (SCI receive error) ==== */
-#define LED2_REG_PODR   PORT0.DR.BIT.B5     /* P05: Output data store bit */
-#define LED2_REG_PDR    PORT0.DDR.BIT.B5    /* P05: I/O select bit */
-/* ==== LEDs output data ==== */
-#define LED_ON          (0)                 /* LED on */
-#define LED_OFF         (1)                 /* LED off */
-
-/* **** Buffer **** */
-#define BUF_SIZE        (12)                /* Buffer size */
-#define NULL_SIZE       (1)                 /* Null code size */
-
-#define TARGET_SLAVE_ADDRESS		0xA0	/* EEPROM address */
-
-/*******************************************************************************
-Exported global variables and functions (to be accessed by other files)
-*******************************************************************************/
-void main(void);
-
-/*******************************************************************************
-Private variables and functions
-*******************************************************************************/
-/* **** SCI state **** */
-static sci_state_t      sci_state = {0x00};
-#define SCI_B_TX_BUSY   sci_state.bit.b_tx_busy     /* Transmission busy flag */
-#define SCI_B_RX_BUSY   sci_state.bit.b_rx_busy     /* Reception busy flag */
-#define SCI_B_RX_ORER   sci_state.bit.b_rx_orer     /* Overrun error flag */
-#define SCI_B_RX_FER    sci_state.bit.b_rx_fer      /* Framing error flag */
-
-static uint8_t rx_buf[BUF_SIZE];
-static uint8_t tx_buf[] = {"ACK\n"};
-
-static void port_init(void);
-static void peripheral_init(void);
-
-/* **** Callback Function **** */
-static void cb_sci_tx_end(void);
-static void cb_sci_rx_end(void);
-static void cb_sci_rx_error(void);
-
-static void irMtu7_A(void);
-
-// I2C
-static void CpuCreate(void);
-static void CpuIntCreate(void);
-static void IICPortCreate(void);
-static bool CheckNACK(void);
-
-char isRbuffFull;
-int received_value = 1;
-// I2C書き込みテスト用
-uint8_t write_data[3];
-// I2C 読み込みテスト用
-uint8_t addr[2];
-bool isReadI2C = false;
-uint8_t tr, rcv;
-
-signed short Under_over_flow_cnt; 	/* MTU2 u1 ch7 underflow/overflow counter */	
-
-#define		PSW_init  0x00010000
-
-#define		TGRB_INIT_VAL	7500				// Interval=20ms(PCLK/64)
-#define		DUTY_VAL	TGRB_INIT_VAL / 100		// Duty:10%
-#define		TGRA_INIT_VAL	4687				// Interval=50ms(PCLK/256)
-#define		MINIMUM_TGRA_VAL	0x200			// Interval=2.6ms(PCLK/128)
-
-//char isOnError;
 /*******************************************************************************
 * Outline      : Main processing
 * Header       : none
@@ -171,19 +43,18 @@ void main (void)
     IIC_Create();  
 
     /* EEPROM Write (Master transfer) */
-    SampleEepromWrite();
+    //SampleEepromWrite();
 
     /* Acknowledge polling (Master transfer) */
-    IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);  
+    //IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);  
 
     /* EEPROM Read (Master transfer and Master receive) */
-    SampleEepromRead();
+    //SampleEepromRead();
+    
+    // TODO : 速度の読み込み
 
     /* ==== Initialize peripheral functions ==== */
     peripheral_init();
-
-    /* ==== Enable maskable interrupts ==== */
-    //setpsw_i();
 
     /* **** Initialize RAM **** */
     for (cnt = 0; cnt < BUF_SIZE; cnt++)
@@ -210,6 +81,19 @@ void main (void)
 	    {		    
 		result = SCI_StartReceive(rx_buf, BUF_SIZE, cb_sci_rx_end, cb_sci_rx_error);
 		isRbuffFull = 0;		    
+	    }
+	    
+	    // EEPROM書き読み確認
+	    // 速度指示あり→EEPROM書き込み→読み込んで内容確認
+	    if(isGetData)
+	    {
+		if(strcmp(lastCmd, "spd") == 0)
+		{
+		    EepromWrite(motorParams.speed, 0x00, 0x00);
+	            IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
+		    SampleEepromRead();
+		}
+	    	isGetData = false;
 	    }
 	
     }
@@ -432,11 +316,11 @@ static void cb_sci_rx_end (void)
     /* LED1 ON (SCI reception end) */
     //LED1_REG_PODR = LED_ON;
     //LED0_REG_PODR = LED_ON;
-    received_value = atoi((char*)rx_buf);
-    if(received_value < 1)
-    {
-        received_value = 1;
-    }
+//    received_value = atoi((char*)rx_buf);
+//    if(received_value < 1)
+//    {
+//        received_value = 1;
+//    }
 //    memset(rx_buf, 0, sizeof(rx_buf));
     // 構造体でspd,pid値などを一元管理/コマンドにもその構造体ポインタ渡して
     // こちらに返す&EEPROMへの保存もそのポインタデータに基づき行う設計でいく
@@ -478,7 +362,11 @@ static void cb_sci_rx_end (void)
 
         entry = findCommand(cmd);
         if (entry && entry->func) {
-            entry->func(cmd, val);  // 第1引数 'A' は任意
+            entry->func(cmd, val, &motorParams);  // 第1引数 'A' は任意
+	    received_value = motorParams.speed;
+	    // コマンド記憶、データ受信フラグオン
+	    isGetData = true;
+	    memcpy(lastCmd, cmd, sizeof(cmd));
         } else {
 
         }
@@ -497,6 +385,7 @@ static void cb_sci_rx_end (void)
     }
     while (SCI_BUSY == result);
     
+   
     //
 //    if(!isReadI2C)
 //    {

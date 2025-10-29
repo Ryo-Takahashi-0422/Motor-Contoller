@@ -68,6 +68,57 @@ void SampleEepromWrite(void)
 	}while(tmp_bus_status != RIIC_BUS_STATUS_FREE);
 }
 
+void EepromWrite(int data, int lAddr, int hAddr)
+{
+	uint32_t len;
+	
+	enum RiicStatus_t tmp_status;
+	enum RiicBusStatus_t tmp_bus_status;
+	
+	if (data <= 0xFF) {
+	// 1バイトで表せる場合
+	trm_buff[0] = (uint8_t)data;
+	len = 1;
+	} else {
+	// 2バイト（上位・下位）で格納
+	trm_buff[0] = (data >> 8) & 0xFF; // 上位バイト
+	trm_buff[1] = data & 0xFF;        // 下位バイト
+	len = 2;
+	}
+
+	/* Set the address where the RIIC write date to EEPROM */
+	trm_eeprom_adr[0] = 0x00;
+	trm_eeprom_adr[1] = 0x00;
+
+	/* Set the parameters for 'IIC_EepWrite' */
+	iic_buff_prm[0].SlvAdr = TARGET_SLAVE_ADDRESS;		/* Target slave device */
+	iic_buff_prm[0].PreCnt = EEPROM_ADDRESS_LENGTH;		/* EEPROM address length */
+	iic_buff_prm[0].pPreData = trm_eeprom_adr;			/* Pointer for EEPROM adress buffer */
+	iic_buff_prm[0].RWCnt = len;							/* Data length of writting data */
+	iic_buff_prm[0].pRWData = trm_buff;					/* Pointer for writting data buffer */
+
+	/* Start EEPROM Write */
+	if(RIIC_OK != IIC_EepWrite(iic_buff_prm[0]))
+	{
+		/* This software is for single master 					*/
+		/* Therefore, return value should be always 'RIIC_OK'	*/
+		while(1){};
+	}
+
+	/* Wait for communication complete */
+	do{
+		IIC_GetStatus(&tmp_status, &tmp_bus_status);
+	}while(tmp_status == RIIC_STATUS_ON_COMMUNICATION);
+
+	/* Wait for IIC bus free */
+	do{
+		IIC_GetStatus(&tmp_status, &tmp_bus_status);
+	}while(tmp_bus_status != RIIC_BUS_STATUS_FREE);
+	
+	
+}
+
+
 /******************************************************************************
 * Function Name: SampleEepromRead
 * Description  : Sample Eeprom Read (Random read)
@@ -88,13 +139,13 @@ void SampleEepromRead(void)
 	/* Set the address where the RIIC read date to EEPROM */
 	/* In this sample, RIIC read data from address 0x0000 */
 	rcv_eeprom_adr[0] = 0x00;
-	rcv_eeprom_adr[1] = 0x01;
+	rcv_eeprom_adr[1] = 0x00;
 
 	/* Set the parameter for 'IIC_RandomRead' */
 	iic_buff_prm[1].SlvAdr = TARGET_SLAVE_ADDRESS + 1;		/* Target slave device */
 	iic_buff_prm[1].PreCnt = EEPROM_ADDRESS_LENGTH;		/* EEPROM address length */
 	iic_buff_prm[1].pPreData = rcv_eeprom_adr;			/* Pointer for EEPROM adress buffer */
-	iic_buff_prm[1].RWCnt = 11;							/* Data length of read data */
+	iic_buff_prm[1].RWCnt = 12;							/* Data length of read data */
 	iic_buff_prm[1].pRWData = rcv_buff;					/* Pointer for read data buffer */
 
 	/* Start EEPROM Read */

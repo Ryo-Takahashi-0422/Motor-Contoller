@@ -26,6 +26,8 @@
           <Path>source\sci_cfg.h</Path>
           <Path>source\sci.h</Path>
           <Path>iicComExe.h</Path>
+          <Path>common.h</Path>
+          <Path>main.h</Path>
         </Category>
       </Category>
       <Path>プロジェクト変換情報_rx62n_sci_async.txt</Path>
@@ -161,6 +163,7 @@
           <Option>-include=c:\renesas\PDG2_proj\BT_DEMO\i_src</Option>
           <Option>-debug</Option>
           <Option>-g_line</Option>
+          <Option>-optimize=0</Option>
           <Option>-nologo</Option>
           <Option>-output=obj</Option>
         </CompileOptions>

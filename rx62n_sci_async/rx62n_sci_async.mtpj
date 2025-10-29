@@ -171,6 +171,20 @@
       <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
       <ParentItem>255d7b1e-56f1-4aba-91ef-4047ccf56954</ParentItem>
     </Instance>
+    <Instance Guid="fcdbf10a-2eee-40b2-965a-b6819c321408">
+      <Name>common.h</Name>
+      <Type>File</Type>
+      <RelativePath>common.h</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>255d7b1e-56f1-4aba-91ef-4047ccf56954</ParentItem>
+    </Instance>
+    <Instance Guid="3a22dd64-6576-4f42-9f66-85920dd0615e">
+      <Name>main.h</Name>
+      <Type>File</Type>
+      <RelativePath>main.h</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>255d7b1e-56f1-4aba-91ef-4047ccf56954</ParentItem>
+    </Instance>
     <Instance Guid="5a477b2a-c399-4577-9663-15baea66097d">
       <Name>Header</Name>
       <Type>Category</Type>
@@ -807,6 +821,7 @@
 -include=c:\renesas\PDG2_proj\BT_DEMO\i_src
 -debug
 -g_line
+-optimize=0
 -nologo
 -output=obj
 -obj_path=%ProjectDir%\%BuildModeName%
@@ -931,6 +946,7 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
 -include=c:\renesas\PDG2_proj\BT_DEMO\i_src
 -debug
 -g_line
+-optimize=0
 -nologo
 -output=obj
 -obj_path=%ProjectDir%\%BuildModeName%
@@ -1000,12 +1016,12 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <COptionIncode-0>Sjis</COptionIncode-0>
       <COptionFloatOrder-0>False</COptionFloatOrder-0>
       <COptionBranchChaining-0>None</COptionBranchChaining-0>
-      <TimeTagModified--1>-8584403770094782507</TimeTagModified--1>
+      <TimeTagModified--1>-8584401444992243042</TimeTagModified--1>
       <COptionLangC-1>C</COptionLangC-1>
       <COptionListfile-1>False</COptionListfile-1>
       <COptionLogo-1>False</COptionLogo-1>
       <COptionMisra-1>Misra2012</COptionMisra-1>
-      <COptionOptimize-1>Level2</COptionOptimize-1>
+      <COptionOptimize-1>Level0</COptionOptimize-1>
       <COptionOutput-1>Object</COptionOutput-1>
       <COptionOutputAssembly-1>False</COptionOutputAssembly-1>
       <COptionOutputDepOrOutputObj-1>-output=obj</COptionOutputDepOrOutputObj-1>
@@ -1049,6 +1065,7 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
 -include=c:\renesas\PDG2_proj\BT_DEMO\i_src
 -debug
 -g_line
+-optimize=0
 -nologo
 -output=obj
 -obj_path=%ProjectDir%\%BuildModeName%
@@ -1165,6 +1182,7 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
 -include=c:\renesas\PDG2_proj\BT_DEMO\i_src
 -debug
 -g_line
+-optimize=0
 -nologo
 -output=obj
 -obj_path=%ProjectDir%\%BuildModeName%
@@ -1281,6 +1299,7 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
 -include=c:\renesas\PDG2_proj\BT_DEMO\i_src
 -debug
 -g_line
+-optimize=0
 -nologo
 -output=obj
 -obj_path=%ProjectDir%\%BuildModeName%
@@ -1373,7 +1392,14 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <AsmOptionPreAssembleCommands-DefaultValue />
       <AsmOptionPostAssembleCommands-DefaultValue />
       <AsmOptionOtherAdditionalOptions-DefaultValue />
-      <AsmOptionCommandLine-DefaultValue />
+      <AsmOptionCommandLine-DefaultValue>-isa=rxv1
+-debug
+-nologo
+-output=obj
+-obj_path=%ProjectDir%\%BuildModeName%
+-exec_time
+-MAKEUD
+</AsmOptionCommandLine-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
       <TimeTagModified--0>-8584437003570829632</TimeTagModified--0>
       <AsmOptionChkpm-0>False</AsmOptionChkpm-0>
@@ -1397,7 +1423,14 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <AsmOptionPreAssembleCommands-0 />
       <AsmOptionPostAssembleCommands-0 />
       <AsmOptionOtherAdditionalOptions-0 />
-      <AsmOptionCommandLine-0 />
+      <AsmOptionCommandLine-0>-isa=rxv1
+-debug
+-nologo
+-output=obj
+-obj_path=%ProjectDir%\%BuildModeName%
+-exec_time
+-MAKEUD
+</AsmOptionCommandLine-0>
       <TimeTagModified--1>-8584437003541552078</TimeTagModified--1>
       <AsmOptionChkpm-1>False</AsmOptionChkpm-1>
       <AsmOptionGoptimize-1>False</AsmOptionGoptimize-1>
@@ -1420,7 +1453,14 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <AsmOptionPreAssembleCommands-1 />
       <AsmOptionPostAssembleCommands-1 />
       <AsmOptionOtherAdditionalOptions-1 />
-      <AsmOptionCommandLine-1 />
+      <AsmOptionCommandLine-1>-isa=rxv1
+-debug
+-nologo
+-output=obj
+-obj_path=%ProjectDir%\%BuildModeName%
+-exec_time
+-MAKEUD
+</AsmOptionCommandLine-1>
       <TimeTagModified--2>-8584437003513339361</TimeTagModified--2>
       <AsmOptionChkpm-2>False</AsmOptionChkpm-2>
       <AsmOptionGoptimize-2>False</AsmOptionGoptimize-2>
@@ -1443,7 +1483,14 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <AsmOptionPreAssembleCommands-2 />
       <AsmOptionPostAssembleCommands-2 />
       <AsmOptionOtherAdditionalOptions-2 />
-      <AsmOptionCommandLine-2 />
+      <AsmOptionCommandLine-2>-isa=rxv1
+-debug
+-nologo
+-output=obj
+-obj_path=%ProjectDir%\%BuildModeName%
+-exec_time
+-MAKEUD
+</AsmOptionCommandLine-2>
       <TimeTagModified--3>-8584437003484833241</TimeTagModified--3>
       <AsmOptionChkpm-3>False</AsmOptionChkpm-3>
       <AsmOptionGoptimize-3>False</AsmOptionGoptimize-3>
@@ -1466,7 +1513,14 @@ c:\renesas\PDG2_proj\BT_DEMO\i_src
       <AsmOptionPreAssembleCommands-3 />
       <AsmOptionPostAssembleCommands-3 />
       <AsmOptionOtherAdditionalOptions-3 />
-      <AsmOptionCommandLine-3 />
+      <AsmOptionCommandLine-3>-isa=rxv1
+-debug
+-nologo
+-output=obj
+-obj_path=%ProjectDir%\%BuildModeName%
+-exec_time
+-MAKEUD
+</AsmOptionCommandLine-3>
     </Instance>
     <Instance Guid="dbb16727-3e81-4169-956a-790355cab4a1">
       <LinkOptionCpu-DefaultValue>False</LinkOptionCpu-DefaultValue>
@@ -2922,6 +2976,14 @@ D_2=R_2
     </Instance>
     <Instance Guid="b6390ffa-f33a-4c10-ba72-5cb8aa3a9a01">
       <ItemAddTime>638965035412489968</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="3a22dd64-6576-4f42-9f66-85920dd0615e">
+      <ItemAddTime>638970885847119571</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="fcdbf10a-2eee-40b2-965a-b6819c321408">
+      <ItemAddTime>638970905040879793</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">

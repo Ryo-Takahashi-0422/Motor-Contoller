@@ -2,13 +2,13 @@
 //#include <stdio.h>
 
 // 関数ポインタ型
-typedef void (*CommandFunc)(const char*, int);
+typedef void (*CommandFunc)(const char*, int, void* context);
 
 // 各コマンド関数の定義
-void CommandSpd(const char* cmd, int val);
-void CommandPval(const char* cmd, int val);
-void CommandIval(const char* cmd, int val);
-void CommandDval(const char* cmd, int val);
+void CommandSpd(const char* cmd, int val, void* context);
+void CommandPval(const char* cmd, int val, void* context);
+void CommandIval(const char* cmd, int val, void* context);
+void CommandDval(const char* cmd, int val, void* context);
 
 // コマンド識別用の列挙型
 typedef enum {

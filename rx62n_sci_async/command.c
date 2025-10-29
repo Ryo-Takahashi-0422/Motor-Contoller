@@ -1,3 +1,4 @@
+#include <common.h>
 #include <command.h>
 #include <string.h>
 
@@ -23,23 +24,27 @@ const CommandEntry* findCommand(const char *cmdName)
 }
 
 
-void CommandSpd(const char* cmd, int val)
+void CommandSpd(const char* cmd, int val, void* context)
 {
-    
+    struct MotorParams* params = (struct MotorParams*)context;
+    if (params) params->speed = val;
 }
 
-void CommandPval(const char* cmd, int val)
+void CommandPval(const char* cmd, int val, void* context)
 {
-    
+    struct MotorParams* params = (struct MotorParams*)context;
+    if (params) params->p = val;    
 }
 
-void CommandIval(const char* cmd, int val)
+void CommandIval(const char* cmd, int val, void* context)
 {
-    
+    struct MotorParams* params = (struct MotorParams*)context;
+    if (params) params->i = val;    
 }
 
-void CommandDval(const char* cmd, int val)
+void CommandDval(const char* cmd, int val, void* context)
 {
-    
+    struct MotorParams* params = (struct MotorParams*)context;
+    if (params) params->d = val;    
 }
 
