@@ -43,7 +43,7 @@
 Includes <System Includes> , "Project Includes"
 *******************************************************************************/
 #include <stdint.h>
-#include "..\iodefine.h"
+#include "iodefine.h"
 #include "sci_cfg.h"
 #include "sci.h"
 

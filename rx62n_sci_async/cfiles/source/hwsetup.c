@@ -13,7 +13,7 @@
 *
 ************************************************************************/
 //#include "R_PG_sample_ext.h"
-#include "..\iodefine.h"
+#include "iodefine.h"
 extern void HardwareSetup(void);
 
 void HardwareSetup(void)

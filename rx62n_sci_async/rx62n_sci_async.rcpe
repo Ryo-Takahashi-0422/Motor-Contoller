@@ -9,58 +9,59 @@
     <Files>
       <Category Name="AddFromPDG" />
       <Category Name="C files">
-        <Category Name="source">
-          <Path>source\main.c</Path>
-          <Path>source\sci.c</Path>
-          <Path>source\hwsetup.c</Path>
-          <Path>command.c</Path>
-          <Path>dbsct.c</Path>
-          <Path>intprg.c</Path>
-          <Path>resetprg.c</Path>
-          <Path>sbrk.c</Path>
-          <Path>vecttbl.c</Path>
-          <Path>iicComExe.c</Path>
+        <Category Name="Source">
+          <Path>cfiles\source\command.c</Path>
+          <Path>cfiles\source\dbsct.c</Path>
+          <Path>cfiles\source\hwsetup.c</Path>
+          <Path>cfiles\source\iic.c</Path>
+          <Path>cfiles\source\iicComExe.c</Path>
+          <Path>cfiles\source\main.c</Path>
+          <Path>cfiles\source\resetprg.c</Path>
+          <Path>cfiles\source\sbrk.c</Path>
+          <Path>cfiles\source\sci.c</Path>
         </Category>
-        <Category Name="header">
-          <Path>command.h</Path>
-          <Path>source\sci_cfg.h</Path>
-          <Path>source\sci.h</Path>
-          <Path>iicComExe.h</Path>
-          <Path>common.h</Path>
-          <Path>main.h</Path>
+        <Category Name="Header">
+          <Path>cfiles\header\command.h</Path>
+          <Path>cfiles\header\common.h</Path>
+          <Path>cfiles\header\iicComExe.h</Path>
+          <Path>cfiles\header\iodefine.h</Path>
+          <Path>cfiles\header\main.h</Path>
+          <Path>cfiles\header\sbrk.h</Path>
+          <Path>cfiles\header\sci.h</Path>
+          <Path>cfiles\header\sci_cfg.h</Path>
+          <Path>cfiles\header\r_apn_grobal.h</Path>
+          <Path>cfiles\header\r_apn_iic_eep.h</Path>
+          <Path>cfiles\header\vect.h</Path>
         </Category>
       </Category>
       <Path>プロジェクト変換情報_rx62n_sci_async.txt</Path>
-      <Path>iic.c</Path>
-      <Path>r_apn_grobal.h</Path>
-      <Path>r_apn_iic_eep.h</Path>
-      <Path>vect.h</Path>
       <Category Name="External">
         <Category Name="Header">
-          <Path>source\external\r_pdl_definitions.h</Path>
-          <Path>source\external\r_pdl_intc.h</Path>
-          <Path>source\external\r_pdl_mtu2.h</Path>
-          <Path>source\external\r_pdl_user_definitions.h</Path>
-          <Path>source\external\R_PG_Clock.h</Path>
-          <Path>source\external\R_PG_IO_PORT_P1.h</Path>
-          <Path>source\external\R_PG_IO_PORT_PE.h</Path>
-          <Path>source\external\R_PG_Timer_MTU_U0.h</Path>
-          <Path>source\external\R_PG_Timer_MTU_U0_C0.h</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1.h</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1_C6.h</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1_C7.h</Path>
+          <Path>cfiles\external\header\r_pdl_definitions.h</Path>
+          <Path>cfiles\external\header\r_pdl_iic.h</Path>
+          <Path>cfiles\external\header\r_pdl_intc.h</Path>
+          <Path>cfiles\external\header\r_pdl_mtu2.h</Path>
+          <Path>cfiles\external\header\r_pdl_user_definitions.h</Path>
+          <Path>cfiles\external\header\R_PG_Clock.h</Path>
+          <Path>cfiles\external\header\R_PG_IO_PORT_P1.h</Path>
+          <Path>cfiles\external\header\R_PG_IO_PORT_PE.h</Path>
+          <Path>cfiles\external\header\R_PG_Timer_MTU_U0.h</Path>
+          <Path>cfiles\external\header\R_PG_Timer_MTU_U0_C0.h</Path>
+          <Path>cfiles\external\header\R_PG_Timer_MTU_U1.h</Path>
+          <Path>cfiles\external\header\R_PG_Timer_MTU_U1_C6.h</Path>
+          <Path>cfiles\external\header\R_PG_Timer_MTU_U1_C7.h</Path>
         </Category>
         <Category Name="Source">
-          <Path>source\external\Interrupt_INTC.c</Path>
-          <Path>source\external\Interrupt_MTU2.c</Path>
-          <Path>source\external\R_PG_Clock.c</Path>
-          <Path>source\external\R_PG_IO_PORT_P1.c</Path>
-          <Path>source\external\R_PG_IO_PORT_PE.c</Path>
-          <Path>source\external\R_PG_Timer_MTU_U0.c</Path>
-          <Path>source\external\R_PG_Timer_MTU_U0_C0.c</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1.c</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1_C6.c</Path>
-          <Path>source\external\R_PG_Timer_MTU_U1_C7.c</Path>
+          <Path>cfiles\external\source\Interrupt_INTC.c</Path>
+          <Path>cfiles\external\source\Interrupt_MTU2.c</Path>
+          <Path>cfiles\external\source\R_PG_Clock.c</Path>
+          <Path>cfiles\external\source\R_PG_IO_PORT_P1.c</Path>
+          <Path>cfiles\external\source\R_PG_IO_PORT_PE.c</Path>
+          <Path>cfiles\external\source\R_PG_Timer_MTU_U0.c</Path>
+          <Path>cfiles\external\source\R_PG_Timer_MTU_U0_C0.c</Path>
+          <Path>cfiles\external\source\R_PG_Timer_MTU_U1.c</Path>
+          <Path>cfiles\external\source\R_PG_Timer_MTU_U1_C6.c</Path>
+          <Path>cfiles\external\source\R_PG_Timer_MTU_U1_C7.c</Path>
         </Category>
       </Category>
     </Files>
@@ -79,6 +80,8 @@
         <CompileOptions>
           <Option>-isa=rxv1</Option>
           <Option>-lang=c</Option>
+          <Option>-include=cfiles\external\header</Option>
+          <Option>-include=cfiles\header</Option>
           <Option>-include=source\external</Option>
           <Option>-include=.</Option>
           <Option>-include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</Option>
@@ -118,16 +121,16 @@
           <Option>-nologo</Option>
           <GenerateMode>BuildOptionChanged</GenerateMode>
         </LibraryGenerateOptions>
-        <NoTargetFile Target="intprg.c" />
-        <NoTargetFile Target="vecttbl.c" />
         <LinkOrder>
+          <Path>DefaultBuild\command.obj</Path>
           <Path>DefaultBuild\dbsct.obj</Path>
+          <Path>DefaultBuild\hwsetup.obj</Path>
+          <Path>DefaultBuild\iic.obj</Path>
+          <Path>DefaultBuild\iicComExe.obj</Path>
           <Path>DefaultBuild\main.obj</Path>
           <Path>DefaultBuild\resetprg.obj</Path>
           <Path>DefaultBuild\sbrk.obj</Path>
           <Path>DefaultBuild\sci.obj</Path>
-          <Path>DefaultBuild\hwsetup.obj</Path>
-          <Path>DefaultBuild\iic.obj</Path>
           <Path>DefaultBuild\Interrupt_INTC.obj</Path>
           <Path>DefaultBuild\Interrupt_MTU2.obj</Path>
           <Path>DefaultBuild\R_PG_Clock.obj</Path>
@@ -138,10 +141,10 @@
           <Path>DefaultBuild\R_PG_Timer_MTU_U1.obj</Path>
           <Path>DefaultBuild\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>DefaultBuild\R_PG_Timer_MTU_U1_C7.obj</Path>
-          <Path>DefaultBuild\command.obj</Path>
-          <Path>DefaultBuild\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
+          <IncludePathForC>cfiles\external\header</IncludePathForC>
+          <IncludePathForC>cfiles\header</IncludePathForC>
           <IncludePathForC>source\external</IncludePathForC>
           <IncludePathForC>.</IncludePathForC>
           <IncludePathForC>..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</IncludePathForC>
@@ -156,6 +159,8 @@
         <CompileOptions>
           <Option>-isa=rxv1</Option>
           <Option>-lang=c</Option>
+          <Option>-include=cfiles\external\header</Option>
+          <Option>-include=cfiles\header</Option>
           <Option>-include=source\external</Option>
           <Option>-include=.</Option>
           <Option>-include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</Option>
@@ -196,16 +201,16 @@
           <Option>-nologo</Option>
           <GenerateMode>BuildOptionChanged</GenerateMode>
         </LibraryGenerateOptions>
-        <NoTargetFile Target="intprg.c" />
-        <NoTargetFile Target="vecttbl.c" />
         <LinkOrder>
+          <Path>Debug\command.obj</Path>
           <Path>Debug\dbsct.obj</Path>
+          <Path>Debug\hwsetup.obj</Path>
+          <Path>Debug\iic.obj</Path>
+          <Path>Debug\iicComExe.obj</Path>
           <Path>Debug\main.obj</Path>
           <Path>Debug\resetprg.obj</Path>
           <Path>Debug\sbrk.obj</Path>
           <Path>Debug\sci.obj</Path>
-          <Path>Debug\hwsetup.obj</Path>
-          <Path>Debug\iic.obj</Path>
           <Path>Debug\Interrupt_INTC.obj</Path>
           <Path>Debug\Interrupt_MTU2.obj</Path>
           <Path>Debug\R_PG_Clock.obj</Path>
@@ -216,10 +221,10 @@
           <Path>Debug\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Debug\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Debug\R_PG_Timer_MTU_U1_C7.obj</Path>
-          <Path>Debug\command.obj</Path>
-          <Path>Debug\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
+          <IncludePathForC>cfiles\external\header</IncludePathForC>
+          <IncludePathForC>cfiles\header</IncludePathForC>
           <IncludePathForC>source\external</IncludePathForC>
           <IncludePathForC>.</IncludePathForC>
           <IncludePathForC>..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</IncludePathForC>
@@ -234,6 +239,8 @@
         <CompileOptions>
           <Option>-isa=rxv1</Option>
           <Option>-lang=c</Option>
+          <Option>-include=cfiles\external\header</Option>
+          <Option>-include=cfiles\header</Option>
           <Option>-include=source\external</Option>
           <Option>-include=.</Option>
           <Option>-include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</Option>
@@ -271,15 +278,15 @@
           <GenerateMode>BuildOptionChanged</GenerateMode>
         </LibraryGenerateOptions>
         <LinkOrder>
+          <Path>Debug_RX_E1_E20_SYSTEM\command.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\dbsct.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\intprg.obj</Path>
+          <Path>Debug_RX_E1_E20_SYSTEM\hwsetup.obj</Path>
+          <Path>Debug_RX_E1_E20_SYSTEM\iic.obj</Path>
+          <Path>Debug_RX_E1_E20_SYSTEM\iicComExe.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\main.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\resetprg.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\sbrk.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\sci.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\vecttbl.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\hwsetup.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\iic.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\Interrupt_INTC.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\Interrupt_MTU2.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Clock.obj</Path>
@@ -290,10 +297,10 @@
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Debug_RX_E1_E20_SYSTEM\R_PG_Timer_MTU_U1_C7.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\command.obj</Path>
-          <Path>Debug_RX_E1_E20_SYSTEM\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
+          <IncludePathForC>cfiles\external\header</IncludePathForC>
+          <IncludePathForC>cfiles\header</IncludePathForC>
           <IncludePathForC>source\external</IncludePathForC>
           <IncludePathForC>.</IncludePathForC>
           <IncludePathForC>..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</IncludePathForC>
@@ -306,6 +313,8 @@
         <CompileOptions>
           <Option>-isa=rxv1</Option>
           <Option>-lang=c</Option>
+          <Option>-include=cfiles\external\header</Option>
+          <Option>-include=cfiles\header</Option>
           <Option>-include=source\external</Option>
           <Option>-include=.</Option>
           <Option>-include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</Option>
@@ -341,15 +350,15 @@
           <GenerateMode>BuildOptionChanged</GenerateMode>
         </LibraryGenerateOptions>
         <LinkOrder>
+          <Path>Release\command.obj</Path>
           <Path>Release\dbsct.obj</Path>
-          <Path>Release\intprg.obj</Path>
+          <Path>Release\hwsetup.obj</Path>
+          <Path>Release\iic.obj</Path>
+          <Path>Release\iicComExe.obj</Path>
           <Path>Release\main.obj</Path>
           <Path>Release\resetprg.obj</Path>
           <Path>Release\sbrk.obj</Path>
           <Path>Release\sci.obj</Path>
-          <Path>Release\vecttbl.obj</Path>
-          <Path>Release\hwsetup.obj</Path>
-          <Path>Release\iic.obj</Path>
           <Path>Release\Interrupt_INTC.obj</Path>
           <Path>Release\Interrupt_MTU2.obj</Path>
           <Path>Release\R_PG_Clock.obj</Path>
@@ -360,10 +369,10 @@
           <Path>Release\R_PG_Timer_MTU_U1.obj</Path>
           <Path>Release\R_PG_Timer_MTU_U1_C6.obj</Path>
           <Path>Release\R_PG_Timer_MTU_U1_C7.obj</Path>
-          <Path>Release\command.obj</Path>
-          <Path>Release\iicComExe.obj</Path>
         </LinkOrder>
         <CommonOptions>
+          <IncludePathForC>cfiles\external\header</IncludePathForC>
+          <IncludePathForC>cfiles\header</IncludePathForC>
           <IncludePathForC>source\external</IncludePathForC>
           <IncludePathForC>.</IncludePathForC>
           <IncludePathForC>..\..\..\Renesas\PDG2_proj\BT_DEMO\IO</IncludePathForC>

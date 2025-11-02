@@ -1,13 +1,14 @@
 #pragma once
 #include <machine.h>
 #include <stdint.h>
-#include "..\iodefine.h"
+#include "iodefine.h"
 #include "sci.h"
 #include <stdbool.h>
 #include "r_apn_iic_eep.h"
 #include <command.h>
 #include <iicComExe.h>
 #include <common.h>
+#include <string.h>
 
 /*******************************************************************************
 Macro definitions
@@ -56,6 +57,7 @@ static void peripheral_init(void);
 
 /* **** Callback Function **** */
 static void cb_sci_tx_end(void);
+static void txEndWithMorterspd(int);
 static void cb_sci_rx_end(void);
 static void cb_sci_rx_error(void);
 
@@ -77,7 +79,6 @@ int received_value = 1;
 uint8_t write_data[3];
 // I2C 読み込みテスト用
 uint8_t addr[2];
-bool isReadI2C = false;
 uint8_t tr, rcv;
 
 signed short Under_over_flow_cnt; 	/* MTU2 u1 ch7 underflow/overflow counter */
@@ -85,3 +86,8 @@ struct MotorParams motorParams = {0, 0.0f, 0.0f, 0.0f};
 
 bool isGetData = false;
 char lastCmd[8] = {0};
+
+// 連続指示
+static CommandFunc nextFunc = NULL;
+static int nextFuncVal = 0;
+bool isProcessNextFunc = false;

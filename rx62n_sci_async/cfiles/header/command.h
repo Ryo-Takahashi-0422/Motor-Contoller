@@ -1,14 +1,21 @@
 #pragma once
+
+#include <string.h>
+#include <stdint.h>
+#include "sci.h"
+#include <common.h>
 //#include <stdio.h>
 
 // 関数ポインタ型
-typedef void (*CommandFunc)(const char*, int, void* context);
+typedef void* (*CommandFunc)(int, void* context);
 
 // 各コマンド関数の定義
-void CommandSpd(const char* cmd, int val, void* context);
-void CommandPval(const char* cmd, int val, void* context);
-void CommandIval(const char* cmd, int val, void* context);
-void CommandDval(const char* cmd, int val, void* context);
+void* CommandSpd(int val, void* context);
+void* CommandPval(int val, void* context);
+void* CommandIval(int val, void* context);
+void* CommandDval(int val, void* context);
+void* CommandRead(int val, void* context);
+void* CommandReadRom(int val, void* context);
 
 // コマンド識別用の列挙型
 typedef enum {
@@ -16,6 +23,7 @@ typedef enum {
     CMD_PVAL,
     CMD_IVAL,
     CMD_DVAL,
+    CMD_READ,
     CMD_UNKNOWN
 } CommandType;
 
@@ -32,3 +40,7 @@ extern const int COMMAND_COUNT;
 
 // コマンド名をキーに検索して関数ポインタを返す
 const CommandEntry* findCommand(const char *cmdName);
+
+static uint8_t command_txbuf[] = {"ACK\n"};
+
+#define NULL_SIZE       (1)

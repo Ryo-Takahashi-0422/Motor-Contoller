@@ -52,6 +52,9 @@ void main (void)
     //SampleEepromRead();
     
     // TODO : 速度の読み込み
+    // redコマンドを実装する
+    // 引数にはL/Hアドレスが必要
+    // EEPROM読み込み→sci translateで送信する
 
     /* ==== Initialize peripheral functions ==== */
     peripheral_init();
@@ -73,6 +76,9 @@ void main (void)
         result = SCI_StartReceive(rx_buf, BUF_SIZE, cb_sci_rx_end, cb_sci_rx_error);
     }
     while (SCI_BUSY == result);
+    
+    // 送信完了コールバック関数を登録しておく
+    regTxEnd(txEndWithMorterspd);
 
     /* **** Main loop **** */
     while (1)
@@ -92,8 +98,20 @@ void main (void)
 		    EepromWrite(motorParams.speed, 0x00, 0x00);
 	            IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
 		    SampleEepromRead();
+		    //IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
 		}
 	    	isGetData = false;
+	    }
+	    
+	        // --- 前回の関数ポインタが設定されていれば実行 ---
+	    if (nextFunc != NULL && isProcessNextFunc)
+	    {
+		isProcessNextFunc = false;
+	        nextFunc(nextFuncVal, &motorParams);
+		IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
+	        nextFunc = NULL;
+		//isRbuffFull = 1;
+		Test();
 	    }
 	
     }
@@ -279,11 +297,13 @@ static void peripheral_init (void)
 *******************************************************************************/
 static void cb_sci_tx_end (void)
 {
-
-    /* LED0 ON (SCI transmission end) */
-    //LED0_REG_PODR = LED_OFF;
     isRbuffFull = 1;
+}
 
+static void txEndWithMorterspd(int val)
+{
+    isRbuffFull = 1;
+    received_value = val;
 }
 
 static char tolower_local(char c)
@@ -311,20 +331,12 @@ static void cb_sci_rx_end (void)
     char cmd[8] = {0};
     int val = 0;
     const CommandEntry *entry;
+    CommandFunc returned;
     int i = 0;
        
-    /* LED1 ON (SCI reception end) */
-    //LED1_REG_PODR = LED_ON;
-    //LED0_REG_PODR = LED_ON;
-//    received_value = atoi((char*)rx_buf);
-//    if(received_value < 1)
-//    {
-//        received_value = 1;
-//    }
-//    memset(rx_buf, 0, sizeof(rx_buf));
     // 構造体でspd,pid値などを一元管理/コマンドにもその構造体ポインタ渡して
     // こちらに返す&EEPROMへの保存もそのポインタデータに基づき行う設計でいく
-    
+        
     // 受信文字列を解析して実行
     // 改行・復帰コードを除去
     for (i = 0; i < BUF_SIZE; i++) {
@@ -339,42 +351,47 @@ static void cb_sci_rx_end (void)
     
     i = 0;
     
-	// 1. コマンド部分をコピー
-	while (i < received_bytes && rx_buf[i] != ',' && j < sizeof(cmd)-1) {
-	    cmd[j++] = rx_buf[i++];
-	}
-	cmd[j] = '\0';
+    // 1. コマンド部分をコピー
+    while (i < received_bytes && rx_buf[i] != ',' && j < sizeof(cmd)-1) {
+        cmd[j++] = rx_buf[i++];
+    }
+    cmd[j] = '\0';
 
-	// 2. カンマをスキップ
-	if (i < received_bytes && rx_buf[i] == ',') i++;
+    // 2. カンマをスキップ
+    if (i < received_bytes && rx_buf[i] == ',') i++;
 
-	// 3. 数字部分を解析
-	val = 0;
-	while (i < received_bytes && rx_buf[i] >= '0' && rx_buf[i] <= '9') {
-	    val = val * 10 + (rx_buf[i] - '0');
-	    i++;
-	}
+    // 3. 数字部分を解析
+    val = 0;
+    while (i < received_bytes && rx_buf[i] >= '0' && rx_buf[i] <= '9') {
+        val = val * 10 + (rx_buf[i] - '0');
+        i++;
+    }
+    
+    // --- 前回の関数ポインタが設定されていれば実行 ---
+    if (nextFunc != NULL)
+    {
+	nextFuncVal = val;
+	isProcessNextFunc = true;
+//        nextFunc(val, &motorParams);
+//        nextFunc = NULL;
+        //isRbuffFull = 1;
+        return;
+    }
 
-    // 受信文字列の解析 ("cmd, val"形式)
-    //if (sscanf((char *)rx_buf, "%3[^,],%d", cmd, &val) == 2) {
-        // 小文字化して統一（大文字送信でもOKにしたい場合）
-        //for (i = 0; cmd[i]; i++) cmd[i] = tolower_local(cmd[i]);
-
-        entry = findCommand(cmd);
-        if (entry && entry->func) {
-            entry->func(cmd, val, &motorParams);  // 第1引数 'A' は任意
-	    received_value = motorParams.speed;
-	    // コマンド記憶、データ受信フラグオン
-	    isGetData = true;
-	    memcpy(lastCmd, cmd, sizeof(cmd));
-        } else {
-
+    // 前回の関数ポインタが設定されていなければコマンド検索
+    entry = findCommand(cmd);
+    if (entry && entry->func) {
+        returned = entry->func(val, &motorParams);  // 第1引数 'A' は任意
+	if (returned != NULL) {
+            nextFunc = returned;   // CommandReadRomを登録
         }
-    //} 
-    //else 
-    //{
-
-    //}
+	
+        received_value = motorParams.speed;
+        // コマンド記憶、データ受信フラグオン
+        isGetData = true;
+        memcpy(lastCmd, cmd, sizeof(cmd));
+    } 
+    else{}
 
     memset(rx_buf, 0, sizeof(rx_buf));
     
@@ -384,27 +401,6 @@ static void cb_sci_rx_end (void)
         result = SCI_StartTransmit(tx_buf, (sizeof(tx_buf) - NULL_SIZE), cb_sci_tx_end);
     }
     while (SCI_BUSY == result);
-    
-   
-    //
-//    if(!isReadI2C)
-//    {
-//	isReadI2C = true;
-	
-//	/* EEPROM Write (Master transfer) */
-//	SampleEepromWrite();
-	
-//	/* Acknowledge polling (Master transfer) */
-//	IICAckPolling(TARGET_SLAVE_ADDRESS, 0, 100);
-//    }
-//    else
-//    {
-//	/* EEPROM Read (Master transfer and Master receive) */
-//	SampleEepromRead();
-//	tr++;
-//	isReadI2C = false;
-//    }
-    
 }
 
 
@@ -443,33 +439,6 @@ static void cb_sci_rx_error (void)
     }
     
     //isOnError = 1;
-}
-
-static bool CheckNACK(void)
-{
-    if(RIIC.ICSR2.BIT.NACKF != 0)
-    {
-        // 停止条件発行
-        RIIC.ICSR2.BIT.STOP = 0;
-	RIIC.ICCR2.BIT.SP = 1;
-		
-	// 停止条件発行確認
-	do
-	{
-            ;
-	}while(RIIC.ICSR2.BIT.STOP != 1);
-		
-	// 次の通信のための処理
-	RIIC.ICSR2.BIT.NACKF = 0;
-	RIIC.ICSR2.BIT.STOP = 0;
-	// 送信終了
-	    return false;
-    }
-    
-    else
-    {
-	return true;
-    }
 }
 
 //========================  Interrupt Function  ===============================
