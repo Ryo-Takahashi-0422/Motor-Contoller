@@ -26,3 +26,13 @@
 2. PID モデル構築（オシロ使用）
 3. PID を用いた速度制御・位置制御
 4. スマホで PID 値入力 → マイコンへ反映
+
+## 開発環境
+
+- IDE : CS+ for CC, HEW
+- その他ソフト : PDG2, Flash Development Toolkit, 
+- デバッグ : E2エミュレータLite, ロジックアナライザー(DAOKAI製JA-DA-026), オシロスコープ(RIGOL製DS1202Z-E)
+
+## 動作環境
+
+- RX62N(Renesas製)
