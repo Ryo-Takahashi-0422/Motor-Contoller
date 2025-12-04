@@ -1,6 +1,6 @@
-# Motor-Controller Firmware Portfolio
+# Motor-Controller
 
-現在制作中のファームウェアポートフォリオです。
+現在制作中のファームウェアです。
 
 ## システム概要
 
@@ -31,7 +31,9 @@
 
 - IDE : CS+ for CC, HEW
 - その他ソフト : PDG2, Flash Development Toolkit, 
-- デバッグ : E2エミュレータLite, ロジックアナライザー(DAOKAI製JA-DA-026), オシロスコープ(RIGOL製DS1202Z-E)
+- デバッガ : E2エミュレータLite
+- ロジックアナライザー : DAOKAI製 JA-DA-026
+- オシロスコープ : RIGOL製 DS1202Z-E
 
 ## 動作環境
 
