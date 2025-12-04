@@ -91,3 +91,16 @@ char lastCmd[8] = {0};
 static CommandFunc nextFunc = NULL;
 static int nextFuncVal = 0;
 bool isProcessNextFunc = false;
+
+/* ==== symbol definition ==== */
+#define CH0_TGRC_CYCLE   (unsigned short)(6000-1)  
+                                /* MTU2 CH0 TGRC compare match cycle(1ms)  */
+                                /* 1ms / 20ns(@50MHz) = 50000 */
+#define ENC_MAX		(signed short)(8000)	//encoder count max
+
+/* ==== RAM allocation variable declaration ==== */
+unsigned short TGRA1_data; 	        /* MTU2 ch1 TGRA capture data  */	
+unsigned short TGRB1_data_old; 	    /* MTU2 ch1 TGRB capture data(old)  */	
+signed short TGRB1_data_diff; 	    /* MTU2 ch1 TGRB capture capture difference */	
+signed short Under_over_flow_cnt; 	/* MTU2 ch1 underflow/overflow counter */	
+signed long TGRD0_B0_data_diff; 	/* MTU2 ch0 TGRD,TGRB difference  */	

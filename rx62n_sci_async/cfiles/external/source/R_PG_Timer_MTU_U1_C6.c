@@ -36,7 +36,7 @@
 * Description  : 
 * Limitations  : 
 ******************************************************************************
-* History : 05.10.2025 Version Description
+* History : 15.11.2025 Version Description
 *         :   
 ******************************************************************************/
 
@@ -94,7 +94,7 @@ bool R_PG_Timer_Set_MTU_U1_C6(void)
 	parameters.data18 = 0;
 	parameters.func1 = PDL_NO_FUNC;
 	parameters.func2 = Mtu6IcCmBIntFunc;
-	parameters.func3 = Mtu6IcCmCIntFunc;
+	parameters.func3 = PDL_NO_FUNC;
 	parameters.func4 = PDL_NO_FUNC;
 	parameters.data19 = 15;
 	parameters.func5 = PDL_NO_FUNC;

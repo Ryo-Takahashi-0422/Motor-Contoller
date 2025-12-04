@@ -36,7 +36,7 @@
 * Description  : 
 * Limitations  : 
 ******************************************************************************
-* History : 05.10.2025 Version Description
+* History : 15.11.2025 Version Description
 *         :   
 ******************************************************************************/
 
@@ -76,10 +76,10 @@ bool R_PG_Timer_Set_MTU_U1_C7(void)
 
 	R_MTU2_Create_load_defaults( &parameters );
 
-	parameters.data2 = PDL_MTU2_MODE_PHASE2 | PDL_MTU2_SYNC_DISABLE;
+	parameters.data2 = PDL_MTU2_MODE_PHASE1 | PDL_MTU2_SYNC_DISABLE;
 	parameters.data3 = PDL_MTU2_CLK_PCLK_DIV_1 | PDL_MTU2_CLEAR_DISABLE;
 	parameters.data4 = PDL_MTU2_ADC_TRIG_TGRA_DISABLE;
-	parameters.data6 = PDL_MTU2_A_IC_CM_IC | PDL_MTU2_B_IC_RISING_EDGE;
+	parameters.data6 = PDL_MTU2_A_IC_RISING_EDGE | PDL_MTU2_B_IC_CM_IC;
 	parameters.data9 = 0;
 	parameters.data10 = 0;
 	parameters.data11 = 0;
@@ -91,10 +91,10 @@ bool R_PG_Timer_Set_MTU_U1_C7(void)
 	parameters.data17 = 0;
 	parameters.data18 = 0;
 	parameters.func1 = PDL_NO_FUNC;
-	parameters.func2 = PDL_NO_FUNC;
+	parameters.func2 = Mtu7IcCmBIntFunc;
 	parameters.func3 = PDL_NO_FUNC;
 	parameters.func4 = PDL_NO_FUNC;
-	parameters.data19 = 0;
+	parameters.data19 = 15;
 	parameters.func5 = PDL_NO_FUNC;
 	parameters.func6 = PDL_NO_FUNC;
 	parameters.func7 = Mtu7OvIntFunc;

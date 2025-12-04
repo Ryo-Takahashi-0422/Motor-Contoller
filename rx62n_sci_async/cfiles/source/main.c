@@ -480,48 +480,50 @@ void Mtu0IcCmAIntFunc(void)
 	R_PG_Timer_SetTGR_B_MTU_U0_C0(tgrb);	
 }
 
-// MTU2 Unit1 ch6 Input Capture B Interrupt(by encoder pulse count clock(1/4))
-// A相パルス立ち上がりをキャッチ
+// MTU2 Unit0 ch6 バッファ処理
 void Mtu6IcCmBIntFunc(void)
 {
-	// MTU6のTGRB,TGRDにはパルス入力カウントされ、ある値で0に戻るループを繰り返している
-// 以下のサンプルコードによる計算を参考にして、パルス幅を計算できそう
-	//    volatile unsigned char dummy;
-//    signed long data;
+    volatile unsigned char dummy;
+    signed long data;
   
-//    /* ---- Clearing of TGIB interrupt flag ---- */
-//    MTU20.TSR.BYTE &= 0xfd;
-//    dummy = MTU20.TSR.BYTE;     /* TSR register dummy read  */
+    /* ---- Clearing of TGIB interrupt flag ---- */
+    //MTU6.TSR.BIT.TGFB = 0;
+    //dummy = MTU6.TSR;     /* TSR register dummy read  */
 
-//    data = MTU20.TGRB - MTU20.TGRD;    
-//        /* Read TGRB capture register */
-//        /* Read TGRD buffer register  */
+    data = MTU6.TGRB - MTU6.TGRD;    
+        /* Read TGRB capture register */
+        /* Read TGRD buffer register  */
 
-//   if ( data < 0){
-//       TGRD0_B0_data_diff = data + (CH0_TGRC_CYCLE+1);	/* set data */
-//   }else{
-//       TGRD0_B0_data_diff = data;					/* set data */
-//   }
+   if ( data < 0){
+       TGRD0_B0_data_diff = data + (CH0_TGRC_CYCLE+1);	/* set data */
+   }else{
+       TGRD0_B0_data_diff = data;					/* set data */
+   }
+       
 }
 
-// MTU2 Unit1 ch6 Compare Match C Interrupt
-// 1ms : TCNT_0 = 5999でコンペアマッチ割り込み
-void Mtu6IcCmCIntFunc(void)
+// 1ms : TCNT_0 = 5999でMTU6のTGRBコンペアマッチ割り込みにより起動
+// 
+void Mtu7IcCmBIntFunc(void)
 {
-	irMtu7_A();
-}
-
-// MTU2 Unit1 ch7 Compare Match A Interrupt
-// ch6のCコンペアマッチによりキャプチャ割り込み発生(1msデフォ)
-static void irMtu7_A(void)
-{
-    //unsigned short tgra,tgrb,tgrc,tgrd,tgre,tgrf;
-    //R_PG_Timer_GetTGR_MTU_U1_C7(&tgra,&tgrb,&tgrc,&tgrd,&tgre,&tgrf);
-    unsigned short tcnt;
-    R_PG_Timer_HaltCount_MTU_U1_C7();
-    R_PG_Timer_SetCounterValue_MTU_U1_C7(0);
-    R_PG_Timer_StartCount_MTU_U1_C7();
+	volatile unsigned char dummy;
+	unsigned short new_data;
+	signed long data;
 	
+	/* ---- Clearing of TGIB interrupt flag ---- */
+	//MTU7.TSR.BYTE &= 0xfd;
+	//dummy = MTU7.TSR.BYTE;		/* TSR register dummy read  */
+
+	new_data = MTU7.TGRB;		/* Read TGRB capture register */
+	
+	data = new_data - TGRB1_data_old; 	/* new - old  */
+	if( data<0 ){
+		TGRB1_data_diff = data + ENC_MAX;	/* set data */
+	}else{
+		TGRB1_data_diff = data;				/* set data */
+	}
+
+	TGRB1_data_old = new_data;				/* set old data */
 }
 
 // MTU2 Unit1 ch7 OverFlow Interrupt
