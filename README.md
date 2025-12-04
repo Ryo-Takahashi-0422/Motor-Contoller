@@ -4,7 +4,8 @@
 
 ## システム概要
 
-- スマホアプリ（Motor Controller Helper）とマイコンを Bluetooth(HC-05) でハンドシェイクし UART 通信
+- 以下スマホアプリ（Motor Controller Helper）とマイコンを Bluetooth(HC-05) でハンドシェイクし UART 通信
+  https://github.com/Ryo-Takahashi-0422/Motor-Contoller-Helper
 - マイコンは EEPROM(24LC64)、Bluetooth(HC-05)、モータードライバ(L298N) と接続
 - モータードライバ(L298N) は DC ギアモータ (25GA370) に接続
 
