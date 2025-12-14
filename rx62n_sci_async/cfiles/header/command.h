@@ -18,19 +18,19 @@ void* CommandRead(int val, void* context);
 void* CommandReadRom(int val, void* context);
 
 // コマンド識別用の列挙型
-typedef enum {
-    CMD_SPD,
-    CMD_PVAL,
-    CMD_IVAL,
-    CMD_DVAL,
-    CMD_READ,
-    CMD_UNKNOWN
-} CommandType;
+//typedef enum {
+//    CMD_SPD,
+//    CMD_PVAL,
+//    CMD_IVAL,
+//    CMD_DVAL,
+//    CMD_READ,
+//    CMD_UNKNOWN
+//} CommandType;
 
 // コマンドテーブル構造体
 typedef struct {
     const char *name;     // 文字列キー
-    CommandType type;     // enum
+    //CommandType type;     // enum
     CommandFunc func;     // 対応関数
 } CommandEntry;
 

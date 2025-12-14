@@ -2,11 +2,11 @@
 
 // コマンドテーブル本体（実体はここだけ）
 const CommandEntry commandTable[] = {
-    {"spd", CMD_SPD, CommandSpd},
-    {"pvl", CMD_PVAL, CommandPval},
-    {"ivl", CMD_IVAL, CommandIval},
-    {"dvl", CMD_DVAL, CommandDval},
-    {"red", CMD_READ, CommandRead},
+    {"spd", CommandSpd},
+    {"pvl", CommandPval},
+    {"ivl", CommandIval},
+    {"dvl", CommandDval},
+    {"red", CommandRead},
 };
 
 const int COMMAND_COUNT = sizeof(commandTable) / sizeof(commandTable[0]);

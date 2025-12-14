@@ -9,6 +9,9 @@
 - マイコンはEEPROM(24LC64)、Bluetooth(HC-05)、モータードライバ(L298N)と接続
 - モータードライバ(L298N)はDCギアモータ(25GA370)に接続
 
+## 電子回路図
+![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor Controller -Circuit Diagram.jpg)
+
 ## 2025/12/4時点
 
 ### 実装済の主な機能
