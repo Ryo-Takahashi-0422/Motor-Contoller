@@ -1,5 +1,5 @@
 品質記録情報
-2025年12月14日 12:45:56
+2025年12月15日 23:44:57
 
 ------ ビルド開始(rx62n_sci_async, Debug) ------
 ------ ビルド終了(エラー:0個, 警告:0個)(rx62n_sci_async, Debug) ------
@@ -35,11 +35,11 @@ C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: ceb17038
  C:\Program Files (x86)\Renesas Electronics\CS+\CC
 *メモリ使用量
  *プライベート・ワーキング・セット
-  225 MB
+  232 MB
  *GDIオブジェクト数
-  1856
+  2063
  *USERオブジェクト数
-  891
+  952
  *開いているファイル
   5 editors, 5 files, 65 KB
 
