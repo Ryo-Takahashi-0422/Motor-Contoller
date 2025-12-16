@@ -14,6 +14,9 @@
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor%20Controller%20-Circuit%20Diagram.jpg" width="800">
 </p>
 
+## 動作の様子(音声有り)
+https://youtube.com/shorts/VmLjHJ2dSxI
+
 ## 動作の流れ
 1  アプリ起動  
 2  アプリとBluetoothモジュールとの通信開始  
@@ -57,6 +60,13 @@
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/transmit.jpg" width="300">
 </p>
 
+<p align="center">
+  <em>
+    「spd: 18」から速度値(18)がMCUに送信されていることが分かり、  
+    「ACK」を受信していることから送信が成功したことが分かる
+  </em>
+</p>
+
 ---
 
 ### 4. MCU側に保存された速度値の確認
@@ -71,9 +81,6 @@
     アプリ再起動後も正しく読み出されていることを確認
   </em>
 </p>
-
-## 動作の様子(音声有り)
-https://youtube.com/shorts/VmLjHJ2dSxI
 
 ## デバイス写真
 <p align="center">
