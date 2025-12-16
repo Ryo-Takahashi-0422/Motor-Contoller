@@ -12,6 +12,26 @@
 ## 電子回路図
 ![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor%20Controller%20-Circuit%20Diagram.jpg)
 
+## 動作の流れ
+1 アプリ起動
+2 アプリとBluetoothモジュールとの通信開始
+3 アプリより、EEPROMに保存された速度値のリードリクエスト(red, 0000)を送信
+4 MCUより応答(ACK)
+5 アプリより、読み込みアドレスのリクエスト(,1)送信
+6 MCUがI2C通信でEEPROMより速度値を取得し、アプリへ送信
+7 アプリが速度値を受信して、スライドバー値に反映する。
+8 アプリ上で、redコマンドの返信：x(float)を表示
+
+## アプリ画面で見る動作の流れ
+1 アプリ起動
+![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg)
+
+2~8 通信開始
+![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg)
+
+最後の速度値(18)がMCUにより記録されている様子を、アプリ再起動により確認
+![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg.jpg)
+
 ## 動作の様子(音声有り)
 https://youtube.com/shorts/VmLjHJ2dSxI
 
