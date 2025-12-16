@@ -62,7 +62,7 @@ https://youtube.com/shorts/VmLjHJ2dSxI
 
 <p align="center">
   <em>
-    「spd: 18」から速度値(18)がMCUに送信されていることが分かり、  
+    「spd: 18」から速度値(18)がMCUに送信されていることが分かり、<br>
     「ACK」を受信していることから送信が成功したことが分かる
   </em>
 </p>
@@ -77,7 +77,7 @@ https://youtube.com/shorts/VmLjHJ2dSxI
 
 <p align="center">
   <em>
-    最後に設定された速度値(18)がMCU側EEPROMに記録されており、  
+    最後に設定された速度値(18)がMCU側EEPROMに記録されており、<br>
     アプリ再起動後も正しく読み出されていることを確認
   </em>
 </p>
