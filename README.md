@@ -26,7 +26,13 @@
 ### 1. アプリ起動
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg" width="400">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg" width="200">
+</p>
+
+<p align="center">
+  <em>
+    HC-05をタップすると通信確認後、通信開始画面に遷移
+  </em>
 </p>
 
 ---
@@ -34,7 +40,7 @@
 ### 2. 通信開始（2〜8）
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="400">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="200">
 </p>
 
 ---
@@ -42,12 +48,12 @@
 ### 3. MCU側に保存された速度値の確認
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="400">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="200">
 </p>
 
 <p align="center">
   <em>
-    最後に設定された速度値（18）が MCU 側 EEPROM に記録されており、  
+    最後に設定された速度値(18)がMCU側EEPROMに記録されており、  
     アプリ再起動後も正しく読み出されていることを確認
   </em>
 </p>
