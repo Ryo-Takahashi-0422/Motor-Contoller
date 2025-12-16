@@ -9,6 +9,16 @@
 - マイコンはEEPROM(24LC64)、Bluetooth(HC-05)、モータードライバ(L298N)と接続
 - モータードライバ(L298N)はDCギアモータ(25GA370)に接続
 
+## 開発環境
+- IDE : CS+ for CC, HEW
+- その他ソフト : PDG2, Flash Development Toolkit
+- デバッガ : E2エミュレータLite
+- ロジックアナライザー : DAOKAI製 JA-DA-026
+- オシロスコープ : RIGOL製 DS1202Z-E
+
+## 動作環境
+- RX62N(Renesas製)
+
 ## 電子回路図
 <p align="center">
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor%20Controller%20-Circuit%20Diagram.jpg" width="800">
@@ -104,15 +114,3 @@ https://youtube.com/shorts/VmLjHJ2dSxI
 2. PIDモデル構築（オシロで取得した波形からシステム同定を行い、PID制御用の伝達関数を算出）
 3. PIDを用いた速度制御・位置制御
 4. スマホでPID値入力→マイコンへ反映
-
-### 開発環境
-
-- IDE : CS+ for CC, HEW
-- その他ソフト : PDG2, Flash Development Toolkit
-- デバッガ : E2エミュレータLite
-- ロジックアナライザー : DAOKAI製 JA-DA-026
-- オシロスコープ : RIGOL製 DS1202Z-E
-
-## 動作環境
-
-- RX62N(Renesas製)
