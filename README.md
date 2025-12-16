@@ -13,14 +13,18 @@
 ![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor%20Controller%20-Circuit%20Diagram.jpg)
 
 ## 動作の流れ
-1 アプリ起動
-2 アプリとBluetoothモジュールとの通信開始
-3 アプリより、EEPROMに保存された速度値のリードリクエスト(red, 0000)を送信
-4 MCUより応答(ACK)
-5 アプリより、読み込みアドレスのリクエスト(,1)送信
-6 MCUがI2C通信でEEPROMより速度値を取得し、アプリへ送信
-7 アプリが速度値を受信して、スライドバー値に反映する。
-8 アプリ上で、redコマンドの返信：x(float)を表示
+1  アプリ起動  
+2  アプリとBluetoothモジュールとの通信開始  
+3  アプリより、EEPROMに保存された速度値のリードリクエスト(red, 0000)を送信  
+4  MCUより応答(ACK)  
+5  アプリより、読み込みアドレスのリクエスト(,1)送信  
+6  MCUがI2C通信でEEPROMより速度値を取得し、アプリへ送信  
+7  アプリが速度値を受信して、スライドバー値に反映  
+8  アプリ上で、redコマンドの返信：x(float)を表示  
+9  アプリ上のスライドバーで数値(0~100)を操作し、送信
+10 タイマ動作周期の周期レジスタ値× (0〜100)を用いてPWMデューティ比を算出する。  
+   モータ特性を考慮し、デューティ比の下限を1%にクリップすることで、  
+   起動時のクリック音および不安定動作を回避している。
 
 ## アプリ画面で見る動作の流れ
 ### 1. アプリ起動
@@ -45,7 +49,15 @@
 
 ---
 
-### 3. MCU側に保存された速度値の確認
+### 3. 通信開始（2〜8）
+
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="300">
+</p>
+
+---
+
+### 4. MCU側に保存された速度値の確認
 
 <p align="center">
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="300">
