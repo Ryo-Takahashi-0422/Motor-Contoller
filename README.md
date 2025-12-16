@@ -21,7 +21,7 @@
 6  MCUがI2C通信でEEPROMより速度値を取得し、アプリへ送信  
 7  アプリが速度値を受信して、スライドバー値に反映  
 8  アプリ上で、redコマンドの返信：x(float)を表示  
-9  アプリ上のスライドバーで数値(0~100)を操作し、送信
+9  アプリ上のスライドバーで数値(0~100)を操作し、送信  
 10 タイマ動作周期の周期レジスタ値× (0〜100)を用いてPWMデューティ比を算出する。  
    モータ特性を考慮し、デューティ比の下限を1%にクリップすることで、  
    起動時のクリック音および不安定動作を回避している。
@@ -49,10 +49,10 @@
 
 ---
 
-### 3. 通信開始（2〜8）
+### 3. 数値送信（9~10）
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="300">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/transmit.jpg" width="300">
 </p>
 
 ---
