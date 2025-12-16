@@ -23,14 +23,34 @@
 8 アプリ上で、redコマンドの返信：x(float)を表示
 
 ## アプリ画面で見る動作の流れ
-1 アプリ起動
-![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg)
+### 1. アプリ起動
 
-2~8 通信開始
-![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg)
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg" width="400">
+</p>
 
-最後の速度値(18)がMCUにより記録されている様子を、アプリ再起動により確認
-![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg.jpg)
+---
+
+### 2. 通信開始（2〜8）
+
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="400">
+</p>
+
+---
+
+### 3. MCU側に保存された速度値の確認
+
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="400">
+</p>
+
+<p align="center">
+  <em>
+    最後に設定された速度値（18）が MCU 側 EEPROM に記録されており、  
+    アプリ再起動後も正しく読み出されていることを確認
+  </em>
+</p>
 
 ## 動作の様子(音声有り)
 https://youtube.com/shorts/VmLjHJ2dSxI
