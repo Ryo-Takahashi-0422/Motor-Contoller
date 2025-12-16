@@ -26,7 +26,7 @@
 ### 1. アプリ起動
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg" width="200">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/entry.jpg" width="300">
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@
 ### 2. 通信開始（2〜8）
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="200">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/com%20start.jpg" width="300">
 </p>
 
 ---
@@ -48,7 +48,7 @@
 ### 3. MCU側に保存された速度値の確認
 
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="200">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/read%20from%20eeprom.jpg" width="300">
 </p>
 
 <p align="center">
@@ -61,7 +61,7 @@
 ## 動作の様子(音声有り)
 https://youtube.com/shorts/VmLjHJ2dSxI
 
-## 2025/12/4時点
+## 2025/12/17時点
 
 ### 実装済の主な機能
 
