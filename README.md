@@ -12,6 +12,9 @@
 ## 電子回路図
 ![Image 1](https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/Motor%20Controller%20-Circuit%20Diagram.jpg)
 
+## 動作の様子(音声有り)
+https://youtube.com/shorts/VmLjHJ2dSxI
+
 ## 2025/12/4時点
 
 ### 実装済の主な機能
@@ -22,7 +25,7 @@
 - マイコン↔EEPROMのI2C通信、読み書き
 - アプリのスライドバー(0〜100)→デューティ比計算→PWM（MTU 書き込み）でモータ制御
 
-## 今後実装予定の機能
+### 今後実装予定の機能
 
 1. スマホアプリで波形生成
     - 例：モータ速度を10ms間隔で100サンプル取得→rpmに変換→アプリ送信→波形描画
@@ -30,10 +33,10 @@
 3. PIDを用いた速度制御・位置制御
 4. スマホでPID値入力→マイコンへ反映
 
-## 開発環境
+### 開発環境
 
 - IDE : CS+ for CC, HEW
-- その他ソフト : PDG2, Flash Development Toolkit, 
+- その他ソフト : PDG2, Flash Development Toolkit
 - デバッガ : E2エミュレータLite
 - ロジックアナライザー : DAOKAI製 JA-DA-026
 - オシロスコープ : RIGOL製 DS1202Z-E
