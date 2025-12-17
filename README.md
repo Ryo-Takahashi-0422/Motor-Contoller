@@ -100,6 +100,11 @@ https://youtube.com/shorts/VmLjHJ2dSxI
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/devices.jpg" width="500">
 </p>
 
+## MTU設定
+メインクロックは12MHz、周辺モジュールクロックは2逓倍の24MHzとなっている。  
+MTUのカウントソースは周辺モジュールクロックの64分周の0.375MHz。  
+タイマ動作周期は20msecに設定しているため、周期レジスタ値は7499 (= 7500 - 1)となっている。  
+
 ## 通信コマンドの設計
 ファームウェア内部で関数テーブルを保持しており、アプリからの受信データを解析してコマンドテーブルを検索、  
 コマンドが見つかればラムダ式でコマンドに応じた関数ポインタを実行する。  
