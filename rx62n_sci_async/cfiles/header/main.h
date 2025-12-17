@@ -32,7 +32,7 @@ Macro definitions
 #define		PSW_init  0x00010000
 #define		TGRB_INIT_VAL	7500				// Interval=20ms(PCLK/64)
 #define		DUTY_VAL	TGRB_INIT_VAL / 100		// Duty:10%
-#define		TGRA_INIT_VAL	4687				// Interval=50ms(PCLK/256)
+//#define		TGRA_INIT_VAL	4687				// Interval=50ms(PCLK/256)
 #define		MINIMUM_TGRA_VAL	0x200			// Interval=2.6ms(PCLK/128)
 
 /* **** SCI state **** */

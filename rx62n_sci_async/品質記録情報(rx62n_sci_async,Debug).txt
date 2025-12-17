@@ -1,8 +1,8 @@
 品質記録情報
-2025年12月17日 0:23:22
+2025年12月18日 0:26:02
 
 ------ ビルド開始(rx62n_sci_async, Debug) ------
-C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RX\V3.07.00\Bin\ccrx.exe C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\cfiles\source\main.c -isa=rxv1 -lang=c -include=cfiles\external\header -include=cfiles\header -include=source\external -include=. -include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO -include=c:\renesas\PDG2_proj\BT_DEMO -include=c:\renesas\PDG2_proj\BT_DEMO\i_src -debug -g_line -optimize=0 -nologo -output=obj -obj_path=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -MAKEUD=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -exec_time=C:\Users\RyoTaka\AppData\Local\Temp\CSPlusBuildTool_9dfd1d73cb284a89b520590641239d9fqpzmb5hb.umy
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RX\V3.07.00\Bin\ccrx.exe C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\cfiles\source\main.c -isa=rxv1 -lang=c -include=cfiles\external\header -include=cfiles\header -include=source\external -include=. -include=..\..\..\Renesas\PDG2_proj\BT_DEMO\IO -include=c:\renesas\PDG2_proj\BT_DEMO -include=c:\renesas\PDG2_proj\BT_DEMO\i_src -debug -g_line -optimize=0 -nologo -output=obj -obj_path=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -MAKEUD=C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug -exec_time=C:\Users\RyoTaka\AppData\Local\Temp\CSPlusBuildTool_3d9f3ba8d3a443538e3b2e64de8a7243035xb51j.5nv
 C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\cfiles\source\main.c(384):W0520513:A value of type "void *" cannot be assigned to an entity of type "CommandFunc"
 C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\cfiles\source\main.c(452):W0520177:Variable "f_pwm" was declared but never referenced
 C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\cfiles\source\main.c(309):W0520177:Function "tolower_local" was declared but never referenced
@@ -82,13 +82,13 @@ C:\WorkSpace\rx62n_sci_async\rx62n_sci_async\Debug\rx62n_sci_async.mot: ceb17038
  C:\Program Files (x86)\Renesas Electronics\CS+\CC
 *メモリ使用量
  *プライベート・ワーキング・セット
-  253 MB
+  311 MB
  *GDIオブジェクト数
-  2104
+  2138
  *USERオブジェクト数
-  1048
+  1046
  *開いているファイル
-  6 editors, 6 files, 67 KB
+  7 editors, 7 files, 68 KB
 
 --- ビルド・ツール・プラグイン情報 ---
 RH850ビルド・ツールCC-RH用プラグイン
