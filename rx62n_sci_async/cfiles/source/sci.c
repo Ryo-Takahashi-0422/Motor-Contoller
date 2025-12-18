@@ -489,22 +489,17 @@ static void sci_rxi_isr (void)
 
         // 受信完了コールバック呼び出し
         pcb_sci_rx_end();
+    } 
+    else if (rx_cnt == 0)
+    {
+        // バッファ満タンになったら無理やり完了処理（安全対策）
+        IEN_SCIn_RXIn = 0;
+        IEN_SCIn_ERIn = 0;
+        IR_SCIn_RXIn = 0;
+        B_RX_BUSY = 0;
 
-        // 終端文字を入れるのはコールバック内で
+        pcb_sci_rx_end();
     }
-    
-    
-    
-//    else if (rx_cnt == 0)
-//    {
-//        // バッファ満タンになったら無理やり完了処理（安全対策）
-//        IEN_SCIn_RXIn = 0;
-//        IEN_SCIn_ERIn = 0;
-//        IR_SCIn_RXIn = 0;
-//        B_RX_BUSY = 0;
-
-//        pcb_sci_rx_end();
-//    }
 
 }
 
