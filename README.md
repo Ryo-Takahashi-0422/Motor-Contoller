@@ -1,13 +1,14 @@
 # Motor-Controller
 
-2025年9月より製作中のファームウェアです。
-
+2025年9月より製作中のファームウェアです。  
+主な機能として、スマホアプリと通信して得た数値データに基づき、モーターの回転速度を変化させます。  
+  
 ## 目的
 研修や実務で得た組み込みソフトウェアの知見を活かし、独自でシステムを  
 構築することで理解を正し、知見を形として残すことです。
 
 ## システム概要
-- 以下スマホアプリ（Motor Controller Helper）とマイコンをBluetooth(HC-05 / SPP, v2.1)でUART通信
+- 以下スマホアプリ(Motor Controller Helper)とMCU(RX62N)をBluetooth(HC-05 / SPP, v2.1)でUART通信する。  
   https://github.com/Ryo-Takahashi-0422/Motor-Contoller-Helper
 - マイコンはEEPROM(24LC64)、Bluetooth(HC-05)、モータードライバ(L298N)と接続
 - モータードライバ(L298N)はDCギアモータ(25GA370)に接続
