@@ -187,14 +187,28 @@ SCI送信割り込み有効化・送信完了割り込みの許可などの処�
 呼び出すことで、送信完了時の処理につなげている。  
   
 ## エンコーダA,B相の波形確認
-#### 廉価版モーター  
+モーターのエンコーダーから発せられるA相、B相のパルスの差を記録する。  
+MCUのクアドラチャモードにおいてパルスをカウントする中で、廉価モーターのインクリメントに異常な増加が見られた  
+為、ロジックアナライザーで確認した。結果、廉価モーターにはパルスの乱れが生じていることが判明し、評価対象  
+モーターを交換した。  
+#### 廉価モーター  
 <p align="center">
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/lowPriceMotor.png" width="800">
+</p>
+<p align="center">
+  <em>
+    6750ms付近に見られるようなパルスの乱れが見られる。<br>
+  </em>
 </p>
 
 #### 25GA370  
 <p align="center">
   <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/25GA370.png" width="800">
+</p>
+<p align="center">
+  <em>
+    廉価モーターに見られるような波形の乱れは見られない。<br>
+  </em>
 </p>
 
 ## 2025/12/17時点
