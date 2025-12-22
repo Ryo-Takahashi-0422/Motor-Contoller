@@ -186,6 +186,17 @@ SCI送信割り込み有効化・送信完了割り込みの許可などの処�
 送信完了割り込み処理では、送信中かどうかのメモリ上フラグをオフにしてから、送信完了コールバック処理を  
 呼び出すことで、送信完了時の処理につなげている。  
   
+## エンコーダA,B相の波形確認
+#### 廉価版モーター  
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/lowPriceMotor.png" width="500">
+</p>
+
+#### 25GA370  
+<p align="center">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/25GA370.png" width="500">
+</p>
+
 ## 2025/12/17時点
 
 ### 実装済の主な機能
