@@ -189,12 +189,12 @@ SCI送信割り込み有効化・送信完了割り込みの許可などの処�
 ## エンコーダA,B相の波形確認
 #### 廉価版モーター  
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/lowPriceMotor.png" width="500">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/lowPriceMotor.png" width="800">
 </p>
 
 #### 25GA370  
 <p align="center">
-  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/25GA370.png" width="500">
+  <img src="https://github.com/Ryo-Takahashi-0422/Motor-Contoller/blob/main/figures/25GA370.png" width="800">
 </p>
 
 ## 2025/12/17時点
